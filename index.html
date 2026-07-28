@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EL VENDEDOR · Edición especial — Agente de IA para WhatsApp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#efece2;
+    --paper-2:#e6e2d4;
+    --ink:#1c1a17;
+    --ink-soft:#3a362f;
+    --rule:#1c1a17;
+    --red:#a3222b;
+    --red-deep:#7e161d;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'PT Serif', Georgia, serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:5;
+    opacity:.05;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,.4) 0 1px, transparent 1px 3px);
+    mix-blend-mode:multiply;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px;}
+  .eyebrow{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:11.5px;
+    font-weight:600;
+  }
+
+  /* ===== MASTHEAD ===== */
+  .masthead-strip{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Oswald',sans-serif;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    padding:6px 0;
+  }
+  .masthead-strip .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+
+  .masthead{
+    padding:26px 0 14px;
+    border-bottom:4px double var(--ink);
+  }
+  .masthead-row{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .masthead-meta{
+    font-family:'Oswald',sans-serif;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .masthead h1{
+    font-family:'Playfair Display', serif;
+    font-weight:900;
+    font-size:clamp(40px,7vw,84px);
+    line-height:.95;
+    margin:6px 0 0;
+    text-align:center;
+    letter-spacing:-.01em;
+  }
+  .masthead .subtitle{
+    text-align:center;
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+  .masthead-rule-row{
+    display:flex;
+    justify-content:space-between;
+    font-family:'Oswald',sans-serif;
+    font-size:11px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    padding-top:10px;
+    border-top:1.5px solid var(--ink);
+    margin-top:14px;
+  }
+
+  /* ===== STAMP ===== */
+  .stamp-holder{position:relative;height:0;}
+  .stamp{
+    position:absolute;
+    top:-92px;
+    right:6px;
+    width:150px;
+    height:150px;
+    border:3px solid var(--red);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform:rotate(11deg);
+    color:var(--red);
+    font-family:'Oswald',sans-serif;
+    font-weight:700;
+    text-align:center;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    font-size:12px;
+    line-height:1.25;
+    background:rgba(163,34,43,.04);
+    z-index:4;
+  }
+  .stamp span{display:block;}
+  .stamp .big{font-size:19px;margin:3px 0;}
+
+  /* ===== HERO HEADLINE BLOCK ===== */
+  .hero{padding:38px 0 10px;}
+  .kicker{
+    font-family:'Oswald',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--red);
+    border-bottom:2px solid var(--red);
+    display:inline-block;
+    padding-bottom:3px;
+    margin-bottom:14px;
+  }
+  .headline{
+    font-family:'Playfair Display', serif;
+    font-weight:900;
+    font-style:italic;
+    font-size:clamp(34px,5.4vw,64px);
+    line-height:1.04;
+    margin:0 0 18px;
+    letter-spacing:-.01em;
+  }
+  .headline em{font-style:normal;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--red);}
+  .dek{
+    font-size:19px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    max-width:760px;
+    border-left:4px solid var(--ink);
+    padding-left:16px;
+    margin:0 0 30px;
+  }
+  .byline{
+    font-family:'Oswald',sans-serif;
+    font-size:11.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:26px;
+  }
+
+  /* ===== COLUMNS ===== */
+  .columns{
+    columns:2;
+    column-gap:40px;
+    column-rule:1px solid var(--ink);
+    font-size:16.5px;
+    line-height:1.7;
+    padding-bottom:8px;
+  }
+  .columns p{margin:0 0 16px;}
+  .dropcap:first-letter{
+    font-family:'Playfair Display',serif;
+    font-weight:900;
+    font-size:64px;
+    float:left;
+    line-height:.82;
+    padding:4px 8px 0 0;
+    color:var(--red);
+  }
+  @media (max-width:720px){ .columns{columns:1;} }
+
+  /* ===== CONVERSATION CLIP (signature element) ===== */
+  .clip{
+    margin:34px 0 8px;
+    border:2px solid var(--ink);
+    background:var(--paper-2);
+    padding:20px 22px 22px;
+  }
+  .clip-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-size:11px;
+    color:var(--ink-soft);
+    border-bottom:1.5px solid var(--ink);
+    padding-bottom:8px;
+    margin-bottom:14px;
+  }
+  .chat{display:flex;flex-direction:column;gap:10px;}
+  .bubble{
+    max-width:78%;
+    padding:10px 14px;
+    font-size:15px;
+    line-height:1.45;
+    border:1.4px solid var(--ink);
+  }
+  .bubble.lead{align-self:flex-start;background:var(--paper);}
+  .bubble.daniel{align-self:flex-end;background:var(--ink);color:var(--paper);}
+  .bubble .who{
+    display:block;
+    font-family:'Oswald',sans-serif;
+    font-size:9.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    opacity:.65;
+    margin-bottom:3px;
+  }
+
+  /* ===== CLASSIFIED / OFFER BOX ===== */
+  .classified{
+    margin:40px 0;
+    border:3px double var(--ink);
+    padding:30px 26px;
+    text-align:center;
+  }
+  .classified .eyebrow{color:var(--red);display:block;margin-bottom:10px;}
+  .classified h2{
+    font-family:'Playfair Display',serif;
+    font-weight:900;
+    font-size:clamp(24px,4vw,38px);
+    margin:0 0 12px;
+  }
+  .price-row{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin:18px 0 8px;
+    font-family:'Oswald',sans-serif;
+  }
+  .price-item{text-align:center;}
+  .price-item .amount{font-size:30px;font-weight:700;}
+  .price-item .label{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+  .cupos{
+    font-family:'Oswald',sans-serif;
+    font-size:12px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--red-deep);
+    font-weight:600;
+    margin:14px 0 22px;
+  }
+  .cta{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-weight:600;
+    font-size:14px;
+    padding:15px 34px;
+    text-decoration:none;
+    border:2px solid var(--ink);
+    transition:background .15s ease, color .15s ease;
+  }
+  .cta:hover{background:var(--paper);color:var(--ink);}
+  .fine-print{
+    font-family:'Oswald',sans-serif;
+    font-size:10px;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    margin-top:16px;
+  }
+
+  /* ===== FEATURE GRID (briefs) ===== */
+  .briefs{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+    border-top:1.5px solid var(--ink);
+    border-bottom:1.5px solid var(--ink);
+    margin:36px 0;
+  }
+  .brief{
+    padding:20px 18px;
+    border-right:1px solid var(--ink);
+  }
+  .brief:last-child{border-right:none;}
+  .brief .eyebrow{display:block;margin-bottom:8px;color:var(--red);}
+  .brief h3{
+    font-family:'Playfair Display',serif;
+    font-size:19px;
+    margin:0 0 8px;
+  }
+  .brief p{font-size:14px;line-height:1.55;margin:0;color:var(--ink-soft);}
+  @media (max-width:720px){
+    .briefs{grid-template-columns:1fr;}
+    .brief{border-right:none;border-bottom:1px solid var(--ink);}
+    .brief:last-child{border-bottom:none;}
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    margin-top:50px;
+    border-top:4px double var(--ink);
+    padding:22px 0 40px;
+    font-family:'Oswald',sans-serif;
+    font-size:11px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead-strip">
+  <div class="wrap">
+    <span>Edición de lanzamiento</span>
+    <span>Tiraje limitado — 10 ejemplares</span>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="masthead-row">
+      <span class="masthead-meta">Buenos Aires, Argentina</span>
+      <span class="masthead-meta">Precio: gratis leer, $65.000/mes tener uno</span>
+    </div>
+    <h1>EL VENDEDOR</h1>
+    <p class="subtitle">que nunca duerme, nunca se enferma, nunca pierde un lead</p>
+    <div class="masthead-rule-row">
+      <span>Publicado por Social Clap</span>
+      <span>Sección: Automatización comercial</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="stamp-holder">
+    <div class="stamp"><span>Precio de</span><span class="big">Lanzamiento</span><span>solo 10 cupos</span></div>
+  </div>
+
+  <section class="hero">
+    <span class="kicker">Portada</span>
+    <h1 class="headline">Mientras vos dormías, <em>alguien más</em> le contestó a tu cliente.</h1>
+    <p class="dek">
+      No fue un empleado. Fue Daniel — un agente de inteligencia artificial que vive en WhatsApp, califica leads, maneja objeciones, y jamás pide franco. Corre sobre el mismo CRM que podés tener en tu negocio esta semana.
+    </p>
+    <p class="byline">Por Social Clap · Redacción de sistemas y automatización</p>
+
+    <div class="columns dropcap">
+      <p>
+        Todos los días, negocios de Buenos Aires a México pierden ventas por el mismo motivo silencioso: alguien escribió, y nadie contestó a tiempo. El cliente potencial esperó, se aburrió, y compró en otro lado — muchas veces sin que el dueño del negocio se enterara siquiera de que existió esa oportunidad.
+      </p>
+      <p>
+        Un vendedor humano necesita dormir, cobra sueldo y cargas sociales, y solo puede atender a una persona por vez. Un agente de inteligencia artificial no. Responde en segundos, a cualquier hora, a todos los que escriban al mismo tiempo — y nunca tiene un mal día.
+      </p>
+      <p>
+        Eso es exactamente lo que corre en <strong>crm.socialclap.agency</strong>, la instancia que Social Clap usa para vender este mismo producto: un CRM de WhatsApp con bandeja en tiempo real, pipeline de ventas, y un agente de IA entrenado para calificar, argumentar y cerrar.
+      </p>
+      <p>
+        Antes de hablar con un cliente real, el agente pasa por un <strong>Laboratorio</strong>: clientes simulados lo ponen a prueba, así el dueño del negocio sabe exactamente cómo va a responder — sin sorpresas, sin improvisar en vivo.
+      </p>
+    </div>
+  </section>
+
+  <section class="clip">
+    <div class="clip-head">
+      <span>Transcripción — WhatsApp en vivo</span>
+      <span>Testigo: Daniel, agente de IA</span>
+    </div>
+    <div class="chat">
+      <div class="bubble lead"><span class="who">Lead</span>Hola, ¿esto es caro?</div>
+      <div class="bubble daniel"><span class="who">Daniel</span>Buena pregunta. La instalación es $350.000 y $65.000/mes de mantenimiento. Ahora — ¿cuánto te cuesta hoy un lead que se enfría porque tardaste 3 horas en responder?</div>
+      <div class="bubble lead"><span class="who">Lead</span>Ya tengo alguien que responde los mensajes.</div>
+      <div class="bubble daniel"><span class="who">Daniel</span>Perfecto, no te reemplazo — te libero. Yo filtro y califico primero, tu vendedor solo habla con los que ya están listos para comprar. ¿Te muestro cómo en una demo de 15 minutos?</div>
+    </div>
+  </section>
+
+  <section class="briefs">
+    <div class="brief">
+      <span class="eyebrow">Breve · Disponibilidad</span>
+      <h3>24 horas, 7 días</h3>
+      <p>Responde a la 1 de la mañana igual que al mediodía. El lead nunca espera.</p>
+    </div>
+    <div class="brief">
+      <span class="eyebrow">Breve · Escala</span>
+      <h3>Sin límite de conversaciones</h3>
+      <p>Un humano atiende de a uno. El agente atiende a todos los que escriban a la vez.</p>
+    </div>
+    <div class="brief">
+      <span class="eyebrow">Breve · Propiedad</span>
+      <h3>Tu servidor, tus datos</h3>
+      <p>Corre en infraestructura propia — nada de que tus conversaciones vivan en la nube de un tercero.</p>
+    </div>
+  </section>
+
+  <section class="classified" id="oferta">
+    <span class="eyebrow">Clasificados · Oferta de lanzamiento</span>
+    <h2>Los primeros 10 negocios, precio de fundador</h2>
+    <div class="price-row">
+      <div class="price-item">
+        <div class="amount">$350.000</div>
+        <div class="label">Instalación única</div>
+      </div>
+      <div class="price-item">
+        <div class="amount">$65.000</div>
+        <div class="label">Mantenimiento / mes</div>
+      </div>
+    </div>
+    <p class="cupos">Cupo 10 de 10 disponibles — el precio sube después</p>
+    <a class="cta" href="https://wa.me/5491133346776?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20el%20CRM%20con%20agente%20de%20IA" target="_blank" rel="noopener">Escribile a Daniel →</a>
+    <p class="fine-print">Transferencia (Argentina) · Mercado Pago · link internacional para el exterior</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Social Clap — Agencia de sistemas y marketing digital · crm.socialclap.agency
+  </div>
+</footer>
+
+</body>
+</html>
