@@ -778,6 +778,9 @@
   }
 
   const pipelineEl = document.getElementById('demoPipeline');
+  let isVisible = false;
+  let running = false;
+  let loopTimer = null;
 
   async function playOnce(){
     chatEl.innerHTML = '';
@@ -789,29 +792,44 @@
       leadCard.style.transform = 'none';
     }
     for(const line of script){
+      if(!isVisible) return; // sección fuera de pantalla: cortar acá, sin más reflow
       await new Promise(r => setTimeout(r, 650));
+      if(!isVisible) return;
       const typ = typingBubble(line.who);
       await new Promise(r => setTimeout(r, 700));
       typ.remove();
+      if(!isVisible) return;
       bubble(line.who, line.text);
       if(line.revealPipeline && pipelineEl){
         pipelineEl.classList.add('visible');
       }
       if(line.moveOnComplete){
         await new Promise(r => setTimeout(r, 700));
+        if(!isVisible) return;
         flipMoveCard();
         showMoveLegend();
       }
     }
   }
 
-  let started = false;
+  async function loop(){
+    if(running) return;
+    running = true;
+    while(isVisible){
+      await playOnce();
+      if(!isVisible) break;
+      await new Promise(r => { loopTimer = setTimeout(r, 2400); });
+    }
+    running = false;
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if(entry.isIntersecting && !started){
-        started = true;
-        playOnce();
-        setInterval(playOnce, 16000);
+      isVisible = entry.isIntersecting;
+      if(isVisible){
+        loop();
+      } else if(loopTimer){
+        clearTimeout(loopTimer);
       }
     });
   }, { threshold: 0.35 });
