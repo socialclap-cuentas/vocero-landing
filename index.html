@@ -554,6 +554,25 @@
     text-align:center;
   }
 </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '806721014221339');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 </head>
 <body>
 
@@ -858,6 +877,10 @@
     if(biz) msg += ' Mi negocio/servicio es de tipo: ' + biz + '.';
     if(sells) msg += ' ¿Vendo por WhatsApp?: ' + sells + '.';
     msg += ' Quiero saber más sobre el CRM con agente de IA.';
+
+    if(typeof fbq === 'function'){
+      fbq('track', 'Lead', { content_name: biz || 'no especificado' });
+    }
 
     const url = 'https://wa.me/' + OFFICIAL_NUMBER + '?text=' + encodeURIComponent(msg);
     window.open(url, '_blank', 'noopener');
