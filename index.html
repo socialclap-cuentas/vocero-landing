@@ -636,7 +636,7 @@
         </div>
       </div>
     </div>
-    <p class="demo-caption" id="demoCaption">Así se mueve un lead real en el pipeline de Vocero — sin que nadie lo arrastre a mano.</p>
+    <p class="demo-caption" id="demoCaption"></p>
   </section>
 
   <section class="briefs">
@@ -647,8 +647,8 @@
     </div>
     <div class="brief">
       <span class="eyebrow">Breve · Escala</span>
-      <h3>Sin límite de conversaciones</h3>
-      <p>Un humano atiende de a uno. El agente atiende a todos los que escriban a la vez.</p>
+      <h3>Atiende a todos a la vez</h3>
+      <p>Un humano atiende de a uno. El agente responde a todos los que escriban al mismo tiempo, sin que nadie espere en fila.</p>
     </div>
     <div class="brief">
       <span class="eyebrow">Breve · Infraestructura</span>
@@ -764,7 +764,6 @@
     setTimeout(() => leadCard.classList.remove('moving'), 1400);
   }
 
-  const DEFAULT_CAPTION = 'Así se mueve un lead real en el pipeline de Vocero — sin que nadie lo arrastre a mano.';
   const MOVE_LEGEND = 'El pipeline se actualiza solo, según la etapa del lead — sin necesidad de arrastrar manualmente.';
   const captionEl = document.getElementById('demoCaption');
 
@@ -774,7 +773,7 @@
     captionEl.classList.add('flash');
     setTimeout(() => {
       captionEl.classList.remove('flash');
-      captionEl.textContent = DEFAULT_CAPTION;
+      captionEl.textContent = '';
     }, 3600);
   }
 
