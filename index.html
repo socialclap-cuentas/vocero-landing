@@ -173,7 +173,17 @@
     letter-spacing:.1em;
     text-transform:uppercase;
     color:var(--ink-soft);
-    margin-bottom:26px;
+    margin-bottom:6px;
+  }
+  .niches-inline{
+    font-family:'PT Serif',serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--ink-soft);
+    border-top:1px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+    padding:8px 0;
+    margin:0 0 26px;
   }
 
   /* ===== COLUMNS ===== */
@@ -339,6 +349,38 @@
   }
 
   /* ===== CLASSIFIED / OFFER BOX ===== */
+  /* ===== NICHES ===== */
+  .niches{
+    margin:40px 0;
+    text-align:center;
+    padding:28px 20px;
+    border-top:1.5px solid var(--ink);
+    border-bottom:1.5px solid var(--ink);
+  }
+  .niches .eyebrow{color:var(--red);display:block;margin-bottom:10px;}
+  .niches h2{
+    font-family:'Playfair Display',serif;
+    font-weight:900;
+    font-size:clamp(20px,3.2vw,30px);
+    margin:0 0 20px;
+  }
+  .niches-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+  }
+  .niche-tag{
+    font-family:'Oswald',sans-serif;
+    font-size:12.5px;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    color:var(--ink);
+    border:1.4px solid var(--ink);
+    padding:7px 14px;
+    background:var(--paper-2);
+  }
+
   .classified{
     margin:40px 0;
     border:3px double var(--ink);
@@ -606,13 +648,14 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
       No fue un empleado. Fue Daniel — un agente de inteligencia artificial que vive en WhatsApp, califica leads, maneja objeciones, y jamás pide franco. Corre sobre el mismo CRM que podés tener en tu negocio esta semana.
     </p>
     <p class="byline">Por Social Clap · Redacción de sistemas y automatización</p>
+    <p class="niches-inline">Para inmobiliarias · odontólogos · agentes de seguros · estudios jurídicos y contables · turismo · talleres mecánicos · peluquerías · vendedores independientes · distribuidoras</p>
 
     <div class="columns dropcap">
       <p>
         Todos los días, negocios de Buenos Aires a México pierden ventas por el mismo motivo silencioso: alguien escribió, y nadie contestó a tiempo. El cliente potencial esperó, se aburrió, y compró en otro lado — muchas veces sin que el dueño del negocio se enterara siquiera de que existió esa oportunidad.
       </p>
       <p>
-        Un vendedor humano necesita dormir, cobra sueldo y cargas sociales, y solo puede atender a una persona por vez. Un agente de inteligencia artificial no. Responde en segundos, a cualquier hora, a todos los que escriban al mismo tiempo — y nunca tiene un mal día.
+        <strong>Un vendedor humano necesita dormir, cobra sueldo y cargas sociales, y solo puede atender a una persona por vez. Un agente de inteligencia artificial no. Responde en segundos, a cualquier hora, a todos los que escriban al mismo tiempo — y nunca tiene un mal día.</strong>
       </p>
       <p>
         Eso es exactamente lo que corre en <strong>crm.socialclap.agency</strong>, la instancia que Social Clap usa para vender este mismo producto: un CRM de WhatsApp con bandeja en tiempo real, pipeline de ventas, y un agente de IA entrenado para calificar, argumentar y cerrar.
@@ -678,6 +721,23 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
       <span class="eyebrow">Breve · Costo real</span>
       <h3>Centavos por conversación</h3>
       <p>Cada intercambio con un lead le cuesta al negocio fracciones de centavo — y responde en segundos, no en horas.</p>
+    </div>
+  </section>
+
+  <section class="niches">
+    <span class="eyebrow">Clasificados · ¿Es para vos?</span>
+    <h2>Si atendés clientes por WhatsApp, esto te sirve</h2>
+    <div class="niches-grid">
+      <span class="niche-tag">Inmobiliarias</span>
+      <span class="niche-tag">Odontólogos</span>
+      <span class="niche-tag">Agentes de seguros</span>
+      <span class="niche-tag">Estudios jurídicos</span>
+      <span class="niche-tag">Estudios contables</span>
+      <span class="niche-tag">Turismo y agencias de viaje</span>
+      <span class="niche-tag">Talleres mecánicos</span>
+      <span class="niche-tag">Peluquerías y centros de estética</span>
+      <span class="niche-tag">Vendedores independientes</span>
+      <span class="niche-tag">Distribuidoras</span>
     </div>
   </section>
 
