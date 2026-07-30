@@ -394,6 +394,45 @@
     font-size:clamp(24px,4vw,38px);
     margin:0 0 12px;
   }
+  .value-stack{
+    max-width:480px;
+    margin:0 auto 20px;
+    text-align:left;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .vs-item{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+  }
+  .vs-check{
+    color:var(--red);
+    font-weight:700;
+    font-size:15px;
+    line-height:1.5;
+    flex-shrink:0;
+  }
+  .vs-text{
+    font-size:14.5px;
+    line-height:1.5;
+    color:var(--ink-soft);
+  }
+  .risk-reversal{
+    max-width:480px;
+    margin:0 auto 24px;
+    font-family:'PT Serif',serif;
+    font-size:14px;
+    font-style:italic;
+    color:var(--ink);
+    background:var(--paper-2);
+    border:1.4px solid var(--ink);
+    padding:10px 16px;
+    text-align:left;
+  }
+  .risk-reversal em{font-style:normal;font-weight:700;color:var(--red-deep);}
+
   .price-block{
     display:flex;
     align-items:center;
@@ -742,11 +781,33 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
   </section>
 
   <section class="classified" id="oferta">
-    <span class="eyebrow">Clasificados · Oferta de lanzamiento</span>
+    <span class="eyebrow">Clasificados · Plan Fundador</span>
     <h2>Los primeros 10 negocios, precio de fundador</h2>
+
+    <div class="value-stack">
+      <div class="vs-item">
+        <span class="vs-check">✓</span>
+        <span class="vs-text">Instalación completa: conexión a tu WhatsApp Business y configuración del agente con el conocimiento de tu negocio</span>
+      </div>
+      <div class="vs-item">
+        <span class="vs-check">✓</span>
+        <span class="vs-text">Agente de IA entrenado y puesto a prueba en el Laboratorio antes de hablar con tu primer cliente real</span>
+      </div>
+      <div class="vs-item">
+        <span class="vs-check">✓</span>
+        <span class="vs-text">Bandeja de WhatsApp en tiempo real + pipeline de ventas para ver cada lead en su etapa</span>
+      </div>
+      <div class="vs-item">
+        <span class="vs-check">✓</span>
+        <span class="vs-text">Soporte técnico de Social Clap incluido en el mensual</span>
+      </div>
+    </div>
+
+    <p class="risk-reversal">🧪 No arrancás a ciegas: tu agente pasa el Laboratorio y vos aprobás cómo responde <em>antes</em> de que hable con un cliente real.</p>
+
     <div class="price-block">
       <div class="price-main">
-        <span class="pm-amount">$350.000 <small>ARS</small></span>
+        <span class="pm-amount">$450.000 <small>ARS</small></span>
         <span class="pm-label">Instalación única</span>
       </div>
       <div class="price-plus">+</div>
