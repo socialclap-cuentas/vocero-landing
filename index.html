@@ -159,51 +159,80 @@
   }
 
   /* Orbe 3D con glow, reemplaza el mockup */
-  .orb-stage{position:relative;height:260px;display:flex;align-items:center;justify-content:center;margin-bottom:44px;}
-  .orb{
+  .holo-stage{position:relative;height:280px;display:flex;align-items:center;justify-content:center;margin-bottom:44px;}
+  .holo-panel{
     position:relative;
-    width:170px;height:170px;
-    border-radius:50%;
-    background:conic-gradient(from 220deg, #5B8DEF, #9B6BF2, #5B8DEF);
-    filter:blur(.3px);
-    box-shadow:0 0 90px rgba(91,141,239,.55), 0 0 140px rgba(155,107,242,.35);
-    animation:orbSpin 12s linear infinite;
+    width:300px;
+    height:210px;
+    border-radius:18px;
+    background:linear-gradient(160deg, rgba(91,141,239,.10), rgba(155,107,242,.06));
+    backdrop-filter:blur(6px);
+    border:1px solid rgba(120,160,255,.35);
+    box-shadow:
+      0 0 0 1px rgba(120,160,255,.08) inset,
+      0 0 50px rgba(91,141,239,.28),
+      0 0 90px rgba(155,107,242,.16);
+    overflow:hidden;
   }
-  .orb::before{
-    content:"";
-    position:absolute;
-    inset:14px;
-    border-radius:50%;
-    background:#0A0E1A;
-  }
-  .orb::after{
-    content:"💬";
+  .holo-grid{
     position:absolute;
     inset:0;
-    display:flex;align-items:center;justify-content:center;
-    font-size:44px;
-    filter:drop-shadow(0 0 14px rgba(155,107,242,.6));
+    background-image:
+      linear-gradient(rgba(120,160,255,.14) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,160,255,.14) 1px, transparent 1px);
+    background-size:24px 24px;
+    -webkit-mask-image:radial-gradient(ellipse 90% 90% at 50% 50%, #000 40%, transparent 90%);
+    mask-image:radial-gradient(ellipse 90% 90% at 50% 50%, #000 40%, transparent 90%);
   }
-  @keyframes orbSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-  .orb-shard{
+  .holo-scan{
     position:absolute;
-    width:26px;height:26px;
-    background:linear-gradient(135deg,#5B8DEF,#9B6BF2);
-    border-radius:6px;
-    box-shadow:0 0 24px rgba(155,107,242,.5);
-    animation:shardFloat 4.5s ease-in-out infinite;
+    left:0;right:0;
+    height:38px;
+    background:linear-gradient(180deg, transparent, rgba(120,180,255,.28), transparent);
+    animation:holoScan 3.6s ease-in-out infinite;
   }
-  .orb-shard.s1{top:20px;right:calc(50% - 110px);transform:rotate(20deg);animation-delay:0s;}
-  .orb-shard.s2{bottom:30px;right:calc(50% - 140px);width:18px;height:18px;transform:rotate(-15deg);animation-delay:.8s;}
-  .orb-shard.s3{top:50px;left:calc(50% - 130px);width:16px;height:16px;transform:rotate(35deg);animation-delay:1.6s;}
-  @keyframes shardFloat{
-    0%,100%{transform:translateY(0) rotate(20deg);}
-    50%{transform:translateY(-14px) rotate(30deg);}
+  @keyframes holoScan{
+    0%{top:-10%;}
+    100%{top:110%;}
+  }
+  .holo-bubble{
+    position:absolute;
+    background:rgba(15,20,38,.72);
+    border:1px solid rgba(120,170,255,.45);
+    color:#DCE6FF;
+    font-size:11.5px;
+    font-weight:600;
+    padding:7px 11px;
+    border-radius:10px;
+    box-shadow:0 0 18px rgba(91,141,239,.35);
+    animation:holoFloat 4.2s ease-in-out infinite;
+  }
+  .holo-bubble.b1{top:22px;left:18px;animation-delay:0s;}
+  .holo-bubble.b2{top:60px;right:16px;animation-delay:.6s;font-size:11px;color:#C7B8FF;border-color:rgba(155,107,242,.5);}
+  .holo-bubble.b3{bottom:56px;left:26px;animation-delay:1.2s;}
+  .holo-stat{
+    position:absolute;
+    font-family:'Sora',sans-serif;
+    font-weight:800;
+    font-size:20px;
+    background:linear-gradient(90deg,#7FB0FF,#C7B8FF);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    filter:drop-shadow(0 0 10px rgba(120,170,255,.5));
+    animation:holoFloat 5s ease-in-out infinite;
+  }
+  .holo-stat.s1{bottom:20px;right:26px;animation-delay:.3s;}
+  .holo-stat.s1 small{display:block;font-size:8.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9FB4E8;-webkit-text-fill-color:#9FB4E8;}
+  @keyframes holoFloat{
+    0%,100%{transform:translateY(0);opacity:.85;}
+    50%{transform:translateY(-8px);opacity:1;}
   }
   @media (max-width:480px){
-    .orb-stage{height:210px;}
-    .orb{width:130px;height:130px;}
-    .orb::after{font-size:34px;}
+    .holo-stage{height:230px;}
+    .holo-panel{width:250px;height:180px;}
+    .holo-bubble{font-size:10.5px;padding:6px 9px;}
+    .holo-stat{font-size:17px;}
   }
 
   .hero-stats{
@@ -455,11 +484,15 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
       <a href="#demo" class="btn-ghost-dark"><span class="play-dot">▶</span> Ver demo</a>
     </div>
 
-    <div class="orb-stage">
-      <div class="orb-shard s1"></div>
-      <div class="orb-shard s2"></div>
-      <div class="orb-shard s3"></div>
-      <div class="orb"></div>
+    <div class="holo-stage">
+      <div class="holo-panel">
+        <div class="holo-grid"></div>
+        <div class="holo-scan"></div>
+        <div class="holo-bubble b1">Hola 👋</div>
+        <div class="holo-bubble b2">Respondido en 2s ✓</div>
+        <div class="holo-bubble b3">Interesado 🔥</div>
+        <div class="holo-stat s1">98%<small>Atendidos</small></div>
+      </div>
     </div>
 
     <div class="hero-stats">
