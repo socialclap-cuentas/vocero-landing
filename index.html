@@ -41,6 +41,19 @@
     padding:6px 14px;
     border-radius:999px;
   }
+  .section-head{
+    max-width:600px;
+    margin:0 auto 40px;
+    text-align:center;
+  }
+  .section-head .pill{margin-bottom:14px;}
+  .section-head h2{
+    font-size:clamp(24px,3.4vw,36px);
+    font-weight:800;
+    letter-spacing:-.01em;
+    margin:0 0 10px;
+  }
+  .section-head p{color:var(--ink-soft);font-size:15.5px;line-height:1.6;margin:0;}
 
   /* ===== NAVBAR (dark) ===== */
   nav{
@@ -334,11 +347,42 @@
     background:var(--accent-soft);border-radius:12px;padding:12px 16px;text-align:left;
   }
   .risk-reversal strong{color:var(--accent-dark);}
+
+  .urgency-banner{
+    max-width:460px;
+    margin:0 auto 20px;
+    background:linear-gradient(90deg,#B91C1C,#DC2626);
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+    padding:10px 16px;
+    border-radius:10px;
+    text-align:center;
+    line-height:1.5;
+  }
+  .urgency-days{
+    display:block;
+    font-size:11.5px;
+    font-weight:700;
+    opacity:.92;
+    margin-top:2px;
+    letter-spacing:.02em;
+  }
+
   .price-block{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin:20px 0 6px;}
   .price-main{display:flex;flex-direction:column;align-items:center;border:1.5px solid var(--ink);border-radius:16px;padding:14px 24px;background:#fff;}
-  .pm-amount{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(24px,4vw,34px);line-height:1;}
+  .pm-original{
+    font-size:14px;
+    font-weight:600;
+    color:var(--ink-soft);
+    text-decoration:line-through;
+    text-decoration-color:#DC2626;
+    text-decoration-thickness:1.5px;
+    margin-bottom:2px;
+  }
+  .pm-amount{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(24px,4vw,34px);line-height:1;color:#B91C1C;}
   .pm-amount small{font-size:12px;font-weight:600;color:var(--ink-soft);}
-  .pm-label{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;font-weight:700;}
+  .pm-label{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;font-weight:700;text-align:center;}
   .price-plus{font-family:'Sora',sans-serif;font-weight:800;font-size:20px;color:var(--ink-soft);}
   .price-sub{display:flex;flex-direction:column;align-items:center;}
   .ps-amount{font-weight:700;font-size:18px;color:var(--ink-soft);}
@@ -527,10 +571,16 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 
       <p class="risk-reversal">🧪 No arrancás a ciegas: <strong>tu agente pasa el Laboratorio</strong> y vos aprobás cómo responde antes de que hable con un cliente real.</p>
 
+      <div class="urgency-banner" id="urgencyBanner">
+        🔥 <strong>50% OFF de lanzamiento</strong> — termina el 20 de agosto
+        <span class="urgency-days" id="urgencyDays"></span>
+      </div>
+
       <div class="price-block">
         <div class="price-main">
-          <span class="pm-amount">$450.000 <small>ARS</small></span>
-          <span class="pm-label">Instalación única</span>
+          <span class="pm-original">$547.000 ARS</span>
+          <span class="pm-amount">$273.500 <small>ARS</small></span>
+          <span class="pm-label">Instalación · 50% OFF hasta el 20/8</span>
         </div>
         <div class="price-plus">+</div>
         <div class="price-sub">
@@ -587,6 +637,25 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     });
   }, { threshold: 0.15 });
   targets.forEach(el => observer.observe(el));
+})();
+</script>
+
+<script>
+(function(){
+  const el = document.getElementById('urgencyDays');
+  if(!el) return;
+  const deadline = new Date('2026-08-20T23:59:59-03:00');
+  const now = new Date();
+  const msLeft = deadline.getTime() - now.getTime();
+  const daysLeft = Math.ceil(msLeft / (1000 * 60 * 60 * 24));
+
+  if(msLeft <= 0){
+    el.textContent = 'Oferta finalizada';
+  } else if(daysLeft <= 1){
+    el.textContent = '¡Último día!';
+  } else {
+    el.textContent = 'Quedan ' + daysLeft + ' días';
+  }
 })();
 </script>
 
