@@ -350,8 +350,8 @@
   .lc-biz{font-size:10px;color:var(--ink-soft);margin-top:2px;}
   .lead-card.moving{box-shadow:0 10px 24px rgba(15,157,130,.25);border-color:var(--accent);}
   .lead-card.moving .lc-name{color:var(--accent-dark);}
-  .demo-caption{font-size:12px;color:var(--accent-dark);text-align:center;margin:18px 0 0;min-height:18px;font-weight:600;opacity:0;transition:opacity .3s ease;}
-  .demo-caption.flash{opacity:1;}
+  .demo-caption{font-size:12px;color:var(--ink-soft);text-align:center;margin:18px 0 0;min-height:18px;font-weight:600;transition:color .3s ease;}
+  .demo-caption.flash{color:var(--accent-dark);}
 
   /* ===== NICHES SECTION (mid page) ===== */
   .niches-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
@@ -582,7 +582,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
           </div>
         </div>
       </div>
-      <p class="demo-caption" id="demoCaption"></p>
+      <p class="demo-caption" id="demoCaption">El pipeline se actualiza solo, según la etapa del cliente — sin necesidad de arrastrar manualmente.</p>
     </div>
   </div>
 </section>
@@ -743,16 +743,13 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     setTimeout(() => leadCard.classList.remove('moving'), 1400);
   }
 
-  const MOVE_LEGEND = 'El pipeline se actualiza solo, según la etapa del lead — sin necesidad de arrastrar manualmente.';
   const captionEl = document.getElementById('demoCaption');
 
   function showMoveLegend(){
     if(!captionEl) return;
-    captionEl.textContent = MOVE_LEGEND;
     captionEl.classList.add('flash');
     setTimeout(() => {
       captionEl.classList.remove('flash');
-      captionEl.textContent = '';
     }, 3600);
   }
 
