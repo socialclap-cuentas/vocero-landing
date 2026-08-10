@@ -286,29 +286,31 @@
     border-radius:999px;
   }
 
-  /* ===== FEATURES GRID ===== */
-  .features-grid{
+  /* ===== CAPABILITY LIST (compacta, sin cajas) ===== */
+  .capability-list{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    grid-template-columns:1fr 1fr;
+    column-gap:40px;
   }
-  @media (max-width:760px){.features-grid{grid-template-columns:1fr;}}
-  .feature-card{
-    background:var(--bg-soft);
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:26px 22px;
+  @media (max-width:760px){.capability-list{grid-template-columns:1fr;}}
+  .cap-row{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    padding:20px 0;
+    border-bottom:1px solid var(--border);
   }
-  .feature-icon{
-    width:44px;height:44px;
-    border-radius:12px;
+  .cap-icon{
+    flex-shrink:0;
+    width:38px;height:38px;
+    border-radius:10px;
     background:var(--accent-soft);
+    color:var(--accent-dark);
     display:flex;align-items:center;justify-content:center;
-    font-size:20px;
-    margin-bottom:16px;
   }
-  .feature-card h3{font-size:16.5px;font-weight:700;margin:0 0 8px;}
-  .feature-card p{font-size:13.5px;line-height:1.6;color:var(--ink-soft);margin:0;}
+  .cap-icon svg{width:19px;height:19px;}
+  .cap-body h3{font-size:15px;font-weight:700;margin:0 0 5px;letter-spacing:-.005em;}
+  .cap-body p{font-size:13.5px;line-height:1.55;color:var(--ink-soft);margin:0;}
 
   /* ===== DEMO (chat + pipeline) ===== */
   .demo-card{
@@ -417,9 +419,12 @@
   /* ===== SCROLL REVEAL ===== */
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1);}
   .reveal-in{opacity:1;transform:translateY(0);}
-  .feature-card.reveal{transition-delay:.05s;}
-  .feature-card.reveal:nth-child(2){transition-delay:.15s;}
-  .feature-card.reveal:nth-child(3){transition-delay:.25s;}
+  .cap-row.reveal:nth-child(1){transition-delay:0s;}
+  .cap-row.reveal:nth-child(2){transition-delay:.1s;}
+  .cap-row.reveal:nth-child(3){transition-delay:.12s;}
+  .cap-row.reveal:nth-child(4){transition-delay:.22s;}
+  .cap-row.reveal:nth-child(5){transition-delay:.24s;}
+  .cap-row.reveal:nth-child(6){transition-delay:.34s;}
 
   footer{padding:36px 0 44px;text-align:center;font-size:12px;color:var(--ink-soft);background:#fff;}
 </style>
@@ -503,25 +508,52 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 <section class="stack-card alt" style="padding-top:56px;">
   <div class="wrap">
     <div class="section-head">
-      <span class="pill">Por qué funciona</span>
-      <h2>Un vendedor humano necesita dormir. Esto no.</h2>
-      <p>Cobra sueldo y cargas sociales, y solo atiende a una persona por vez. El agente responde en segundos, a cualquier hora, a todos los que escriban al mismo tiempo — y nunca tiene un mal día.</p>
+      <span class="pill">Qué incluye</span>
+      <h2>Todo lo que hace el agente, en un solo lugar</h2>
+      <p>Nada de tecnicismos — así es lo que tu negocio tiene desde el primer día.</p>
     </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3>Atiende a todos a la vez</h3>
-        <p>Un humano atiende de a uno. El agente responde a todos los que escriban al mismo tiempo, sin que nadie espere en fila.</p>
+    <div class="capability-list">
+      <div class="cap-row">
+        <span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="cap-body">
+          <h3>Atiende a todos a la vez</h3>
+          <p>Un humano atiende de a uno. El agente responde a todos los que escriban al mismo tiempo, sin que nadie espere en fila.</p>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">🖥️</div>
-        <h3>Infraestructura dedicada</h3>
-        <p>Nada de herramientas genéricas compartidas con miles de negocios — corre en infraestructura propia de Social Clap, gestionada para vos.</p>
+      <div class="cap-row">
+        <span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="m21 15-4.5-4.5L9 18" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="cap-body">
+          <h3>Lee las fotos que le mandan</h3>
+          <p>Si un cliente manda una foto de un producto, un comprobante o una captura de pantalla, el agente la ve y entiende de qué se trata.</p>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">💸</div>
-        <h3>Centavos por conversación</h3>
-        <p>Cada intercambio con un lead le cuesta al negocio fracciones de centavo — y responde en segundos, no en horas.</p>
+      <div class="cap-row">
+        <span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M9 22h6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="cap-body">
+          <h3>Escucha los audios</h3>
+          <p>Transcribe automáticamente los mensajes de voz y responde según lo que la persona dijo.</p>
+        </div>
+      </div>
+      <div class="cap-row">
+        <span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v12H8l-4 4V4Z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="cap-body">
+          <h3>Responde al instante</h3>
+          <p>Ni bien alguien escribe, contesta — sin importar la hora ni cuánta gente esté escribiendo al mismo tiempo.</p>
+        </div>
+      </div>
+      <div class="cap-row">
+        <span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="4" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+        <div class="cap-body">
+          <h3>Ordena tu pipeline solo</h3>
+          <p>Marca automáticamente quién es nuevo, quién está charlando, quién quiere comprar y quién ya es cliente. Vos ves de un vistazo dónde poner tu atención.</p>
+        </div>
+      </div>
+      <div class="cap-row">
+        <span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" stroke-linecap="round"/></svg></span>
+        <div class="cap-body">
+          <h3>Sabe cuándo pasarte la posta</h3>
+          <p>Si el cliente se enoja, pide hablar con una persona, o pregunta algo que el agente no sabe, corta y te avisa — nunca improvisa una respuesta que pueda salir mal.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -641,7 +673,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 
 <script>
 (function(){
-  const targets = document.querySelectorAll('.section-head, .feature-card, .demo-card, .offer-card');
+  const targets = document.querySelectorAll('.section-head, .cap-row, .demo-card, .offer-card');
   if(!targets.length) return;
   targets.forEach(el => el.classList.add('reveal'));
   const observer = new IntersectionObserver((entries) => {
