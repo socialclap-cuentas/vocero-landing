@@ -377,48 +377,28 @@
   }
   .risk-reversal strong{color:var(--accent-dark);}
 
-  .urgency-banner{
+  .quote-block{
     max-width:460px;
-    margin:0 auto 20px;
-    background:linear-gradient(90deg,#B91C1C,#DC2626);
-    color:#fff;
-    font-size:13px;
-    font-weight:600;
-    padding:10px 16px;
-    border-radius:10px;
+    margin:0 auto 6px;
+    border:1.5px solid var(--ink);
+    border-radius:16px;
+    padding:20px 22px;
+    background:#fff;
     text-align:center;
-    line-height:1.5;
   }
-  .urgency-days{
-    display:block;
+  .quote-badge{
+    display:inline-block;
+    background:var(--accent-soft);
+    color:var(--accent-dark);
     font-size:11.5px;
     font-weight:700;
-    opacity:.92;
-    margin-top:2px;
-    letter-spacing:.02em;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:10px;
   }
-
-  .price-block{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin:20px 0 6px;}
-  .price-main{display:flex;flex-direction:column;align-items:center;border:1.5px solid var(--ink);border-radius:16px;padding:14px 24px;background:#fff;}
-  .pm-original{
-    font-size:14px;
-    font-weight:600;
-    color:var(--ink-soft);
-    text-decoration:line-through;
-    text-decoration-color:#DC2626;
-    text-decoration-thickness:1.5px;
-    margin-bottom:2px;
-  }
-  .pm-amount{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(24px,4vw,34px);line-height:1;color:#B91C1C;}
-  .pm-amount small{font-size:12px;font-weight:600;color:var(--ink-soft);}
-  .pm-label{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;font-weight:700;text-align:center;}
-  .price-plus{font-family:'Sora',sans-serif;font-weight:800;font-size:20px;color:var(--ink-soft);}
-  .price-sub{display:flex;flex-direction:column;align-items:center;}
-  .ps-amount{font-weight:700;font-size:18px;color:var(--ink-soft);}
-  .ps-amount small{font-size:11px;font-weight:400;}
-  .ps-label{font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);opacity:.8;margin-top:3px;font-weight:600;}
-  @media (max-width:480px){.price-plus{display:none;}}
-  .cupos{font-size:12.5px;font-weight:700;color:var(--accent-dark);margin:14px 0 22px;}
+  .quote-text{font-size:14px;line-height:1.55;color:var(--ink-soft);margin:0;}
 
   .prequal-form{max-width:340px;margin:0 auto;display:flex;flex-direction:column;gap:12px;text-align:left;}
   .pq-field{display:flex;flex-direction:column;gap:5px;}
@@ -496,7 +476,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     </div>
 
     <div class="hero-stats">
-      <div class="hs-item"><div class="hs-num">50%</div><div class="hs-label">OFF Precio fundador</div></div>
+      <div class="hs-item"><div class="hs-num">100%</div><div class="hs-label">Cotización a tu medida</div></div>
       <div class="hs-item"><div class="hs-num">24/7</div><div class="hs-label">Agente activo</div></div>
       <div class="hs-item"><div class="hs-num">seg.</div><div class="hs-label">Tiempo de respuesta</div></div>
     </div>
@@ -590,8 +570,8 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 <section class="stack-card alt" id="oferta" style="padding-top:56px;">
   <div class="wrap">
     <div class="section-head">
-      <span class="pill">Plan Fundador</span>
-      <h2>Los primeros 10 negocios, precio de fundador</h2>
+      <span class="pill">Cómo se instala</span>
+      <h2>Un sistema hecho a medida de tu negocio</h2>
     </div>
 
     <div class="offer-card">
@@ -604,24 +584,10 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 
       <p class="risk-reversal">🧪 No arrancás a ciegas: <strong>tu agente pasa el Laboratorio</strong> y vos aprobás cómo responde antes de que hable con un cliente real.</p>
 
-      <div class="urgency-banner" id="urgencyBanner">
-        🔥 <strong>50% OFF de lanzamiento</strong> — termina el 20 de agosto
-        <span class="urgency-days" id="urgencyDays"></span>
+      <div class="quote-block">
+        <span class="quote-badge">Cotización personalizada</span>
+        <p class="quote-text">La inversión (instalación + mensual) varía según el volumen de mensajes de tu negocio y si ya tenés WhatsApp Business / Meta armado. Completá el formulario y Daniel te cotiza al toque.</p>
       </div>
-
-      <div class="price-block">
-        <div class="price-main">
-          <span class="pm-original">$547.000 ARS</span>
-          <span class="pm-amount">$273.500 <small>ARS</small></span>
-          <span class="pm-label">Instalación · 50% OFF hasta el 20/8</span>
-        </div>
-        <div class="price-plus">+</div>
-        <div class="price-sub">
-          <span class="ps-amount">$33.000<small>/mes</small></span>
-          <span class="ps-label">Uso de la plataforma</span>
-        </div>
-      </div>
-      <p class="cupos">Quedan 10 cupos a este precio — después sube</p>
 
       <form class="prequal-form" id="prequalForm">
         <div class="pq-field">
@@ -643,6 +609,23 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
           <div class="pq-radio-options">
             <label class="pq-radio-opt"><input type="radio" name="pqSells" value="Sí"> Sí</label>
             <label class="pq-radio-opt"><input type="radio" name="pqSells" value="No"> No</label>
+          </div>
+        </div>
+        <div class="pq-field">
+          <label for="pqVolume">¿Cuántos mensajes recibís por día, aprox.?</label>
+          <select id="pqVolume">
+            <option value="">Elegí una opción</option>
+            <option value="Menos de 25/día">Menos de 25/día</option>
+            <option value="25 a 100/día">25 a 100/día</option>
+            <option value="100 a 250/día">100 a 250/día</option>
+            <option value="Más de 250/día">Más de 250/día</option>
+          </select>
+        </div>
+        <div class="pq-field">
+          <label>¿Ya tenés WhatsApp Business / Meta Business armado?</label>
+          <div class="pq-radio-options">
+            <label class="pq-radio-opt"><input type="radio" name="pqMeta" value="Sí, ya lo tengo"> Sí, ya lo tengo</label>
+            <label class="pq-radio-opt"><input type="radio" name="pqMeta" value="No sé qué es eso"> No sé qué es eso</label>
           </div>
         </div>
         <button type="submit" class="btn-primary">Escribile a Daniel →</button>
@@ -670,25 +653,6 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     });
   }, { threshold: 0.15 });
   targets.forEach(el => observer.observe(el));
-})();
-</script>
-
-<script>
-(function(){
-  const el = document.getElementById('urgencyDays');
-  if(!el) return;
-  const deadline = new Date('2026-08-20T23:59:59-03:00');
-  const now = new Date();
-  const msLeft = deadline.getTime() - now.getTime();
-  const daysLeft = Math.ceil(msLeft / (1000 * 60 * 60 * 24));
-
-  if(msLeft <= 0){
-    el.textContent = 'Oferta finalizada';
-  } else if(daysLeft <= 1){
-    el.textContent = '¡Último día!';
-  } else {
-    el.textContent = 'Quedan ' + daysLeft + ' días';
-  }
 })();
 </script>
 
@@ -822,6 +786,9 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     const biz = document.getElementById('pqBiz').value;
     const sellsRadio = form.querySelector('input[name="pqSells"]:checked');
     const sells = sellsRadio ? sellsRadio.value : '';
+    const volume = document.getElementById('pqVolume').value;
+    const metaRadio = form.querySelector('input[name="pqMeta"]:checked');
+    const metaStatus = metaRadio ? metaRadio.value : '';
 
     if(!name){
       document.getElementById('pqName').focus();
@@ -831,6 +798,9 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     let msg = 'Hola, soy ' + name + '.';
     if(biz) msg += ' Mi negocio/servicio es de tipo: ' + biz + '.';
     if(sells) msg += ' ¿Vendo por WhatsApp?: ' + sells + '.';
+    if(volume) msg += ' Mensajes por día aprox.: ' + volume + '.';
+    if(metaStatus) msg += ' WhatsApp Business/Meta armado: ' + metaStatus + '.';
+    msg += ' Quiero saber más sobre el CRM con agente de IA.';
     msg += ' Quiero saber más sobre el CRM con agente de IA.';
 
     if(typeof fbq === 'function'){
