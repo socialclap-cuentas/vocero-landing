@@ -604,24 +604,18 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 
       <p class="risk-reversal">🧪 No arrancás a ciegas: <strong>tu agente pasa el Laboratorio</strong> y vos aprobás cómo responde antes de que hable con un cliente real.</p>
 
-      <div class="urgency-banner" id="urgencyBanner">
-        🔥 <strong>50% OFF de lanzamiento</strong> — termina el 20 de agosto
-        <span class="urgency-days" id="urgencyDays"></span>
-      </div>
-
       <div class="price-block">
         <div class="price-main">
-          <span class="pm-original">$547.000 ARS</span>
-          <span class="pm-amount">$273.500 <small>ARS</small></span>
-          <span class="pm-label">Instalación · 50% OFF hasta el 20/8</span>
+          <span class="pm-amount">$1.500.000 <small>ARS</small></span>
+          <span class="pm-label">Inversión base · instalación completa</span>
         </div>
-        <div class="price-plus">+</div>
+        <div class="price-plus">o</div>
         <div class="price-sub">
-          <span class="ps-amount">$33.000<small>/mes</small></span>
-          <span class="ps-label">Uso de la plataforma</span>
+          <span class="ps-amount">3 cuotas<small> sin interés</small></span>
+          <span class="ps-label">Financiación disponible</span>
         </div>
       </div>
-      <p class="cupos">Quedan 10 cupos a este precio — después sube</p>
+      <p class="cupos">Queremos que cualquier negocio pueda sumarse a la IA — por eso tenemos un plan flexible para que puedas arrancar.</p>
 
       <form class="prequal-form" id="prequalForm">
         <div class="pq-field">
@@ -644,6 +638,15 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
             <label class="pq-radio-opt"><input type="radio" name="pqSells" value="Sí"> Sí</label>
             <label class="pq-radio-opt"><input type="radio" name="pqSells" value="No"> No</label>
           </div>
+        </div>
+        <div class="pq-field">
+          <label for="pqInvest">¿Podés hacer esta inversión para arrancar?</label>
+          <select id="pqInvest">
+            <option value="">Elegí una opción</option>
+            <option value="Sí, puedo avanzar ahora">Sí, puedo avanzar ahora</option>
+            <option value="Podría financiarlo en 3 cuotas">Podría financiarlo en 3 cuotas</option>
+            <option value="Necesito evaluarlo">Necesito evaluarlo</option>
+          </select>
         </div>
         <button type="submit" class="btn-primary">Escribile a Daniel →</button>
         <p class="form-note">Serás redirigido a WhatsApp.</p>
@@ -673,24 +676,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 })();
 </script>
 
-<script>
-(function(){
-  const el = document.getElementById('urgencyDays');
-  if(!el) return;
-  const deadline = new Date('2026-08-20T23:59:59-03:00');
-  const now = new Date();
-  const msLeft = deadline.getTime() - now.getTime();
-  const daysLeft = Math.ceil(msLeft / (1000 * 60 * 60 * 24));
 
-  if(msLeft <= 0){
-    el.textContent = 'Oferta finalizada';
-  } else if(daysLeft <= 1){
-    el.textContent = '¡Último día!';
-  } else {
-    el.textContent = 'Quedan ' + daysLeft + ' días';
-  }
-})();
-</script>
 
 <script>
 (function(){
@@ -822,6 +808,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     const biz = document.getElementById('pqBiz').value;
     const sellsRadio = form.querySelector('input[name="pqSells"]:checked');
     const sells = sellsRadio ? sellsRadio.value : '';
+    const invest = document.getElementById('pqInvest').value;
 
     if(!name){
       document.getElementById('pqName').focus();
@@ -831,6 +818,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     let msg = 'Hola, soy ' + name + '.';
     if(biz) msg += ' Mi negocio/servicio es de tipo: ' + biz + '.';
     if(sells) msg += ' ¿Vendo por WhatsApp?: ' + sells + '.';
+    if(invest) msg += ' Sobre la inversión: ' + invest + '.';
     msg += ' Quiero saber más sobre el CRM con agente de IA.';
 
     if(typeof fbq === 'function'){
