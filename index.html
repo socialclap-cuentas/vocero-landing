@@ -735,6 +735,17 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
             <option value="Necesito evaluarlo">Necesito evaluarlo</option>
           </select>
         </div>
+        <div class="pq-field">
+          <label for="pqVolume">¿Cuántos mensajes recibís por día, aprox.?</label>
+          <select id="pqVolume">
+            <option value="">Elegí una opción</option>
+            <option value="Hasta 50/día">Hasta 50/día</option>
+            <option value="Hasta 100/día">Hasta 100/día</option>
+            <option value="Hasta 150/día">Hasta 150/día</option>
+            <option value="Hasta 200/día">Hasta 200/día</option>
+            <option value="Más de 200/día">Más de 200/día</option>
+          </select>
+        </div>
         <button type="submit" class="btn-primary">Escribile a Daniel →</button>
         <p class="form-note">Serás redirigido a WhatsApp.</p>
       </form>
@@ -896,6 +907,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     const sellsRadio = form.querySelector('input[name="pqSells"]:checked');
     const sells = sellsRadio ? sellsRadio.value : '';
     const invest = document.getElementById('pqInvest').value;
+    const volume = document.getElementById('pqVolume').value;
 
     if(!name){
       document.getElementById('pqName').focus();
@@ -906,6 +918,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     if(biz) msg += ' Mi negocio/servicio es de tipo: ' + biz + '.';
     if(sells) msg += ' ¿Vendo por WhatsApp?: ' + sells + '.';
     if(invest) msg += ' Sobre la inversión: ' + invest + '.';
+    if(volume) msg += ' Mensajes por día aprox.: ' + volume + '.';
     msg += ' Quiero saber más sobre el CRM con agente de IA.';
 
     if(typeof fbq === 'function'){
