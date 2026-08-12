@@ -286,29 +286,73 @@
     border-radius:999px;
   }
 
-  /* ===== FEATURES GRID ===== */
-  .features-grid{
+  /* ===== CAPABILITY LIST (compacta, sin cajas) ===== */
+  /* ===== VERSUS (humano solo vs. humano + agente) ===== */
+  .versus-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:1fr auto 1fr;
     gap:20px;
+    align-items:stretch;
+    max-width:920px;
+    margin:0 auto;
   }
-  @media (max-width:760px){.features-grid{grid-template-columns:1fr;}}
-  .feature-card{
-    background:var(--bg-soft);
-    border:1px solid var(--border);
+  @media (max-width:720px){
+    .versus-grid{grid-template-columns:1fr;}
+    .versus-arrow{transform:rotate(90deg);margin:4px auto;}
+  }
+  .versus-card{
     border-radius:20px;
-    padding:26px 22px;
+    padding:26px 24px;
   }
-  .feature-icon{
-    width:44px;height:44px;
-    border-radius:12px;
-    background:var(--accent-soft);
-    display:flex;align-items:center;justify-content:center;
-    font-size:20px;
+  .versus-before{background:var(--bg-soft);border:1px solid var(--border);}
+  .versus-after{background:var(--accent-soft);border:1.5px solid var(--accent);box-shadow:0 8px 24px rgba(15,157,130,.12);}
+  .versus-label{
+    display:block;
+    font-family:'Sora',sans-serif;
+    font-weight:700;
+    font-size:13.5px;
     margin-bottom:16px;
   }
-  .feature-card h3{font-size:16.5px;font-weight:700;margin:0 0 8px;}
-  .feature-card p{font-size:13.5px;line-height:1.6;color:var(--ink-soft);margin:0;}
+  .versus-before .versus-label{color:var(--ink-soft);}
+  .versus-after .versus-label{color:var(--accent-dark);}
+  .versus-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .versus-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.45;}
+  .versus-before li{color:var(--ink-soft);}
+  .versus-after li{color:var(--ink);font-weight:500;}
+  .versus-x{color:#94A3B8;font-weight:700;flex-shrink:0;}
+  .versus-check{color:var(--accent-dark);font-weight:700;flex-shrink:0;}
+  .versus-arrow{
+    display:flex;align-items:center;justify-content:center;
+    color:var(--accent);
+    width:28px;height:28px;
+    align-self:center;
+  }
+  .versus-arrow svg{width:100%;height:100%;}
+
+  .capability-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    column-gap:40px;
+  }
+  @media (max-width:760px){.capability-list{grid-template-columns:1fr;}}
+  .cap-row{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    padding:20px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .cap-icon{
+    flex-shrink:0;
+    width:38px;height:38px;
+    border-radius:10px;
+    background:var(--accent-soft);
+    color:var(--accent-dark);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .cap-icon svg{width:19px;height:19px;}
+  .cap-body h3{font-size:15px;font-weight:700;margin:0 0 5px;letter-spacing:-.005em;}
+  .cap-body p{font-size:13.5px;line-height:1.55;color:var(--ink-soft);margin:0;}
 
   /* ===== DEMO (chat + pipeline) ===== */
   .demo-card{
@@ -377,48 +421,28 @@
   }
   .risk-reversal strong{color:var(--accent-dark);}
 
-  .urgency-banner{
+  .quote-block{
     max-width:460px;
-    margin:0 auto 20px;
-    background:linear-gradient(90deg,#B91C1C,#DC2626);
-    color:#fff;
-    font-size:13px;
-    font-weight:600;
-    padding:10px 16px;
-    border-radius:10px;
+    margin:0 auto 6px;
+    border:1.5px solid var(--ink);
+    border-radius:16px;
+    padding:20px 22px;
+    background:#fff;
     text-align:center;
-    line-height:1.5;
   }
-  .urgency-days{
-    display:block;
+  .quote-badge{
+    display:inline-block;
+    background:var(--accent-soft);
+    color:var(--accent-dark);
     font-size:11.5px;
     font-weight:700;
-    opacity:.92;
-    margin-top:2px;
-    letter-spacing:.02em;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:10px;
   }
-
-  .price-block{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin:20px 0 6px;}
-  .price-main{display:flex;flex-direction:column;align-items:center;border:1.5px solid var(--ink);border-radius:16px;padding:14px 24px;background:#fff;}
-  .pm-original{
-    font-size:14px;
-    font-weight:600;
-    color:var(--ink-soft);
-    text-decoration:line-through;
-    text-decoration-color:#DC2626;
-    text-decoration-thickness:1.5px;
-    margin-bottom:2px;
-  }
-  .pm-amount{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(24px,4vw,34px);line-height:1;color:#B91C1C;}
-  .pm-amount small{font-size:12px;font-weight:600;color:var(--ink-soft);}
-  .pm-label{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;font-weight:700;text-align:center;}
-  .price-plus{font-family:'Sora',sans-serif;font-weight:800;font-size:20px;color:var(--ink-soft);}
-  .price-sub{display:flex;flex-direction:column;align-items:center;}
-  .ps-amount{font-weight:700;font-size:18px;color:var(--ink-soft);}
-  .ps-amount small{font-size:11px;font-weight:400;}
-  .ps-label{font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);opacity:.8;margin-top:3px;font-weight:600;}
-  @media (max-width:480px){.price-plus{display:none;}}
-  .cupos{font-size:12.5px;font-weight:700;color:var(--accent-dark);margin:14px 0 22px;}
+  .quote-text{font-size:14px;line-height:1.55;color:var(--ink-soft);margin:0;}
 
   .prequal-form{max-width:340px;margin:0 auto;display:flex;flex-direction:column;gap:12px;text-align:left;}
   .pq-field{display:flex;flex-direction:column;gap:5px;}
@@ -437,9 +461,12 @@
   /* ===== SCROLL REVEAL ===== */
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1);}
   .reveal-in{opacity:1;transform:translateY(0);}
-  .feature-card.reveal{transition-delay:.05s;}
-  .feature-card.reveal:nth-child(2){transition-delay:.15s;}
-  .feature-card.reveal:nth-child(3){transition-delay:.25s;}
+  .cap-row.reveal:nth-child(1){transition-delay:0s;}
+  .cap-row.reveal:nth-child(2){transition-delay:.1s;}
+  .cap-row.reveal:nth-child(3){transition-delay:.12s;}
+  .cap-row.reveal:nth-child(4){transition-delay:.22s;}
+  .cap-row.reveal:nth-child(5){transition-delay:.24s;}
+  .cap-row.reveal:nth-child(6){transition-delay:.34s;}
 
   footer{padding:36px 0 44px;text-align:center;font-size:12px;color:var(--ink-soft);background:#fff;}
 </style>
@@ -496,7 +523,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     </div>
 
     <div class="hero-stats">
-      <div class="hs-item"><div class="hs-num">50%</div><div class="hs-label">OFF Precio fundador</div></div>
+      <div class="hs-item"><div class="hs-num">100%</div><div class="hs-label">Cotización a tu medida</div></div>
       <div class="hs-item"><div class="hs-num">24/7</div><div class="hs-label">Agente activo</div></div>
       <div class="hs-item"><div class="hs-num">seg.</div><div class="hs-label">Tiempo de respuesta</div></div>
     </div>
@@ -522,26 +549,86 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 
 <section class="stack-card alt" style="padding-top:56px;">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" style="margin-bottom:36px;">
       <span class="pill">Por qué funciona</span>
-      <h2>Un vendedor humano necesita dormir. Esto no.</h2>
-      <p>Cobra sueldo y cargas sociales, y solo atiende a una persona por vez. El agente responde en segundos, a cualquier hora, a todos los que escriban al mismo tiempo — y nunca tiene un mal día.</p>
+      <h2 style="font-size:clamp(24px,3.6vw,38px);">No reemplaza a tu equipo. Le saca el trabajo repetitivo de encima.</h2>
+      <p>La idea no es sacar personas del medio — es que tu equipo deje de perder horas contestando lo mismo, y se enfoque en cerrar las ventas que realmente importan.</p>
     </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3>Atiende a todos a la vez</h3>
-        <p>Un humano atiende de a uno. El agente responde a todos los que escriban al mismo tiempo, sin que nadie espere en fila.</p>
+    <div class="versus-grid">
+      <div class="versus-card versus-before">
+        <span class="versus-label">Hoy, solo con tu equipo</span>
+        <ul class="versus-list">
+          <li><span class="versus-x">✕</span> Atiende de a un cliente por vez</li>
+          <li><span class="versus-x">✕</span> Duerme, se enferma, toma vacaciones</li>
+          <li><span class="versus-x">✕</span> Un mensaje a las 3 AM espera hasta la mañana</li>
+          <li><span class="versus-x">✕</span> Contesta la misma pregunta veinte veces por día</li>
+        </ul>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">🖥️</div>
-        <h3>Infraestructura dedicada</h3>
-        <p>Nada de herramientas genéricas compartidas con miles de negocios — corre en infraestructura propia de Social Clap, gestionada para vos.</p>
+      <div class="versus-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">💸</div>
-        <h3>Centavos por conversación</h3>
-        <p>Cada intercambio con un lead le cuesta al negocio fracciones de centavo — y responde en segundos, no en horas.</p>
+      <div class="versus-card versus-after">
+        <span class="versus-label">Con el agente trabajando junto a tu equipo</span>
+        <ul class="versus-list">
+          <li><span class="versus-check">✓</span> Atiende a todos los que escriben al mismo tiempo</li>
+          <li><span class="versus-check">✓</span> Responde 24/7, sin descanso</li>
+          <li><span class="versus-check">✓</span> Filtra a los curiosos antes de que lleguen a un humano</li>
+          <li><span class="versus-check">✓</span> Tu equipo solo habla con los que ya están listos para comprar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stack-card alt" style="padding-top:56px;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="pill">Qué incluye</span>
+      <h2>Todo lo que hace el agente, en un solo lugar</h2>
+      <p>Nada de tecnicismos — así es lo que tu negocio tiene desde el primer día.</p>
+    </div>
+    <div class="capability-list">
+      <div class="cap-row">
+        <span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="cap-body">
+          <h3>Atiende a todos a la vez</h3>
+          <p>Un humano atiende de a uno. El agente responde a todos los que escriban al mismo tiempo, sin que nadie espere en fila.</p>
+        </div>
+      </div>
+      <div class="cap-row">
+        <span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="m21 15-4.5-4.5L9 18" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="cap-body">
+          <h3>Lee las fotos que le mandan</h3>
+          <p>Si un cliente manda una foto de un producto, un comprobante o una captura de pantalla, el agente la ve y entiende de qué se trata.</p>
+        </div>
+      </div>
+      <div class="cap-row">
+        <span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M9 22h6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="cap-body">
+          <h3>Escucha los audios</h3>
+          <p>Transcribe automáticamente los mensajes de voz y responde según lo que la persona dijo.</p>
+        </div>
+      </div>
+      <div class="cap-row">
+        <span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v12H8l-4 4V4Z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="cap-body">
+          <h3>Responde al instante</h3>
+          <p>Ni bien alguien escribe, contesta — sin importar la hora ni cuánta gente esté escribiendo al mismo tiempo.</p>
+        </div>
+      </div>
+      <div class="cap-row">
+        <span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="4" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+        <div class="cap-body">
+          <h3>Ordena tu pipeline solo</h3>
+          <p>Marca automáticamente quién es nuevo, quién está charlando, quién quiere comprar y quién ya es cliente. Vos ves de un vistazo dónde poner tu atención.</p>
+        </div>
+      </div>
+      <div class="cap-row">
+        <span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" stroke-linecap="round"/></svg></span>
+        <div class="cap-body">
+          <h3>Sabe cuándo pasarte la posta</h3>
+          <p>Si el cliente se enoja, pide hablar con una persona, o pregunta algo que el agente no sabe, corta y te avisa — nunca improvisa una respuesta que pueda salir mal.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -590,8 +677,8 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 <section class="stack-card alt" id="oferta" style="padding-top:56px;">
   <div class="wrap">
     <div class="section-head">
-      <span class="pill">Plan Fundador</span>
-      <h2>Los primeros 10 negocios, precio de fundador</h2>
+      <span class="pill">Cómo se instala</span>
+      <h2>Un sistema hecho a medida de tu negocio</h2>
     </div>
 
     <div class="offer-card">
@@ -661,7 +748,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 
 <script>
 (function(){
-  const targets = document.querySelectorAll('.section-head, .feature-card, .demo-card, .offer-card');
+  const targets = document.querySelectorAll('.section-head, .cap-row, .versus-card, .demo-card, .offer-card');
   if(!targets.length) return;
   targets.forEach(el => el.classList.add('reveal'));
   const observer = new IntersectionObserver((entries) => {
