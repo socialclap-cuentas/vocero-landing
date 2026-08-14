@@ -469,6 +469,39 @@
   .cap-row.reveal:nth-child(6){transition-delay:.34s;}
 
   footer{padding:36px 0 44px;text-align:center;font-size:12px;color:var(--ink-soft);background:#fff;}
+  .price-block{
+    display:flex;align-items:center;justify-content:center;gap:16px;
+    flex-wrap:wrap;margin:24px 0 4px;
+  }
+  .price-main,.price-sub{
+    display:flex;flex-direction:column;align-items:center;gap:4px;
+    border:1.5px solid var(--border);border-radius:16px;
+    padding:16px 26px;background:#fff;box-shadow:var(--shadow-md);
+  }
+  .price-main{border-color:var(--accent);background:var(--accent-soft);}
+  .pm-amount{
+    font-family:'Sora',sans-serif;font-weight:800;
+    font-size:clamp(22px,4vw,30px);line-height:1;color:var(--accent-dark);
+  }
+  .pm-amount small{font-size:.5em;font-weight:600;color:var(--ink-soft);}
+  .pm-label{font-size:13px;font-weight:600;color:var(--accent-dark);}
+  .price-plus{font-weight:700;color:var(--ink-soft);font-size:14px;}
+  .ps-amount{
+    font-family:'Sora',sans-serif;font-weight:800;
+    font-size:clamp(20px,3.5vw,26px);line-height:1;color:var(--ink);
+  }
+  .ps-amount small{font-size:.5em;font-weight:600;color:var(--ink-soft);}
+  .ps-label{font-size:13px;font-weight:600;color:var(--ink-soft);}
+  .warranty-badge{
+    display:flex;justify-content:center;margin:14px 0 4px;
+  }
+  .warranty-badge span{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--accent-soft);color:var(--accent-dark);
+    font-size:14px;font-weight:700;
+    padding:8px 18px;border-radius:999px;border:1.5px solid var(--accent);
+  }
+  .cupos{font-size:13px;color:var(--ink-soft);margin:14px 0 22px;text-align:center;}
 </style>
 
 <!-- Meta Pixel Code -->
@@ -693,14 +726,17 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 
       <div class="price-block">
         <div class="price-main">
-          <span class="pm-amount">$500.000 <small>/mes</small></span>
-          <span class="pm-label">En 3 cuotas · empezá esta semana</span>
+          <span class="pm-amount">$AR 500.000 <small>/mes</small></span>
+          <span class="pm-label">3 pagos · tené tu sistema ya</span>
         </div>
         <div class="price-plus">o</div>
         <div class="price-sub">
-          <span class="ps-amount">$1.350.000<small> pago único</small></span>
+          <span class="ps-amount">$AR 1.350.000<small> pago único</small></span>
           <span class="ps-label">Ahorrás $150.000</span>
         </div>
+      </div>
+      <div class="warranty-badge">
+        <span>🛡️ Garantía y asistencia técnica por 90 días</span>
       </div>
       <p class="cupos">Tu agente empieza a trabajar desde el primer día — cada semana que pasa es una venta que se te escapa por WhatsApp.</p>
 
