@@ -476,15 +476,20 @@
   .price-main,.price-sub{
     display:flex;flex-direction:column;align-items:center;gap:4px;
     border:1.5px solid var(--border);border-radius:16px;
-    padding:16px 26px;background:#fff;box-shadow:var(--shadow-md);
+    padding:18px 26px;background:#fff;box-shadow:var(--shadow-md);
   }
-  .price-main{border-color:var(--accent);background:var(--accent-soft);}
-  .pm-amount{
-    font-family:'Sora',sans-serif;font-weight:800;
-    font-size:clamp(22px,4vw,30px);line-height:1;color:var(--accent-dark);
+  .price-main{
+    border-color:var(--accent);background:var(--accent-soft);
+    max-width:280px;
   }
-  .pm-amount small{font-size:.5em;font-weight:600;color:var(--ink-soft);}
-  .pm-label{font-size:13px;font-weight:600;color:var(--accent-dark);}
+  .pm-sentence{
+    font-family:'Sora',sans-serif;font-weight:700;
+    font-size:17px;line-height:1.4;color:var(--ink);text-align:center;
+  }
+  .pm-sentence .pm-figure{
+    color:var(--accent-dark);font-weight:800;font-size:1.25em;
+    white-space:nowrap;
+  }
   .price-plus{font-weight:700;color:var(--ink-soft);font-size:14px;}
   .ps-amount{
     font-family:'Sora',sans-serif;font-weight:800;
@@ -727,8 +732,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 
       <div class="price-block">
         <div class="price-main">
-          <span class="pm-amount">$AR 500.000 <small>/mes</small></span>
-          <span class="pm-label">3 pagos · tené tu sistema ya</span>
+          <span class="pm-sentence">Tené tu sistema en 3 pagos de <span class="pm-figure">$AR 500.000</span> por mes</span>
         </div>
         <div class="price-plus">o</div>
         <div class="price-sub">
