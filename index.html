@@ -469,40 +469,13 @@
   .cap-row.reveal:nth-child(6){transition-delay:.34s;}
 
   footer{padding:36px 0 44px;text-align:center;font-size:12px;color:var(--ink-soft);background:#fff;}
-  .price-lead{
-    text-align:center;font-size:16px;font-weight:600;
-    color:var(--ink-soft);margin:24px 0 10px;
+  .price-para{
+    max-width:520px;margin:24px auto 4px;text-align:center;
+    font-size:17px;line-height:1.6;color:var(--ink);
   }
-  .price-block{
-    display:flex;align-items:center;justify-content:center;gap:14px;
-    flex-wrap:wrap;margin:0 0 4px;
+  .price-para strong{
+    color:var(--accent-dark);font-weight:800;
   }
-  .price-main,.price-sub{
-    display:flex;flex-direction:column;align-items:center;gap:4px;
-    border:1.5px solid var(--border);border-radius:16px;
-    padding:18px 26px;background:#fff;box-shadow:var(--shadow-md);
-  }
-  .price-main{
-    border-color:var(--accent);background:var(--accent-soft);
-  }
-  .pm-amount{
-    font-family:'Sora',sans-serif;font-weight:800;
-    font-size:clamp(24px,4.5vw,32px);line-height:1;color:var(--accent-dark);
-  }
-  .pm-amount small{font-size:.5em;font-weight:600;color:var(--ink-soft);}
-  .pm-label{font-size:13px;font-weight:600;color:var(--accent-dark);}
-  .price-plus{
-    display:flex;align-items:center;justify-content:center;
-    width:36px;height:36px;border-radius:50%;flex-shrink:0;
-    background:var(--ink);color:#fff;
-    font-weight:800;font-size:14px;letter-spacing:.02em;
-  }
-  .ps-amount{
-    font-family:'Sora',sans-serif;font-weight:800;
-    font-size:clamp(20px,3.5vw,26px);line-height:1;color:var(--ink);
-  }
-  .ps-amount small{font-size:.5em;font-weight:600;color:var(--ink-soft);}
-  .ps-label{font-size:13px;font-weight:600;color:var(--ink-soft);}
   .warranty-badge{
     display:flex;justify-content:center;margin:14px 0 4px;
   }
@@ -736,18 +709,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 
       <p class="risk-reversal">🧪 No arrancás a ciegas: <strong>tu agente pasa el Laboratorio</strong> y vos aprobás cómo responde antes de que hable con un cliente real.</p>
 
-      <p class="price-lead">Tené tu sistema en 3 pagos de</p>
-      <div class="price-block">
-        <div class="price-main">
-          <span class="pm-amount">$AR 500.000 <small>/mes</small></span>
-          <span class="pm-label">Pagás mes a mes, sin sorpresas</span>
-        </div>
-        <div class="price-plus">o</div>
-        <div class="price-sub">
-          <span class="ps-amount">$AR 1.350.000<small> pago único</small></span>
-          <span class="ps-label">Ahorrás $150.000</span>
-        </div>
-      </div>
+      <p class="price-para">Tené tu sistema en <strong>3 pagos de $AR 500.000 por mes</strong>, o en <strong>pago único de $AR 1.350.000</strong> — ahorrás $150.000.</p>
       <div class="warranty-badge">
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg> Garantía y asistencia técnica por 90 días</span>
       </div>
