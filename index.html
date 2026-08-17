@@ -486,6 +486,20 @@
   .price-para strong{
     color:var(--accent-dark);font-weight:800;
   }
+  .price-checklist{
+    max-width:440px;margin:16px auto 0;padding:0;list-style:none;
+    display:flex;flex-direction:column;gap:8px;text-align:left;
+  }
+  .price-checklist li{
+    display:flex;align-items:flex-start;gap:10px;
+    font-size:15px;line-height:1.5;color:var(--ink);
+  }
+  .pc-check{
+    flex-shrink:0;color:var(--accent-dark);font-weight:800;
+    width:20px;height:20px;border-radius:50%;background:var(--accent-soft);
+    display:flex;align-items:center;justify-content:center;font-size:12px;
+    margin-top:1px;
+  }
   .warranty-badge{
     display:flex;justify-content:center;margin:14px 0 4px;
   }
@@ -720,7 +734,13 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 
       <p class="risk-reversal">🧪 No arrancás a ciegas: <strong>tu agente pasa el Laboratorio</strong> y vos aprobás cómo responde antes de que hable con un cliente real.</p>
 
-      <p class="price-para">Tené tu sistema en <strong>3 pagos de $AR500.000 por mes</strong>, o en <strong>pago único de $AR1.350.000</strong> — ahorrás $150.000.</p>
+      <p class="price-para">Tené tu sistema en <strong>3 pagos de $AR500.000 por mes</strong>.</p>
+      <ul class="price-checklist">
+        <li><span class="pc-check">✓</span> Lee imágenes</li>
+        <li><span class="pc-check">✓</span> Interpreta audios</li>
+        <li><span class="pc-check">✓</span> Responde con naturalidad</li>
+        <li><span class="pc-check">✓</span> 100% garantizado mediante APIs oficiales: Meta, TiendaNube o Tokko, Google Calendar y más</li>
+      </ul>
       <div class="warranty-badge">
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg> Garantía y asistencia técnica por 90 días</span>
       </div>
