@@ -1020,8 +1020,12 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     if(volume) msg += ' Mensajes por día aprox.: ' + volume + '.';
     msg += ' Quiero saber más sobre el CRM con agente de IA.';
 
+    // El evento Lead ya NO se dispara acá — antes contaba cada click del
+    // botón como conversión, sin confirmar que el mensaje llegó de verdad
+    // a WhatsApp. Ahora se manda server-side (Conversions API) solo cuando
+    // el primer mensaje real del contacto llega al CRM.
     if(typeof fbq === 'function'){
-      fbq('track', 'Lead', { content_name: biz || 'no especificado' });
+      fbq('track', 'InitiateCheckout', { content_name: biz || 'no especificado' });
     }
 
     const url = 'https://wa.me/' + OFFICIAL_NUMBER + '?text=' + encodeURIComponent(msg);
