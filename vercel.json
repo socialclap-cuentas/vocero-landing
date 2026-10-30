@@ -1,0 +1,8 @@
+{
+  "headers": [
+    {
+      "source": "/demo-agente-x7k2/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    }
+  ]
+}

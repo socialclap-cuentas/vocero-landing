@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b6e5f">
+<title>Demo del agente de WhatsApp | Social Clap</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;--bg:#efeae2;--surface:#fbf9f5;--ink:#1d2a27;--muted:#62706c;--line:#d9d3c7;--bubble-in:#fff;--bubble-out:#d4ecd0;--accent:#0b6e5f;--accent-ink:#fff;--chip:#e6efe9;--warn:#8a5a00;--warn-bg:#f6e8c6;--font-display:"Bricolage Grotesque","Trebuchet MS",sans-serif;--font-body:"DM Sans","Segoe UI",Roboto,sans-serif;}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1a18;--surface:#16231f;--ink:#e8efec;--muted:#93a39e;--line:#2a3a35;--bubble-in:#1f302b;--bubble-out:#1d5a4c;--accent:#3ec9ab;--accent-ink:#06231d;--chip:#213630;--warn:#f0c977;--warn-bg:#3a2f14;}}
+*{box-sizing:border-box;}
+html,body{height:100%;margin:0;}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.4;padding:12px max(16px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));}
+.app{height:100%;height:calc(100dvh - 24px);max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:10px;min-height:0;}
+.top{display:flex;flex-direction:column;gap:8px;}
+.brand{display:flex;align-items:baseline;justify-content:space-between;gap:8px;}
+.brand h1{font-family:var(--font-display);font-size:18px;margin:0;letter-spacing:-.01em;}
+.brand span{font-size:12px;color:var(--muted);}
+.rubros{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;}
+.rubros::-webkit-scrollbar{display:none;}
+.rubro{flex:0 0 auto;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:500 14px var(--font-body);padding:7px 13px;border-radius:999px;cursor:pointer;}
+.rubro[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+.phone{flex:1;min-height:0;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;}
+.chat-head{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:700 15px var(--font-display);flex:0 0 auto;}
+.chat-head div{min-width:0;}
+.chat-head strong{display:block;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.chat-head small{color:var(--muted);font-size:12px;}
+.log{flex:1;min-height:0;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:6px;background:var(--bg);}
+.tag{align-self:center;font-size:12px;background:var(--warn-bg);color:var(--warn);padding:4px 10px;border-radius:8px;text-align:center;margin-bottom:4px;}
+.msg{max-width:85%;padding:7px 10px;border-radius:12px;white-space:pre-wrap;overflow-wrap:anywhere;}
+.msg.in{align-self:flex-start;background:var(--bubble-in);border-top-left-radius:3px;}
+.msg.out{align-self:flex-end;background:var(--bubble-out);border-top-right-radius:3px;}
+.msg time{display:block;font-size:11px;color:var(--muted);text-align:right;margin-top:2px;}
+.typing{align-self:flex-start;background:var(--bubble-in);border-radius:12px;padding:10px 12px;display:flex;gap:4px;}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:blink 1s infinite;}
+.typing i:nth-child(2){animation-delay:.15s;}.typing i:nth-child(3){animation-delay:.3s;}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.typing i{animation:none;opacity:.6;}}
+.quick{display:flex;gap:6px;flex-wrap:wrap;padding:8px 12px 0;}
+.quick button{border:1px solid var(--accent);background:var(--chip);color:var(--ink);font:500 13px var(--font-body);padding:6px 11px;border-radius:999px;cursor:pointer;}
+.quick button:disabled{opacity:.5;cursor:default;}
+.composer{display:flex;gap:8px;padding:8px 12px 12px;}
+.composer input{flex:1;min-width:0;font:16px var(--font-body);padding:10px 12px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);}
+.composer button{border:0;background:var(--accent);color:var(--accent-ink);font:600 14px var(--font-body);padding:0 16px;border-radius:999px;cursor:pointer;}
+.composer button:disabled{opacity:.5;}
+.foot{font-size:12px;color:var(--muted);text-align:center;}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="brand"><h1>Así atiende tu WhatsApp</h1><span>Demo de Social Clap</span></div>
+    <div class="rubros" id="rubros" role="group" aria-label="Elegí un rubro"></div>
+  </div>
+  <div class="phone">
+    <div class="chat-head"><div class="avatar" id="avatar">F</div><div><strong id="bizname"></strong><small id="bizsub"></small></div></div>
+    <div class="log" id="log" aria-live="polite"></div>
+    <div class="quick" id="quick"></div>
+    <form class="composer" id="form">
+      <input id="msg" type="text" autocomplete="off" placeholder="Escribile al agente" aria-label="Mensaje">
+      <button id="send" type="submit">Enviar</button>
+    </form>
+  </div>
+  <div class="foot">Negocios y precios de ejemplo. En tu local responde con tus datos reales.</div>
+</div>
+<script>
+var RUBROS={
+ floreria:{label:"Florería",initial:"F",name:"Florería Malva",sub:"agente de IA · responde al instante",
+  opening:"Hola, ¿tenés para entregar un ramo mañana a la mañana? Quiero sorprender a mi mamá.",
+  first:"¡Hola! Sí, mañana entregamos desde las 9. Para un ramo de cumpleaños te recomiendo el mixto de estación ($22.000) o las rosas x12 ($28.000). ¿A qué zona va y a qué hora te queda mejor?",
+  menu:[{q:"¿Cuánto sale el envío?",a:"El envío en CABA sale $4.500 y llega el mismo día si pedís antes de las 15 hs. Si preferís, retirás por el local sin cargo."},
+        {q:"¿Qué opciones de ramos tienen?",a:"Tenemos rosas x12 ($28.000), ramo mixto de estación ($22.000) y un box con chocolates y flores ($35.000). Te puedo mandar fotos de cada uno."},
+        {q:"¿Cómo se paga?",a:"Aceptamos transferencia, débito y efectivo. Si es por transferencia te paso el alias y reservamos el ramo apenas llega el comprobante."}]},
+ petshop:{label:"Petshop",initial:"H",name:"Huellitas Petshop",sub:"agente de IA · responde al instante",
+  opening:"Buenas, ¿tienen balanceado de 15 kg para perro adulto? ¿Me lo pueden traer hoy?",
+  first:"¡Hola! Sí, tenemos el de perro adulto de 15 kg a $62.000. Si pedís hoy antes de las 18 hs te lo llevamos hoy mismo. ¿Me pasás la dirección?",
+  menu:[{q:"¿Tienen turnos de baño?",a:"Sí, hacemos baño y corte desde $18.000 según el tamaño. ¿Qué raza es tu perro y qué día te queda cómodo? Te paso los turnos libres."},
+        {q:"¿El delivery tiene costo?",a:"Es gratis en el barrio por compras desde $30.000. Debajo de ese monto son $2.500."},
+        {q:"¿Tienen alimento para gatos?",a:"Sí, el de gato adulto de 7,5 kg está $41.000 y la piedra sanitaria de 10 kg $9.800. Si llevás los dos, te armo el pedido junto."}]},
+ pilates:{label:"Pilates",initial:"N",name:"Pilates Núcleo",sub:"agente de IA · responde al instante",
+  opening:"Hola, quiero arrancar pilates y nunca hice. ¿Hay lugar para una clase de prueba?",
+  first:"¡Hola! Qué bueno que quieras arrancar. La clase de prueba es gratis y no necesitás experiencia. ¿Qué días y en qué franja horaria te quedaría mejor?",
+  menu:[{q:"¿Cuánto sale por mes?",a:"El plan de 2 veces por semana está $58.000 y el de 3 veces $76.000. Las clases son en grupos de hasta 5 personas."},
+        {q:"¿Qué horarios tienen?",a:"Atendemos de lunes a viernes de 8 a 21 hs. Si me decís qué franja preferís, te paso los lugares libres."},
+        {q:"¿Puedo cancelar una clase?",a:"Sí, sin cargo hasta 3 horas antes. Me avisás por acá y liberamos tu lugar."}]},
+ ropa:{label:"Indumentaria",initial:"M",name:"Moda Corrientes",sub:"agente de IA · responde al instante",
+  opening:"Hola, ¿el jean recto lo tienen en talle 42? ¿Y puedo cambiarlo si no me queda?",
+  first:"¡Hola! Sí, el jean recto lo tenemos en talle 42 ($48.000). Y si no te queda, lo cambiás dentro de los 30 días con la etiqueta puesta. ¿Querés que te lo reserve?",
+  menu:[{q:"¿Hacen envíos?",a:"Sí, a todo el país por correo desde $5.900 y en CABA con moto $3.800. Con tu dirección te calculo el costo exacto."},
+        {q:"¿Qué talles tienen en remeras?",a:"Las remeras básicas están del S al XL a $14.000. Si me decís el color que te gusta, te confirmo stock."},
+        {q:"¿Qué medios de pago aceptan?",a:"Todas las tarjetas, transferencia y efectivo. Con transferencia te paso el alias y apartamos la prenda."}]}
+};
+var HANDOFF="Dale, le paso tu consulta a una persona del equipo y te escribe en cuanto abra el local. Ya le dejé todo lo que me contaste para que no tengas que repetirlo.";
+var FALLBACK="En el local real acá respondería con tus precios y tu stock. Probá con las respuestas rápidas.";
+var current="floreria",chats={},busy=false;
+function $(id){return document.getElementById(id);}
+function startChat(k){var r=RUBROS[k];chats[k]={msgs:[{who:"out",text:r.opening,t:"23:40"},{who:"in",text:r.first,t:"23:40"}],used:[],handed:false};}
+function render(){
+ var r=RUBROS[current],c=chats[current];
+ $("avatar").textContent=r.initial;$("bizname").textContent=r.name;$("bizsub").textContent=r.sub;
+ var log=$("log");log.textContent="";
+ var tag=document.createElement("div");tag.className="tag";tag.textContent="Domingo 23:40. El local está cerrado.";log.appendChild(tag);
+ c.msgs.forEach(function(m){var d=document.createElement("div");d.className="msg "+m.who;d.appendChild(document.createTextNode(m.text));var t=document.createElement("time");t.textContent=m.t;d.appendChild(t);log.appendChild(d);});
+ log.scrollTop=log.scrollHeight;
+ var q=$("quick");q.textContent="";
+ r.menu.forEach(function(item,i){if(c.used.indexOf(i)!==-1)return;var b=document.createElement("button");b.type="button";b.textContent=item.q;b.disabled=busy;b.addEventListener("click",function(){say(item.q,item.a,false,i);});q.appendChild(b);});
+ if(!c.handed){var h=document.createElement("button");h.type="button";h.textContent="Quiero hablar con una persona";h.disabled=busy;h.addEventListener("click",function(){say("Quiero hablar con una persona.",HANDOFF,true);});q.appendChild(h);}
+ $("send").disabled=busy;
+}
+function say(userText,reply,handoff,usedIdx){
+ if(busy)return;var key=current,c=chats[key];busy=true;
+ c.msgs.push({who:"out",text:userText,t:"23:41"});
+ if(typeof usedIdx==="number")c.used.push(usedIdx);
+ render();
+ var tp=document.createElement("div");tp.className="typing";tp.innerHTML="<i></i><i></i><i></i>";$("log").appendChild(tp);$("log").scrollTop=$("log").scrollHeight;
+ setTimeout(function(){c.msgs.push({who:"in",text:reply,t:"23:41"});if(handoff)c.handed=true;busy=false;if(key===current)render();},1000);
+}
+Object.keys(RUBROS).forEach(function(key){
+ startChat(key);
+ var b=document.createElement("button");b.type="button";b.className="rubro";b.textContent=RUBROS[key].label;b.setAttribute("aria-pressed",key===current?"true":"false");
+ b.addEventListener("click",function(){current=key;Array.prototype.forEach.call($("rubros").children,function(el){el.setAttribute("aria-pressed",el===b?"true":"false");});render();});
+ $("rubros").appendChild(b);
+});
+$("form").addEventListener("submit",function(e){e.preventDefault();var v=$("msg").value.trim();if(!v||busy)return;$("msg").value="";say(v,FALLBACK,false);});
+render();
+</script>
+</body>
+</html>
