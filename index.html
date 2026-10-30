@@ -109,6 +109,16 @@
   nav.open .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
   nav.open .nav-burger span:nth-child(2){opacity:0;}
   nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .dd{position:relative;}
+  .dd-btn{background:none;border:0;padding:0;font:inherit;font-size:15px;font-weight:600;color:var(--ink-soft);cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
+  .dd-btn svg{transition:transform .2s;}
+  .dd:hover .dd-btn,.dd.open .dd-btn{color:var(--accent-dark);}
+  .dd.open .dd-btn svg{transform:rotate(180deg);}
+  .dd-menu{display:none;position:absolute;top:100%;left:-14px;min-width:230px;background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 18px 40px rgba(15,23,42,.14);padding:8px;margin-top:10px;z-index:60;}
+  .dd-menu::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px;}
+  .dd-menu a{display:block;padding:10px 12px;border-radius:9px;}
+  .dd-menu a:hover{background:var(--accent-soft);}
+  @media(min-width:861px){.dd:hover .dd-menu,.dd.open .dd-menu{display:block;}}
   .nav-links .m-only{display:none;}
   @media(max-width:760px){
     .nav-inner{padding:10px 16px;}
@@ -119,6 +129,12 @@
     .nav-links a{font-size:16px;padding:14px 4px;border-bottom:1px solid var(--border);color:var(--ink);}
     .nav-links a:last-child{border-bottom:none;}
     .nav-links .m-only{display:block;}
+    .dd-btn{width:100%;justify-content:space-between;font-size:16px;padding:14px 4px;border-bottom:1px solid var(--border);color:var(--ink);}
+    .dd-menu{position:static;min-width:0;border:0;box-shadow:none;border-radius:0;padding:0 0 4px 12px;margin:0;background:transparent;}
+    .dd-menu::before{display:none;}
+    .dd.open .dd-menu{display:block;}
+    .dd-menu a{font-size:15px;padding:12px 4px;color:var(--ink-soft);border-radius:0;}
+    .dd-menu a:hover{background:transparent;}
   }
   .nav-cta{
     background:var(--accent);
@@ -825,7 +841,19 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     <div class="logo">Social<span>Clap</span></div>
     <div class="nav-links" id="navLinks">
       <a href="#demo">Cómo funciona</a>
-      <a href="#rubros" class="m-only">Por rubro</a>
+      <div class="dd"><button type="button" class="dd-btn" aria-expanded="false">Rubros <svg viewBox="0 0 10 6" width="10" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dd-menu">
+          <a href="/agente-ia-whatsapp-tienda-online/">Tiendas online</a>
+          <a href="/agente-ia-whatsapp-tienda-nube/">Tienda Nube</a>
+          <a href="/agente-ia-whatsapp-indumentaria/">Indumentaria</a>
+          <a href="/agente-ia-whatsapp-gastronomia/">Gastronomía</a>
+        </div></div>
+      <div class="dd"><button type="button" class="dd-btn" aria-expanded="false">Guías <svg viewBox="0 0 10 6" width="10" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dd-menu">
+          <a href="/chatbot-whatsapp-vs-agente-ia/">Chatbot vs. agente de IA</a>
+          <a href="/automatizar-ventas-whatsapp/">Automatizar ventas</a>
+          <a href="/cuanto-cuesta-agente-ia-whatsapp/">Cuánto cuesta</a>
+        </div></div>
       <a href="#faq">Preguntas</a>
       <a href="/quienes-somos/">Quiénes somos</a>
       <a href="#contacto" class="m-only">Contacto</a>
@@ -1176,20 +1204,6 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section class="stack-card" id="rubros" style="padding-top:56px;">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="pill">Por rubro</span>
-      <h2>Agente de IA para WhatsApp según tu rubro</h2>
-      <p class="rc-lead">Un agente de IA para WhatsApp atiende y vende las 24 horas con la información real de tu negocio. Mirá cómo funciona en el tuyo.</p>
-    </div>
-    <div class="rc-grid"><a class="rc" href="/agente-ia-whatsapp-tienda-online/"><span class="rc-ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span><span class="rc-t">Tiendas online</span><span class="rc-d">Consultas, stock y link de compra, 24/7.</span><span class="rc-go">Ver más <span aria-hidden="true">→</span></span></a><a class="rc" href="/agente-ia-whatsapp-indumentaria/"><span class="rc-ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg></span><span class="rc-t">Indumentaria</span><span class="rc-d">Talles, fotos y audios resueltos al instante.</span><span class="rc-go">Ver más <span aria-hidden="true">→</span></span></a><a class="rc" href="/agente-ia-whatsapp-gastronomia/"><span class="rc-ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg></span><span class="rc-t">Gastronomía</span><span class="rc-d">Menú, horarios y zonas en horas pico.</span><span class="rc-go">Ver más <span aria-hidden="true">→</span></span></a></div>
-    <p class="rc-partner"><strong>Somos partners de Tienda Nube.</strong> Si vendés con Tienda Nube, conectamos el agente a tu tienda. <a href="/agente-ia-whatsapp-tienda-nube/" style="font-weight:700;color:var(--accent-dark);">Ver cómo funciona →</a></p>
-    <h3 class="rc-sub">Guías para decidir mejor</h3>
-    <div class="rc-grid"><a class="rc" href="/chatbot-whatsapp-vs-agente-ia/"><span class="rc-ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><path d="M8 16h.01"/><path d="M16 16h.01"/></svg></span><span class="rc-t">Chatbot vs. agente de IA</span><span class="rc-d">Diferencias y cuál te conviene.</span><span class="rc-go">Ver más <span aria-hidden="true">→</span></span></a><a class="rc" href="/automatizar-ventas-whatsapp/"><span class="rc-ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="rc-t">Automatizar ventas</span><span class="rc-d">Qué automatizar y en qué orden.</span><span class="rc-go">Ver más <span aria-hidden="true">→</span></span></a><a class="rc" href="/cuanto-cuesta-agente-ia-whatsapp/"><span class="rc-ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/></svg></span><span class="rc-t">Cuánto cuesta</span><span class="rc-d">Instalación, abono y costos de Meta.</span><span class="rc-go">Ver más <span aria-hidden="true">→</span></span></a></div>
-  </div>
-</section>
-
 <section class="stack-card" id="faq" style="padding-top:56px;">
   <div class="wrap">
     <div class="section-head">
@@ -1457,6 +1471,8 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     function set(o){nav.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');}
     b.addEventListener('click',function(){set(!nav.classList.contains('open'));});
     nav.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){set(false);});});
+    nav.querySelectorAll('.dd-btn').forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();var d=btn.parentNode,o=!d.classList.contains('open');nav.querySelectorAll('.dd').forEach(function(x){x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false');});d.classList.toggle('open',o);btn.setAttribute('aria-expanded',o);});});
+    document.addEventListener('click',function(e){if(!e.target.closest('.dd'))nav.querySelectorAll('.dd.open').forEach(function(x){x.classList.remove('open');});});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
     document.addEventListener('click',function(e){if(!nav.contains(e.target))set(false);});
   }
