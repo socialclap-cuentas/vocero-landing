@@ -120,7 +120,11 @@ function say(userText,reply,handoff,usedIdx){
  if(typeof usedIdx==="number")c.used.push(usedIdx);
  render();
  var tp=document.createElement("div");tp.className="typing";tp.innerHTML="<i></i><i></i><i></i>";$("log").appendChild(tp);$("log").scrollTop=$("log").scrollHeight;
- setTimeout(function(){c.msgs.push({who:"in",text:reply,t:"23:41"});if(handoff)c.handed=true;busy=false;if(key===current)render();},1000);
+ var t0=Date.now();
+ var p=(typeof reply==="function")?reply(c):Promise.resolve(reply);
+ p.then(function(x){return x;},function(){return FALLBACK;}).then(function(txt){
+  setTimeout(function(){c.msgs.push({who:"in",text:txt,t:"23:41"});if(handoff)c.handed=true;busy=false;if(key===current)render();},Math.max(0,1000-(Date.now()-t0)));
+ });
 }
 Object.keys(RUBROS).forEach(function(key){
  startChat(key);
@@ -128,7 +132,15 @@ Object.keys(RUBROS).forEach(function(key){
  b.addEventListener("click",function(){current=key;Array.prototype.forEach.call($("rubros").children,function(el){el.setAttribute("aria-pressed",el===b?"true":"false");});render();});
  $("rubros").appendChild(b);
 });
-$("form").addEventListener("submit",function(e){e.preventDefault();var v=$("msg").value.trim();if(!v||busy)return;$("msg").value="";say(v,FALLBACK,false);});
+$("form").addEventListener("submit",function(e){e.preventDefault();var v=$("msg").value.trim();if(!v||busy)return;$("msg").value="";say(v,function(c){return ai(c,key0());},false);});
+function key0(){return current;}
+function ai(c,key){
+ var ms=c.msgs.map(function(m){return {role:m.who==="out"?"user":"assistant",content:m.text};});
+ var ctl=new AbortController(),to=setTimeout(function(){ctl.abort();},15000);
+ return fetch("/api/demo-chat",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({rubro:key,messages:ms}),signal:ctl.signal})
+  .then(function(r){clearTimeout(to);if(r.status===429)return "Llegaste al límite de mensajes de la demo por ahora. Probá con las respuestas rápidas.";if(!r.ok)throw 0;return r.json().then(function(d){return d.text||FALLBACK;});})
+  .catch(function(){return FALLBACK;});
+}
 render();
 </script>
 </body>
