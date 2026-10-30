@@ -517,6 +517,9 @@
     font-family:'Sora',sans-serif;font-weight:800;color:var(--ink);
     font-size:clamp(32px,7vw,42px);line-height:1.1;
   }
+  .pc-amount.pc-main{font-size:clamp(40px,9vw,54px);}
+  .pc-amount.pc-sub{font-size:clamp(24px,5vw,28px);font-weight:700;}
+  .pc-divider{border:none;border-top:1px dashed var(--border);margin:22px auto 16px;max-width:320px;}
   .pc-permes{
     text-align:center;font-size:15px;color:var(--ink-soft);
     margin:0 0 26px;
@@ -806,10 +809,11 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
         <p class="pc-lead" style="margin-top:26px">Valor de la instalación y configuración</p>
         <p class="pc-was">AR$ 1.150.000</p>
         <p class="pc-lead">Hoy, pago único</p>
-        <p class="pc-amount">AR$ 567.000</p>
+        <p class="pc-amount pc-main">AR$ 567.000</p>
         <p class="pc-save">50% OFF · Ahorrás AR$ 583.000</p>
-        <p class="pc-lead" style="margin-top:20px">Abono mensual del agente (desde el 2.º mes)</p>
-        <p class="pc-amount">AR$ 47.000</p>
+        <hr class="pc-divider">
+        <p class="pc-lead" style="margin-top:0">Abono mensual del agente (desde el 2.º mes)</p>
+        <p class="pc-amount pc-sub">AR$ 47.000 <span style="font-size:.6em;font-weight:600;color:var(--ink-soft)">/ mes</span></p>
         <p class="pc-permes">por mes · el 1.º mes es gratis · sin permanencia: cancelás cuando quieras</p>
 
         <div class="oc-box oc-guarantee"><strong>Garantía de 14 días</strong>Una vez instalado, si en 14 días tu agente no atiende consultas como te prometimos, te devolvemos tu dinero.</div>
