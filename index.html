@@ -101,6 +101,10 @@
   }
   .logo{font-family:'Sora',sans-serif;font-weight:700;font-size:20px;color:var(--ink);}
   .logo span{color:var(--accent);}
+  .nav-links{display:flex;gap:26px;align-items:center;}
+  .nav-links a{white-space:nowrap;color:var(--ink-soft);text-decoration:none;font-size:15px;font-weight:600;}
+  .nav-links a:hover{color:var(--accent-dark);}
+  @media(max-width:760px){.nav-inner{flex-wrap:wrap;row-gap:8px;padding:12px 20px;}.nav-links{order:3;width:100%;justify-content:space-around;gap:10px;}.nav-links a{font-size:13.5px;}}
   .nav-cta{
     background:var(--accent);
     color:#fff;
@@ -493,11 +497,6 @@
   @media(max-width:720px){.rc-grid{grid-template-columns:1fr;}.rc{flex-direction:row;flex-wrap:wrap;align-items:center;column-gap:14px;}.rc-ic{margin:0;}.rc-t{flex:1;}.rc-d,.rc-go{flex-basis:100%;}}
 
 
-  .about-card{max-width:720px;margin:24px auto 0;background:#fff;border:1px solid var(--border);border-radius:18px;padding:26px 24px;box-shadow:var(--shadow-md);}
-  .about-card p{margin:0 0 16px;font-size:16.5px;line-height:1.65;color:#334155;}
-  .about-list{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-  .about-list li{background:var(--accent-soft);border-radius:12px;padding:12px 14px;font-size:15px;color:var(--ink);}
-  @media(max-width:620px){.about-list{grid-template-columns:1fr;}}
 
   .prequal-form{max-width:340px;margin:0 auto;display:flex;flex-direction:column;gap:12px;text-align:left;}
   .pq-field{display:flex;flex-direction:column;gap:5px;}
@@ -627,6 +626,11 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 <nav>
   <div class="nav-inner">
     <div class="logo">Social<span>Clap</span> CRM</div>
+    <div class="nav-links">
+      <a href="#demo">Cómo funciona</a>
+      <a href="#faq">Preguntas</a>
+      <a href="/quienes-somos/">Quiénes somos</a>
+    </div>
     <a href="#oferta" class="nav-cta">Quiero mi agente</a>
   </div>
 </nav>
@@ -946,26 +950,8 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section class="stack-card" id="quienes-somos" style="padding-top:56px;">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="pill">Quiénes somos</span>
-      <h2>Una agencia de sistemas y marketing digital de Buenos Aires</h2>
-    </div>
-    <div class="about-card">
-      <p><strong>Social Clap</strong> es una agencia de sistemas y marketing digital dirigida por <strong>Leandro Caamaño</strong>, fundador y CEO. Ayudamos a negocios y pymes a vender más con estrategia, tecnología y publicidad, y nos ocupamos tanto de la estrategia como de la ejecución.</p>
-      <ul class="about-list">
-        <li>Campañas en <strong>Meta Ads</strong> y e-commerce</li>
-        <li><strong>CRM y sistemas a medida</strong> para pymes</li>
-        <li><strong>Agentes de IA para WhatsApp</strong> que atienden y venden 24/7</li>
-        <li><strong>Partners de Tienda Nube</strong></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <footer>
-  <div class="wrap">Social Clap — Agencia de sistemas y marketing digital · crm.socialclap.agency · <br><a href="#quienes-somos" style="color:inherit;text-decoration:underline;">Quiénes somos</a> · <a href="/automatizar-ventas-whatsapp/" style="color:inherit;text-decoration:underline;">Guías</a> · <a href="/terminos.html" style="color:inherit;text-decoration:underline;">Términos y Condiciones</a> · <a href="/privacy.html" style="color:inherit;text-decoration:underline;">Política de Privacidad</a> · <a href="/descargo.html" style="color:inherit;text-decoration:underline;">Descargo de Responsabilidad</a></div>
+  <div class="wrap">Social Clap — Agencia de sistemas y marketing digital · crm.socialclap.agency · <br><a href="/quienes-somos/" style="color:inherit;text-decoration:underline;">Quiénes somos</a> · <a href="/automatizar-ventas-whatsapp/" style="color:inherit;text-decoration:underline;">Guías</a> · <a href="/terminos.html" style="color:inherit;text-decoration:underline;">Términos y Condiciones</a> · <a href="/privacy.html" style="color:inherit;text-decoration:underline;">Política de Privacidad</a> · <a href="/descargo.html" style="color:inherit;text-decoration:underline;">Descargo de Responsabilidad</a></div>
 </footer>
 
 <script>
