@@ -682,8 +682,19 @@
     #oferta .offer-card{padding:26px 10px;border-radius:20px;}
     #oferta .price-card{max-width:none;padding:26px 16px 24px;border-radius:20px;}
     #oferta .value-stack{padding:0 8px;}
-    #oferta .prequal-form{max-width:none;padding:0 8px;}
+    #oferta .form-box{padding:22px 14px 18px;}
+    #oferta .form-box .prequal-form{max-width:none;}
   }
+  .form-box{background:linear-gradient(180deg,#EAF1FF 0%,#FFFFFF 46%);border:1.5px solid #BFD3FF;border-top:5px solid var(--accent);border-radius:20px;padding:24px 20px 20px;margin-top:6px;box-shadow:0 14px 36px rgba(31,91,255,.12);}
+  .form-title{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(21px,2.4vw,25px);line-height:1.2;text-align:center;margin:0 0 6px;color:var(--ink);letter-spacing:-.01em;}
+  .form-sub{text-align:center;margin:0 0 18px;font-size:15px;color:var(--ink-soft);}
+  .form-box .prequal-form{max-width:400px;}
+  .form-box .pq-field label{font-size:14px;color:var(--ink);}
+  .form-box .pq-field input[type="text"],.form-box .pq-field select{border-color:#CBD5E1;}
+  .form-box .pq-field input:focus,.form-box .pq-field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(31,91,255,.15);}
+  .form-box .pq-field label.pq-radio-opt{font-size:16px;}
+  .cupos strong{color:var(--ink);}
+  .offer-card > .cupos{font-size:16.5px;color:var(--ink);}
   .prequal-form{max-width:340px;margin:0 auto;display:flex;flex-direction:column;gap:12px;text-align:left;}
   .pq-field{display:flex;flex-direction:column;gap:5px;}
   .pq-field label{font-size:13px;font-weight:700;color:var(--ink-soft);}
@@ -1112,7 +1123,9 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 
       </div>
       <p class="cupos"><strong>El fin de año pasa una sola vez.</strong> Ocupate de tu negocio. Nosotros te instalamos un agente que atiende y vende por WhatsApp, sin sueldo y sin vacaciones.</p>
-      <p class="cupos" style="margin-top:-6px"><strong>Chateá con nuestro agente y reservá tu cupo.</strong> Completá estos datos y seguimos por WhatsApp.</p>
+      <div class="form-box">
+      <h3 class="form-title">Chateá con nuestro agente y reservá tu cupo</h3>
+      <p class="form-sub">Completá estos datos y seguimos por WhatsApp.</p>
 
       <form class="prequal-form" id="prequalForm">
         <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
@@ -1157,6 +1170,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
         <button type="submit" class="btn-primary">Quiero mi agente por WhatsApp →</button>
         <p class="form-note">Serás redirigido a WhatsApp.</p>
       </form>
+      </div>
     </div>
     </div>
   </div>
