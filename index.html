@@ -498,6 +498,92 @@
 
 
 
+
+  /* ===== MOCKUP: laptop + celular ===== */
+  #oferta .wrap{max-width:1200px;}
+  .offer-layout{display:grid;gap:36px;align-items:start;max-width:1160px;margin:0 auto;}
+  .offer-layout .offer-card{max-width:600px;width:100%;}
+  .offer-visual{min-width:0;}
+  @media(min-width:1000px){
+    .offer-layout{grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:44px;}
+    .offer-layout .offer-card{max-width:none;padding:32px 26px;}
+    .offer-visual{position:sticky;top:96px;}
+    .offer-layout .pc-amount.pc-main{font-size:clamp(34px,3.6vw,46px);}
+  }
+  .mock{position:relative;width:100%;padding:0 0 6% 0;}
+  .mock-glow{position:absolute;inset:8% 4% 2% 4%;background:radial-gradient(60% 60% at 50% 50%,rgba(31,91,255,.22),transparent 70%);filter:blur(24px);z-index:0;}
+  .laptop{position:relative;z-index:1;container-type:inline-size;width:82%;}
+  .lp-bezel{background:#0B1220;border-radius:2cqw 2cqw .6cqw .6cqw;padding:1.3cqw 1.3cqw 1.5cqw;box-shadow:0 3cqw 7cqw rgba(15,23,42,.28);}
+  .lp-screen{background:#fff;border-radius:.8cqw;overflow:hidden;aspect-ratio:16/10;display:flex;flex-direction:column;font-family:'Inter',sans-serif;}
+  .lp-base{height:2.4cqw;margin:0 -5cqw;background:linear-gradient(#E2E8F0,#CBD5E1);border-radius:0 0 3cqw 3cqw;box-shadow:0 1.2cqw 2.4cqw rgba(15,23,42,.18);position:relative;}
+  .lp-base::after{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:16cqw;height:.9cqw;background:#B6C0CF;border-radius:0 0 1cqw 1cqw;}
+  .lp-top{display:flex;align-items:center;justify-content:space-between;padding:1.3cqw 2cqw;border-bottom:1px solid #E6EAF0;}
+  .lp-brand{display:flex;align-items:center;gap:1.1cqw;}
+  .lp-brand i{width:3cqw;height:3cqw;border-radius:.8cqw;background:var(--accent);display:block;position:relative;}
+  .lp-brand i::after{content:"";position:absolute;inset:.8cqw;border:.35cqw solid #fff;border-radius:50%;}
+  .lp-brand b{font-size:1.9cqw;color:var(--ink);font-family:'Sora',sans-serif;}
+  .lp-live{font-size:1.3cqw;font-weight:700;color:#0F8A4B;background:#E7F8EE;padding:.5cqw 1.2cqw;border-radius:99px;display:flex;align-items:center;gap:.6cqw;}
+  .lp-live::before{content:"";width:1cqw;height:1cqw;border-radius:50%;background:#16A34A;animation:mkPulse 1.8s infinite;}
+  .lp-body{display:flex;flex:1;min-height:0;}
+  .lp-side{width:15cqw;background:#F8FAFC;border-right:1px solid #E6EAF0;padding:1.4cqw 1cqw;display:flex;flex-direction:column;gap:.5cqw;}
+  .lp-side span{font-size:1.5cqw;color:#64748B;padding:1cqw 1.1cqw;border-radius:.8cqw;font-weight:600;white-space:nowrap;}
+  .lp-side span.on{background:var(--accent-soft);color:var(--accent-dark);}
+  .lp-main{flex:1;min-width:0;padding:1.6cqw 8cqw 1.6cqw 1.8cqw;display:flex;flex-direction:column;gap:1.2cqw;}
+  .lp-title{display:flex;align-items:center;justify-content:space-between;}
+  .lp-title b{font-size:2cqw;color:var(--ink);font-family:'Sora',sans-serif;}
+  .lp-title em{font-style:normal;font-size:1.2cqw;color:#94A3B8;}
+  .lp-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:1cqw;}
+  .lp-kpis div{background:#F8FAFC;border:1px solid #E6EAF0;border-radius:.9cqw;padding:.9cqw 1.2cqw;}
+  .lp-kpis small{display:block;font-size:1.15cqw;color:#64748B;}
+  .lp-kpis strong{font-size:2cqw;color:var(--ink);font-family:'Sora',sans-serif;}
+  .lp-board{display:grid;grid-template-columns:repeat(4,1fr);gap:1cqw;flex:1;min-height:0;overflow:hidden;}
+  .lp-col{background:#F5F7FA;border-radius:1cqw;padding:1cqw;display:flex;flex-direction:column;gap:.8cqw;min-width:0;}
+  .lp-col h5{margin:0 0 .2cqw;font-size:1.25cqw;color:#475569;font-weight:700;text-transform:uppercase;letter-spacing:.04em;display:flex;justify-content:space-between;}
+  .lp-card{background:#fff;border:1px solid #E6EAF0;border-radius:.9cqw;padding:.9cqw 1cqw;display:flex;flex-direction:column;gap:.3cqw;box-shadow:0 .3cqw .8cqw rgba(15,23,42,.05);}
+  .lp-card b{font-size:1.45cqw;color:var(--ink);}
+  .lp-card small{font-size:1.15cqw;color:#94A3B8;}
+  .lp-tag{align-self:flex-start;font-size:1.1cqw;font-weight:700;color:var(--accent-dark);background:var(--accent-soft);padding:.3cqw .8cqw;border-radius:99px;margin-top:.2cqw;}
+  .lp-tag.g{color:#0F8A4B;background:#E7F8EE;}
+  .lp-card.hot{border-color:var(--accent);box-shadow:0 0 0 .3cqw rgba(31,91,255,.14);animation:mkHot 3.2s ease-in-out infinite;}
+  .phone{position:absolute;z-index:2;right:-3%;bottom:0;width:27%;container-type:inline-size;animation:mkFloat 6s ease-in-out infinite;}
+  .ph-frame{background:#0B1220;border-radius:11cqw;padding:3cqw;box-shadow:0 8cqw 14cqw rgba(15,23,42,.35);}
+  .ph-screen{background:#EFE7DD;border-radius:8.5cqw;overflow:hidden;aspect-ratio:9/18.5;display:flex;flex-direction:column;position:relative;font-family:'Inter',sans-serif;}
+  .ph-notch{position:absolute;top:2.2cqw;left:50%;transform:translateX(-50%);width:26cqw;height:5.4cqw;background:#0B1220;border-radius:99px;z-index:3;}
+  .ph-head{background:#075E54;color:#fff;padding:10cqw 4cqw 3cqw;display:flex;align-items:center;gap:3cqw;}
+  .ph-av{width:9.5cqw;height:9.5cqw;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:4.4cqw;flex:none;}
+  .ph-head b{display:block;font-size:4.2cqw;line-height:1.2;}
+  .ph-head small{font-size:3cqw;opacity:.85;}
+  .ph-chat{flex:1;padding:3.5cqw 3cqw;display:flex;flex-direction:column;gap:2.4cqw;overflow:hidden;}
+  .ph-chat .m{max-width:84%;font-size:3.9cqw;line-height:1.35;padding:2.2cqw 3cqw;border-radius:3cqw;position:relative;color:#111827;}
+  .ph-chat .in{align-self:flex-start;background:#fff;border-top-left-radius:.8cqw;}
+  .ph-chat .out{align-self:flex-end;background:#D9FDD3;border-top-right-radius:.8cqw;}
+  .ph-chat .m em{display:block;font-style:normal;font-size:2.6cqw;color:#6B7280;text-align:right;margin-top:.6cqw;}
+  .ph-chat .audio{display:flex;align-items:center;gap:2cqw;}
+  .ph-chat .audio i{width:6cqw;height:6cqw;border-radius:50%;background:#25D366;display:block;position:relative;flex:none;}
+  .ph-chat .audio i::after{content:"";position:absolute;left:2.3cqw;top:1.7cqw;border-left:2.2cqw solid #fff;border-top:1.3cqw solid transparent;border-bottom:1.3cqw solid transparent;}
+  .ph-chat .audio s{display:flex;align-items:center;gap:.7cqw;text-decoration:none;}
+  .ph-chat .audio s u{display:block;width:.8cqw;background:#9CA3AF;border-radius:1cqw;text-decoration:none;}
+  .ph-chat .link{display:block;margin-top:1.2cqw;background:rgba(255,255,255,.7);border-left:1cqw solid #25D366;border-radius:1.4cqw;padding:1.6cqw 2cqw;font-size:3.3cqw;color:#0B5ED7;font-weight:600;}
+  .ph-chat .typing{display:flex;gap:1.2cqw;padding:3cqw 3.6cqw;}
+  .ph-chat .typing i{width:2cqw;height:2cqw;border-radius:50%;background:#9CA3AF;animation:mkDot 1.2s infinite;}
+  .ph-chat .typing i:nth-child(2){animation-delay:.18s}.ph-chat .typing i:nth-child(3){animation-delay:.36s}
+  .ph-input{margin:2cqw 3cqw 4cqw;background:#fff;border-radius:99px;padding:2.4cqw 4cqw;font-size:3.6cqw;color:#9CA3AF;}
+  .mock-conn{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+  .mock-conn span{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:99px;padding:8px 14px;font-size:14px;font-weight:600;color:var(--ink);box-shadow:var(--shadow-md);}
+  .mock-conn span::before{content:"";width:9px;height:9px;border-radius:50%;background:#16A34A;box-shadow:0 0 0 3px rgba(22,163,74,.18);}
+  .mock-conn small{font-weight:500;color:var(--ink-soft);}
+  .mock-note{margin:12px 0 0;font-size:13px;color:var(--ink-soft);}
+  @keyframes mkFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.2%)}}
+  @keyframes mkPulse{0%,100%{opacity:1}50%{opacity:.35}}
+  @keyframes mkDot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-1cqw);opacity:1}}
+  @keyframes mkHot{0%,100%{box-shadow:0 0 0 .3cqw rgba(31,91,255,.14)}50%{box-shadow:0 0 0 .9cqw rgba(31,91,255,.18)}}
+  @media(max-width:640px){
+    .laptop,.mock-glow{display:none;}
+    .mock{padding:10px 0 0;}
+    .phone{position:relative;right:auto;bottom:auto;width:min(290px,80%);margin:0 auto;}
+  }
+  @media(prefers-reduced-motion:reduce){.phone,.lp-card.hot,.lp-live::before,.ph-chat .typing i{animation:none;}}
+
   .prequal-form{max-width:340px;margin:0 auto;display:flex;flex-direction:column;gap:12px;text-align:left;}
   .pq-field{display:flex;flex-direction:column;gap:5px;}
   .pq-field label{font-size:13px;font-weight:700;color:var(--ink-soft);}
@@ -828,6 +914,43 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
       <p>No tenés que saber nada de tecnología. Lo hacemos por vos.</p>
     </div>
 
+    <div class="offer-layout">
+    <div class="offer-visual">
+      <div class="mock" role="img" aria-label="Vista de ejemplo del sistema: pipeline de ventas en una computadora y una conversación de WhatsApp atendida por el agente de IA en un celular, con datos ficticios.">
+        <div class="mock-glow"></div>
+        <div class="laptop">
+          <div class="lp-bezel"><div class="lp-screen">
+            <div class="lp-top"><div class="lp-brand"><i></i><b>Nombre de tu negocio</b></div><span class="lp-live">Agente de IA activo</span></div>
+            <div class="lp-body">
+              <aside class="lp-side"><span class="on">Conversaciones</span><span>Pipeline</span><span>Contactos</span><span>Catálogo</span><span>Integraciones</span></aside>
+              <section class="lp-main">
+                <div class="lp-title"><b>Pipeline de ventas</b><em>Datos de ejemplo</em></div>
+                <div class="lp-kpis"><div><small>Consultas hoy</small><strong>48</strong></div><div><small>Respondidas por IA</small><strong>46</strong></div><div><small>Links enviados</small><strong>19</strong></div></div>
+                <div class="lp-board"><div class="lp-col"><h5>Nuevo <span>3</span></h5><div class="lp-card"><b>Lucía R.</b><small>+54 9 11 ••••-0123</small><span class="lp-tag">Pidió precio</span></div><div class="lp-card"><b>Martín G.</b><small>+54 9 11 ••••-4471</small><span class="lp-tag">Consulta stock</span></div><div class="lp-card"><b>Rocío M.</b><small>+54 9 11 ••••-5520</small><span class="lp-tag">Pidió fotos</span></div></div><div class="lp-col"><h5>En conversación <span>3</span></h5><div class="lp-card hot"><b>Sofi P.</b><small>+54 9 11 ••••-8802</small><span class="lp-tag">Talle M</span></div><div class="lp-card"><b>Nacho L.</b><small>+54 9 11 ••••-2290</small><span class="lp-tag">Envío a Córdoba</span></div><div class="lp-card"><b>Jose V.</b><small>+54 9 11 ••••-7718</small><span class="lp-tag">Pidió envío</span></div></div><div class="lp-col"><h5>Interesado <span>3</span></h5><div class="lp-card"><b>Vale C.</b><small>+54 9 11 ••••-6615</small><span class="lp-tag">Link enviado</span></div><div class="lp-card"><b>Dani F.</b><small>+54 9 11 ••••-9034</small><span class="lp-tag">Quiere comprar</span></div><div class="lp-card"><b>Fran D.</b><small>+54 9 11 ••••-1043</small><span class="lp-tag">Pidió medios de pago</span></div></div><div class="lp-col"><h5>Compró <span>2</span></h5><div class="lp-card"><b>Cami B.</b><small>+54 9 11 ••••-3357</small><span class="lp-tag g">Pago confirmado</span></div><div class="lp-card"><b>Eli M.</b><small>+54 9 11 ••••-8466</small><span class="lp-tag g">Pago confirmado</span></div></div></div>
+              </section>
+            </div>
+          </div></div>
+          <div class="lp-base"></div>
+        </div>
+        <div class="phone">
+          <div class="ph-frame"><div class="ph-screen">
+            <div class="ph-notch"></div>
+            <div class="ph-head"><span class="ph-av">?</span><div><b>+54 9 11 5555-0123</b><small>atendido por tu agente de IA</small></div></div>
+            <div class="ph-chat">
+              <div class="m in">Hola! ¿Tienen la remera negra en talle M?<em>10:42</em></div>
+              <div class="m out">¡Hola! 👋 Sí, hay stock en talle M. Sale $18.900. ¿Querés que te mande el link para comprarla?<em>10:42</em></div>
+              <div class="m in audio"><i></i><s><u style="height:1.4cqw"></u><u style="height:2.6cqw"></u><u style="height:4cqw"></u><u style="height:2.4cqw"></u><u style="height:3.8cqw"></u><u style="height:2cqw"></u><u style="height:1.2cqw"></u><u style="height:2.8cqw"></u><u style="height:3.4cqw"></u><u style="height:1.6cqw"></u><u style="height:2.2cqw"></u><u style="height:1cqw"></u></s><span>0:07</span></div>
+              <div class="m out">Dale, acá la tenés:<span class="link">tunegocio.com/remera-negra</span><em>10:43</em></div>
+              <div class="m out typing"><i></i><i></i><i></i></div>
+            </div>
+            <div class="ph-input">Escribí un mensaje</div>
+          </div></div>
+        </div>
+      </div>
+      <div class="mock-conn"><span>WhatsApp Business <small>conectado</small></span><span>Tienda Nube <small>catálogo y stock sincronizados</small></span><span>Meta Business <small>conectado</small></span></div>
+      <p class="mock-note">Vista de ejemplo con datos ficticios. Tu agente lleva el nombre y los productos de tu negocio.</p>
+    </div>
+
     <div class="offer-card">
       <div class="value-stack">
         <div class="vs-item"><span class="vs-check">✓</span><span class="vs-text"><strong>1.</strong> Nos contás de tu negocio y nos das acceso a tu Meta Business, a tu WhatsApp y a tu tienda.</span></div>
@@ -907,6 +1030,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
         <button type="submit" class="btn-primary">Quiero mi agente por WhatsApp →</button>
         <p class="form-note">Serás redirigido a WhatsApp.</p>
       </form>
+    </div>
     </div>
   </div>
 </section>
