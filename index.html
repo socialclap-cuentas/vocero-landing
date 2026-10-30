@@ -471,6 +471,8 @@
   .pq-field select{appearance:none;background-image:linear-gradient(45deg, transparent 50%, var(--ink-soft) 50%), linear-gradient(135deg, var(--ink-soft) 50%, transparent 50%);background-position:calc(100% - 16px) center, calc(100% - 11px) center;background-size:5px 5px, 5px 5px;background-repeat:no-repeat;}
   .pq-field input:focus, .pq-field select:focus{outline:none;border-color:var(--accent);}
   .pq-radio-options{display:flex;gap:18px;margin-top:2px;}
+  .pq-field label.pq-radio-opt{font-size:16px;font-weight:500;color:var(--ink);}
+  .pq-field select:has(option[value=""]:checked){color:#94A3B8;}
   .pq-radio-opt{display:flex;align-items:center;gap:6px;font-size:16px;color:var(--ink);cursor:pointer;}
   .pq-radio-opt input{accent-color:var(--accent);width:15px;height:15px;}
   .prequal-form .btn-primary{border:none;cursor:pointer;width:100%;text-align:center;margin-top:4px;font-family:'Inter',sans-serif;}
@@ -825,7 +827,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
         <div class="pq-field">
           <label for="pqBiz">Tipo de negocio o servicio</label>
           <select id="pqBiz">
-            <option value="">Elegí una opción</option>
+            <option value="" disabled selected hidden>Elegí una opción</option>
             <option value="Tienda online">Tienda online</option>
             <option value="Indumentaria">Indumentaria</option>
             <option value="Regalería">Regalería</option>
@@ -845,7 +847,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
         <div class="pq-field">
           <label for="pqVolume">¿Cuántos mensajes recibís por día, aprox.?</label>
           <select id="pqVolume">
-            <option value="">Elegí una opción</option>
+            <option value="" disabled selected hidden>Elegí una opción</option>
             <option value="Hasta 50/día">Hasta 50/día</option>
             <option value="Hasta 100/día">Hasta 100/día</option>
             <option value="Hasta 150/día">Hasta 150/día</option>
