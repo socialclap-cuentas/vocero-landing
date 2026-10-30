@@ -104,7 +104,22 @@
   .nav-links{display:flex;gap:26px;align-items:center;}
   .nav-links a{white-space:nowrap;color:var(--ink-soft);text-decoration:none;font-size:15px;font-weight:600;}
   .nav-links a:hover{color:var(--accent-dark);}
-  @media(max-width:760px){.nav-inner{flex-wrap:wrap;row-gap:8px;padding:12px 20px;}.nav-links{order:3;width:100%;justify-content:space-around;gap:10px;}.nav-links a{font-size:13.5px;}}
+  .nav-burger{display:none;width:42px;height:42px;border:1px solid var(--border);background:#fff;border-radius:10px;cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:5px;margin-left:10px;}
+  .nav-burger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s ease,opacity .2s ease;}
+  nav.open .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  nav.open .nav-burger span:nth-child(2){opacity:0;}
+  nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .nav-links .m-only{display:none;}
+  @media(max-width:760px){
+    .nav-inner{padding:10px 16px;}
+    .nav-cta{margin-left:auto;padding:9px 14px;font-size:15px;}
+    .nav-burger{display:flex;}
+    .nav-links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 18px 30px rgba(15,23,42,.10);padding:6px 16px 12px;}
+    nav.open .nav-links{display:flex;}
+    .nav-links a{font-size:16px;padding:14px 4px;border-bottom:1px solid var(--border);color:var(--ink);}
+    .nav-links a:last-child{border-bottom:none;}
+    .nav-links .m-only{display:block;}
+  }
   .nav-cta{
     background:var(--accent);
     color:#fff;
@@ -577,12 +592,62 @@
   @keyframes mkPulse{0%,100%{opacity:1}50%{opacity:.35}}
   @keyframes mkDot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-1cqw);opacity:1}}
   @keyframes mkHot{0%,100%{box-shadow:0 0 0 .3cqw rgba(31,91,255,.14)}50%{box-shadow:0 0 0 .9cqw rgba(31,91,255,.18)}}
+  .pcrm{display:none;container-type:inline-size;width:min(310px,84%);margin:0 auto;position:relative;z-index:1;}
+  .pcrm .ph-screen{background:#F5F7FA;}
+  .pc-top{background:#fff;padding:10cqw 4cqw 2.6cqw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #E6EAF0;}
+  .pc-brand{display:flex;align-items:center;gap:2cqw;min-width:0;}
+  .pc-brand i{width:6cqw;height:6cqw;border-radius:1.8cqw;background:var(--accent);display:block;position:relative;flex:none;}
+  .pc-brand i::after{content:"";position:absolute;inset:1.6cqw;border:.8cqw solid #fff;border-radius:50%;}
+  .pc-brand b{font-family:'Sora',sans-serif;font-size:3.9cqw;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .pc-live{font-size:2.6cqw;font-weight:700;color:#0F8A4B;background:#E7F8EE;padding:1cqw 2.2cqw;border-radius:99px;display:flex;align-items:center;gap:1.2cqw;white-space:nowrap;flex:none;}
+  .pc-live::before{content:"";width:1.8cqw;height:1.8cqw;border-radius:50%;background:#16A34A;animation:mkPulse 1.8s infinite;}
+  .pc-body{flex:1;min-height:0;position:relative;overflow:hidden;}
+  .pc-pane{position:absolute;inset:0;padding:3.2cqw 3cqw;opacity:0;visibility:hidden;transform:translateY(2cqw);transition:opacity .35s ease,transform .35s ease,visibility .35s;display:flex;flex-direction:column;gap:2.4cqw;overflow:hidden;}
+  .pc-pane.on{opacity:1;visibility:visible;transform:none;}
+  .pc-h{display:flex;align-items:center;justify-content:space-between;}
+  .pc-h b{font-family:'Sora',sans-serif;font-size:4.4cqw;color:var(--ink);}
+  .pc-h em{font-style:normal;font-size:2.7cqw;color:#94A3B8;}
+  .pc-search{background:#fff;border:1px solid #E6EAF0;border-radius:99px;padding:2cqw 3.5cqw;font-size:3.2cqw;color:#94A3B8;}
+  .pc-row{display:flex;gap:2.6cqw;align-items:center;background:#fff;border:1px solid #E6EAF0;border-radius:3cqw;padding:2.2cqw 2.6cqw;}
+  .pc-av{width:9cqw;height:9cqw;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:3.6cqw;color:#fff;flex:none;}
+  .pc-mid{flex:1;min-width:0;}
+  .pc-mid b{display:block;font-size:3.6cqw;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .pc-mid small{display:block;font-size:3cqw;color:#64748B;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .pc-end{display:flex;flex-direction:column;align-items:flex-end;gap:1cqw;flex:none;}
+  .pc-end time{font-size:2.6cqw;color:#94A3B8;}
+  .pc-chip{font-size:2.3cqw;font-weight:700;border-radius:99px;padding:.6cqw 1.8cqw;color:var(--accent-dark);background:var(--accent-soft);white-space:nowrap;}
+  .pc-chip.g{color:#0F8A4B;background:#E7F8EE;}
+  .pc-kan{display:flex;gap:2.4cqw;flex:1;min-height:0;margin-right:-3cqw;}
+  .pc-kcol{flex:none;width:43cqw;background:#EEF1F6;border-radius:3cqw;padding:2.2cqw;display:flex;flex-direction:column;gap:1.8cqw;}
+  .pc-kcol h6{margin:0;font-size:2.6cqw;color:#475569;text-transform:uppercase;letter-spacing:.04em;display:flex;justify-content:space-between;}
+  .pc-kcard{background:#fff;border:1px solid #E6EAF0;border-radius:2.4cqw;padding:2cqw 2.2cqw;display:flex;flex-direction:column;gap:.6cqw;}
+  .pc-kcard b{font-size:3.3cqw;color:var(--ink);}
+  .pc-kcard small{font-size:2.6cqw;color:#94A3B8;}
+  .pc-kcard.hot{border-color:var(--accent);box-shadow:0 0 0 .8cqw rgba(31,91,255,.14);}
+  .pc-kpis{display:grid;grid-template-columns:1fr 1fr;gap:2.2cqw;}
+  .pc-kpis div{background:#fff;border:1px solid #E6EAF0;border-radius:3cqw;padding:2.6cqw 3cqw;}
+  .pc-kpis small{display:block;font-size:2.8cqw;color:#64748B;}
+  .pc-kpis strong{font-family:'Sora',sans-serif;font-size:6.6cqw;color:var(--ink);}
+  .pc-card{background:#fff;border:1px solid #E6EAF0;border-radius:3cqw;padding:2.8cqw 3cqw;}
+  .pc-card > small{display:block;font-size:2.8cqw;color:#64748B;margin-bottom:2cqw;}
+  .pc-bars{display:flex;align-items:flex-end;gap:1.4cqw;height:17cqw;}
+  .pc-bars u{flex:1;background:linear-gradient(var(--accent),#6D93FF);border-radius:1cqw 1cqw 0 0;display:block;text-decoration:none;}
+  .pc-prog{display:grid;gap:2cqw;}
+  .pc-prog span{display:flex;justify-content:space-between;font-size:2.9cqw;color:#475569;margin-bottom:.8cqw;}
+  .pc-prog i{display:block;height:1.8cqw;background:#E6EAF0;border-radius:99px;position:relative;overflow:hidden;}
+  .pc-prog i::after{content:"";position:absolute;inset:0;width:var(--w);background:var(--accent);border-radius:99px;}
+  .pc-prog i.g::after{background:#16A34A;}
+  .pcrm .ph-chat{padding:0;}
+  .pc-tabs{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-top:1px solid #E6EAF0;padding:1.6cqw 1cqw 5cqw;}
+  .pc-tabs button{border:none;background:none;display:flex;flex-direction:column;align-items:center;gap:.8cqw;font-family:'Inter',sans-serif;font-size:2.7cqw;font-weight:600;color:#94A3B8;cursor:pointer;padding:1cqw 0;}
+  .pc-tabs button svg{width:5.4cqw;height:5.4cqw;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .pc-tabs button.on{color:var(--accent);}
   @media(max-width:640px){
-    .laptop,.mock-glow{display:none;}
+    .laptop,.mock-glow,.phone{display:none;}
     .mock{padding:10px 0 0;}
-    .phone{position:relative;right:auto;bottom:auto;width:min(290px,80%);margin:0 auto;}
+    .pcrm{display:block;}
   }
-  @media(prefers-reduced-motion:reduce){.phone,.lp-card.hot,.lp-live::before,.ph-chat .typing i{animation:none;}}
+  @media(prefers-reduced-motion:reduce){.phone,.lp-card.hot,.lp-live::before,.pc-live::before,.ph-chat .typing i{animation:none;}.pc-pane{transition:none;}}
 
 
   /* ===== CIERRE CTA + FOOTER ===== */
@@ -735,15 +800,18 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 </head>
 <body>
 
-<nav>
+<nav id="siteNav">
   <div class="nav-inner">
     <div class="logo">Social<span>Clap</span></div>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <a href="#demo">Cómo funciona</a>
+      <a href="#rubros" class="m-only">Por rubro</a>
       <a href="#faq">Preguntas</a>
       <a href="/quienes-somos/">Quiénes somos</a>
+      <a href="#contacto" class="m-only">Contacto</a>
     </div>
     <a href="#oferta" class="nav-cta">Quiero mi agente</a>
+    <button type="button" class="nav-burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -943,9 +1011,9 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 
     <div class="offer-layout">
     <div class="offer-visual">
-      <div class="mock" role="img" aria-label="Vista de ejemplo del sistema: pipeline de ventas en una computadora y una conversación de WhatsApp atendida por el agente de IA en un celular, con datos ficticios.">
+      <div class="mock">
         <div class="mock-glow"></div>
-        <div class="laptop">
+        <div class="laptop" aria-hidden="true">
           <div class="lp-bezel"><div class="lp-screen">
             <div class="lp-top"><div class="lp-brand"><i></i><b>Nombre de tu negocio</b></div><span class="lp-live">Agente de IA activo</span></div>
             <div class="lp-body">
@@ -959,7 +1027,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
           </div></div>
           <div class="lp-base"></div>
         </div>
-        <div class="phone">
+        <div class="phone" aria-hidden="true">
           <div class="ph-frame"><div class="ph-screen">
             <div class="ph-notch"></div>
             <div class="ph-head"><span class="ph-av">?</span><div><b>+54 9 11 5555-0123</b><small>atendido por tu agente de IA</small></div></div>
@@ -971,6 +1039,29 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
               <div class="m out typing"><i></i><i></i><i></i></div>
             </div>
             <div class="ph-input">Escribí un mensaje</div>
+          </div></div>
+        </div>
+        <div class="pcrm" role="group" aria-label="Vista de ejemplo del sistema en el celular, con datos ficticios">
+          <div class="ph-frame"><div class="ph-screen">
+            <div class="ph-notch"></div>
+            <div class="pc-top"><div class="pc-brand"><i></i><b>Nombre de tu negocio</b></div><span class="pc-live">IA activa</span></div>
+            <div class="pc-body">
+              <section class="pc-pane on" data-pane="bandeja"><div class="pc-h"><b>Bandeja de entrada</b><em>Datos de ejemplo</em></div><div class="pc-search">Buscar conversación…</div><div class="pc-row"><span class="pc-av" style="background:#6366F1">L</span><div class="pc-mid"><b>Lucía R.</b><small>¿Tienen la remera negra en talle M?</small></div><div class="pc-end"><time>10:42</time><span class="pc-chip g">IA respondió</span></div></div><div class="pc-row"><span class="pc-av" style="background:#0EA5E9">M</span><div class="pc-mid"><b>Martín G.</b><small>Perfecto, ¡gracias!</small></div><div class="pc-end"><time>10:31</time></div></div><div class="pc-row"><span class="pc-av" style="background:#F59E0B">?</span><div class="pc-mid"><b>+54 9 11 ••••-8802</b><small>Audio · 0:07</small></div><div class="pc-end"><time>10:12</time><span class="pc-chip">Nuevo</span></div></div><div class="pc-row"><span class="pc-av" style="background:#EC4899">V</span><div class="pc-mid"><b>Vale C.</b><small>¿Hacen envíos a Córdoba?</small></div><div class="pc-end"><time>09:58</time><span class="pc-chip g">IA respondió</span></div></div><div class="pc-row"><span class="pc-av" style="background:#10B981">D</span><div class="pc-mid"><b>Dani F.</b><small>Quiero comprar 2, ¿cómo pago?</small></div><div class="pc-end"><time>09:40</time><span class="pc-chip">Link enviado</span></div></div><div class="pc-row"><span class="pc-av" style="background:#8B5CF6">S</span><div class="pc-mid"><b>Sofi P.</b><small>Mmm, ¿y en talle L?</small></div><div class="pc-end"><time>09:21</time><span class="pc-chip g">IA respondió</span></div></div><div class="pc-row"><span class="pc-av" style="background:#EF4444">N</span><div class="pc-mid"><b>Nacho L.</b><small>¿Cuánto tarda el envío?</small></div><div class="pc-end"><time>09:05</time><span class="pc-chip g">IA respondió</span></div></div></section>
+              <section class="pc-pane" data-pane="pipeline"><div class="pc-h"><b>Pipeline de ventas</b><em>Deslizá</em></div><div class="pc-kan"><div class="pc-kcol"><h6>Nuevo <span>3</span></h6><div class="pc-kcard"><b>Lucía R.</b><small>Pidió precio</small></div><div class="pc-kcard"><b>Martín G.</b><small>Consulta stock</small></div><div class="pc-kcard"><b>Rocío M.</b><small>Pidió fotos</small></div></div><div class="pc-kcol"><h6>En conversación <span>3</span></h6><div class="pc-kcard hot"><b>Sofi P.</b><small>Talle M</small></div><div class="pc-kcard"><b>Nacho L.</b><small>Envío a Córdoba</small></div><div class="pc-kcard"><b>Jose V.</b><small>Pidió envío</small></div></div><div class="pc-kcol"><h6>Interesado <span>3</span></h6><div class="pc-kcard"><b>Vale C.</b><small>Link enviado</small></div><div class="pc-kcard"><b>Dani F.</b><small>Quiere comprar</small></div></div><div class="pc-kcol"><h6>Compró <span>2</span></h6><div class="pc-kcard"><b>Cami B.</b><small>Pago confirmado</small></div><div class="pc-kcard"><b>Eli M.</b><small>Pago confirmado</small></div></div></div></section>
+              <section class="pc-pane" data-pane="stats"><div class="pc-h"><b>Métricas de hoy</b><em>Datos de ejemplo</em></div>
+                <div class="pc-kpis"><div><small>Consultas</small><strong>48</strong></div><div><small>Respondidas por IA</small><strong>46</strong></div><div><small>Links enviados</small><strong>19</strong></div><div><small>Ventas cerradas</small><strong>2</strong></div></div>
+                <div class="pc-card"><small>Consultas por hora</small><div class="pc-bars"><u style="height:18%"></u><u style="height:30%"></u><u style="height:52%"></u><u style="height:40%"></u><u style="height:70%"></u><u style="height:58%"></u><u style="height:34%"></u><u style="height:62%"></u><u style="height:88%"></u><u style="height:66%"></u><u style="height:46%"></u><u style="height:28%"></u></div></div>
+                <div class="pc-card pc-prog"><div><span><em style="font-style:normal">Respondidas por la IA</em><b>46 de 48</b></span><i class="g" style="--w:96%"></i></div><div><span><em style="font-style:normal">Pasadas a una persona</em><b>2</b></span><i style="--w:4%"></i></div></div>
+              </section>
+              <section class="pc-pane" data-pane="chat"><div class="pc-h"><b>+54 9 11 5555-0123</b><em>atendido por la IA</em></div>
+                <div class="ph-chat">
+                  <div class="m in">Hola! ¿Tienen la remera negra en talle M?<em>10:42</em></div>
+                  <div class="m out">¡Hola! Sí, hay stock en talle M. Sale $18.900. ¿Querés que te mande el link para comprarla?<em>10:42</em></div>
+                  <div class="m in audio"><i></i><s><u style="height:1.4cqw"></u><u style="height:2.6cqw"></u><u style="height:4cqw"></u><u style="height:2.4cqw"></u><u style="height:3.8cqw"></u><u style="height:2cqw"></u><u style="height:1.2cqw"></u><u style="height:2.8cqw"></u><u style="height:3.4cqw"></u><u style="height:1.6cqw"></u><u style="height:2.2cqw"></u><u style="height:1cqw"></u></s><span>0:07</span></div>
+                  <div class="m out">Dale, acá la tenés:<span class="link">tunegocio.com/remera-negra</span><em>10:43</em></div>
+                </div></section>
+            </div>
+            <div class="pc-tabs" role="tablist"><button type="button" data-tab="bandeja" class="on" aria-label="Bandeja"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Bandeja</span></button><button type="button" data-tab="pipeline" class="" aria-label="Pipeline"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="5" height="18" rx="1.2"/><rect x="10" y="3" width="5" height="11" rx="1.2"/><rect x="17" y="3" width="4" height="15" rx="1.2"/></svg><span>Pipeline</span></button><button type="button" data-tab="stats" class="" aria-label="Métricas"><svg viewBox="0 0 24 24"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg><span>Métricas</span></button><button type="button" data-tab="chat" class="" aria-label="Chat"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg><span>Chat</span></button></div>
           </div></div>
         </div>
       </div>
@@ -1333,6 +1424,32 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
     const url = 'https://wa.me/' + OFFICIAL_NUMBER + '?text=' + encodeURIComponent(msg);
     window.open(url, '_blank', 'noopener');
   });
+})();
+</script>
+
+<script>
+(function(){
+  var nav=document.getElementById('siteNav'),b=document.getElementById('navBurger');
+  if(nav&&b){
+    function set(o){nav.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');}
+    b.addEventListener('click',function(){set(!nav.classList.contains('open'));});
+    nav.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){set(false);});});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+    document.addEventListener('click',function(e){if(!nav.contains(e.target))set(false);});
+  }
+  var root=document.querySelector('.pcrm');
+  if(root){
+    var tabs=[].slice.call(root.querySelectorAll('[data-tab]')),panes=[].slice.call(root.querySelectorAll('[data-pane]')),i=0,t=null;
+    function show(k){tabs.forEach(function(x,n){var on=x.dataset.tab===k;x.classList.toggle('on',on);x.setAttribute('aria-selected',on);if(on)i=n;});panes.forEach(function(p){p.classList.toggle('on',p.dataset.pane===k);});}
+    function stop(){if(t){clearInterval(t);t=null;}}
+    function start(){if(t)return;t=setInterval(function(){show(tabs[(i+1)%tabs.length].dataset.tab);},4200);}
+    tabs.forEach(function(x){x.addEventListener('click',function(){stop();show(x.dataset.tab);});});
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce&&'IntersectionObserver' in window){
+      new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting&&!root.dataset.touched)start();else stop();});},{threshold:.4}).observe(root);
+      tabs.forEach(function(x){x.addEventListener('click',function(){root.dataset.touched='1';});});
+    }
+  }
 })();
 </script>
 </body>
