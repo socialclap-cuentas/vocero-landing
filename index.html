@@ -1466,6 +1466,7 @@ src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"
 
 <script>
 (function(){
+  document.querySelectorAll('a.btn-wa').forEach(function(l){l.addEventListener('click',function(){try{fbq('track','Contact');}catch(e){}});});
   var nav=document.getElementById('siteNav'),b=document.getElementById('navBurger');
   if(nav&&b){
     function set(o){nav.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');}
