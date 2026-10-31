@@ -165,17 +165,17 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-siz
 
 <script>
 var WA_NUMBER="5491133346776";
-// Links de pago de Mercado Pago. Si alguno queda vacío, el botón abre WhatsApp con el plan elegido.
+// Los botones abren WhatsApp con el plan elegido. Links de pago (Mercado Pago): anual https://mpago.la/1EWB885 · semestral https://mpago.la/1uZ4fqF · mensual https://mpago.li/2mLUgoR
 var PLANES=[
- {id:"anual",name:"Plan anual · 12 meses",price:"AR$ 47.250",unit:"/ mes",sub:"Un solo pago de AR$ 567.000 por todo el año",save:"Ahorrás 72% · AR$ 1.437.000 al año vs. el plan mensual",badge:"Mejor precio · el más elegido",best:true,link:"https://mpago.la/1EWB885",label:"anual (pago único de AR$ 567.000)"},
- {id:"semestral",name:"Plan semestral · 6 meses",price:"AR$ 87.000",unit:"/ mes",sub:"Un solo pago de AR$ 522.000 por 6 meses",save:"Ahorrás 48% · AR$ 480.000 en 6 meses vs. el plan mensual",link:"https://mpago.la/1uZ4fqF",label:"semestral (pago único de AR$ 522.000)"},
- {id:"mensual",name:"Plan mensual · sin compromiso",price:"AR$ 167.000",unit:"/ mes",sub:"Te das de baja cuando quieras",link:"https://mpago.li/2mLUgoR",label:"mensual (AR$ 167.000 por mes)"}
+ {id:"anual",name:"Plan anual · 12 meses",price:"AR$ 47.250",unit:"/ mes",sub:"Un solo pago de AR$ 567.000 por todo el año",save:"Ahorrás 72% · AR$ 1.437.000 al año vs. el plan mensual",badge:"Mejor precio · el más elegido",best:true,link:"",label:"anual (pago único de AR$ 567.000)"},
+ {id:"semestral",name:"Plan semestral · 6 meses",price:"AR$ 87.000",unit:"/ mes",sub:"Un solo pago de AR$ 522.000 por 6 meses",save:"Ahorrás 48% · AR$ 480.000 en 6 meses vs. el plan mensual",link:"",label:"semestral (pago único de AR$ 522.000)"},
+ {id:"mensual",name:"Plan mensual · sin compromiso",price:"AR$ 167.000",unit:"/ mes",sub:"Te das de baja cuando quieras",link:"",label:"mensual (AR$ 167.000 por mes)"}
 ];
 (function(){
  var box=document.getElementById("plan-list");
  PLANES.forEach(function(p){
   var d=document.createElement("div");d.className="plan-card"+(p.best?" best":"");
-  var href=p.link||("https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent("Hola, quiero contratar el plan "+p.label+"."));
+  var href=p.link||("https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent("Hola, probé la demo, quiero el plan "+p.id+"."));
   d.innerHTML=(p.badge?'<span class="badge">'+p.badge+'</span>':'')+'<span class="pname">'+p.name+'</span><span class="pprice">'+p.price+' <small>'+p.unit+'</small></span><span class="psub">'+p.sub+'</span>'+(p.save?'<span class="psave">'+p.save+'</span>':'')+'<a class="pbuy" rel="noopener" href="'+href+'">Quiero el plan '+p.id+'</a>';
   box.appendChild(d);
  });
