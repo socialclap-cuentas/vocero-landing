@@ -88,8 +88,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-siz
   <div class="phone">
     <div class="chat-head"><div class="avatar" id="avatar">F</div><div><strong id="bizname"></strong><small id="bizsub"></small></div><button type="button" class="edit" id="editbtn" hidden>Editar</button></div>
     <div class="log" id="log" aria-live="polite"></div>
-    <div class="quick" id="quick"></div>
-    <form class="composer" id="form">
+        <form class="composer" id="form">
       <input id="msg" type="text" autocomplete="off" placeholder="Escribile al agente" aria-label="Mensaje">
       <button id="send" type="submit">Enviar</button>
     </form>
@@ -135,9 +134,6 @@ function render(){
  var tag=document.createElement("div");tag.className="tag";tag.textContent=current==="custom"?"Probá escribiendo como lo haría un cliente.":"Domingo 23:40. El local está cerrado.";log.appendChild(tag);
  c.msgs.forEach(function(m){var d=document.createElement("div");d.className="msg "+m.who;d.appendChild(document.createTextNode(m.text));var t=document.createElement("time");t.textContent=m.t;d.appendChild(t);log.appendChild(d);});
  log.scrollTop=log.scrollHeight;
- var q=$("quick");q.textContent="";
- r.menu.forEach(function(item,i){if(c.used.indexOf(i)!==-1)return;var b=document.createElement("button");b.type="button";b.textContent=item.q;b.disabled=busy;b.addEventListener("click",function(){say(item.q,item.a,false,i);});q.appendChild(b);});
- if(!c.handed){var h=document.createElement("button");h.type="button";h.textContent="Quiero hablar con una persona";h.disabled=busy;h.addEventListener("click",function(){say("Quiero hablar con una persona.",HANDOFF,true);});q.appendChild(h);}
  $("send").disabled=busy;
 }
 function say(userText,reply,handoff,usedIdx){
