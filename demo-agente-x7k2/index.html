@@ -11,10 +11,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:light dark;--bg:#efeae2;--surface:#fbf9f5;--ink:#1d2a27;--muted:#62706c;--line:#d9d3c7;--bubble-in:#fff;--bubble-out:#d4ecd0;--accent:#0b6e5f;--accent-ink:#fff;--chip:#e6efe9;--warn:#8a5a00;--warn-bg:#f6e8c6;--font-display:"Bricolage Grotesque","Trebuchet MS",sans-serif;--font-body:"DM Sans","Segoe UI",Roboto,sans-serif;}
-@media (prefers-color-scheme:dark){:root{--bg:#0f1a18;--surface:#16231f;--ink:#e8efec;--muted:#93a39e;--line:#2a3a35;--bubble-in:#1f302b;--bubble-out:#1d5a4c;--accent:#3ec9ab;--accent-ink:#06231d;--chip:#213630;--warn:#f0c977;--warn-bg:#3a2f14;}}
+:root{color-scheme:light dark;--bg:#efeae2;--surface:#fbf9f5;--ink:#1d2a27;--muted:#62706c;--line:#d9d3c7;--bubble-in:#fff;--bubble-out:#d4ecd0;--accent:#0b6e5f;--accent-ink:#fff;--chip:#e6efe9;--warn:#8a5a00;--warn-bg:#f6e8c6;--ok:#0f7a45;--font-display:"Bricolage Grotesque","Trebuchet MS",sans-serif;--font-body:"DM Sans","Segoe UI",Roboto,sans-serif;}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1a18;--surface:#16231f;--ink:#e8efec;--muted:#93a39e;--line:#2a3a35;--bubble-in:#1f302b;--bubble-out:#1d5a4c;--accent:#3ec9ab;--accent-ink:#06231d;--chip:#213630;--warn:#f0c977;--warn-bg:#3a2f14;--ok:#5fd6a0;}}
 *{box-sizing:border-box;}
-html,body{height:100%;margin:0;}
+html{height:100%;}
+body{min-height:100%;margin:0;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.4;padding:12px max(16px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));}
 .app{height:100%;height:calc(100dvh - 24px);max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:10px;min-height:0;}
 .top{display:flex;flex-direction:column;gap:8px;}
@@ -63,13 +66,42 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-siz
 .builder textarea{resize:vertical;min-height:84px;}
 .builder .go{border:0;background:var(--accent);color:var(--accent-ink);font:600 15px var(--font-body);padding:12px;border-radius:999px;cursor:pointer;}
 .edit{margin-left:auto;border:1px solid var(--accent);background:var(--chip);color:var(--ink);font:600 12px var(--font-body);padding:6px 11px;border-radius:999px;cursor:pointer;}
+
+.buy{max-width:520px;margin:28px auto 0;padding:0 0 max(28px,env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px;}
+.buy h2{font-family:var(--font-display);font-size:24px;line-height:1.15;margin:0;letter-spacing:-.01em;}
+.buy .lead{margin:0;color:var(--muted);font-size:15px;}
+.buy-box{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px;}
+.buy-box h3{font-family:var(--font-display);font-size:16px;margin:0;}
+.incl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+.incl li{display:flex;gap:10px;align-items:flex-start;}
+.incl li::before{content:"✓";flex:0 0 20px;height:20px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:700 12px/20px var(--font-body);text-align:center;margin-top:1px;}
+.plan-card{position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:4px;text-align:center;align-items:center;}
+.plan-card.best{border-color:var(--accent);background:var(--chip);}
+.plan-card .badge{background:var(--accent);color:var(--accent-ink);font:700 12px var(--font-body);padding:4px 12px;border-radius:999px;margin-bottom:4px;}
+.plan-card .pname{font:700 15px var(--font-display);}
+.plan-card .pprice{font:800 34px/1.1 var(--font-display);letter-spacing:-.02em;}
+.plan-card .pprice small{font:600 15px var(--font-body);color:var(--muted);letter-spacing:0;}
+.plan-card .psub{color:var(--muted);font-size:14px;}
+.plan-card .psave{color:var(--ok);font-weight:700;font-size:14px;}
+.plan-card .pbuy{margin-top:10px;width:100%;display:block;text-align:center;text-decoration:none;border:0;background:var(--accent);color:var(--accent-ink);font:700 16px var(--font-body);padding:13px 14px;border-radius:999px;}
+.plan-card:not(.best) .pbuy{background:transparent;color:var(--ink);border:1.5px solid var(--accent);}
+.pay{text-align:center;font-size:14.5px;line-height:1.5;}
+.guar{background:var(--chip);border:1px solid var(--accent);border-radius:14px;padding:12px 14px;font-size:14.5px;}
+.guar strong{display:block;font-family:var(--font-display);font-size:16px;margin-bottom:2px;}
+.faq details{border-top:1px solid var(--line);padding:10px 0;}
+.faq details:first-of-type{border-top:0;}
+.faq summary{font-weight:600;cursor:pointer;}
+.faq p{margin:6px 0 0;color:var(--muted);font-size:14.5px;}
+.small{font-size:12.5px;color:var(--muted);text-align:center;margin:0;}
+.small a{color:inherit;}
+.toplink{font-size:12px;font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap;}
 [hidden]{display:none!important;}
 </style>
 </head>
 <body>
 <div class="app">
   <div class="top">
-    <div class="brand"><h1>Así atiende tu WhatsApp</h1><span>Demo de Social Clap</span></div>
+    <div class="brand"><h1>Así atiende tu WhatsApp</h1><a class="toplink" href="#planes">Ver planes ↓</a></div>
     <div class="modes" id="modes" role="group" aria-label="Modo"><button type="button" class="mode" data-m="demo" aria-pressed="true">Ejemplos</button><button type="button" class="mode" data-m="build" aria-pressed="false">Armá el tuyo</button></div>
     <div class="rubros" id="rubros" role="group" aria-label="Elegí un rubro"></div>
   </div>
@@ -95,7 +127,59 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-siz
   </div>
   <div class="foot">Negocios y precios de ejemplo. En tu local responde con tus datos reales.</div>
 </div>
+<section class="buy" id="planes" aria-labelledby="buy-title">
+  <div>
+    <h2 id="buy-title">¿Te gustó? Tené tu agente funcionando en 48 a 72 hs</h2>
+    <p class="lead">Elegí tu plan. Instalación y configuración incluidas en todos, sin costo aparte.</p>
+  </div>
+
+  <div class="buy-box">
+    <h3>Todos los planes incluyen</h3>
+    <ul class="incl">
+      <li>Instalación y configuración completas, incluida la parte de Meta</li>
+      <li>Agente de IA atendiendo tu WhatsApp las 24 horas, todos los días</li>
+      <li>Entiende audios e imágenes y responde con tus productos, precios y horarios</li>
+      <li>Conectado a tu catálogo y stock (somos partners de Tienda Nube)</li>
+      <li>Te pasa al cliente cuando necesita hablar con una persona</li>
+      <li>Listo en 48 a 72 hs hábiles desde que nos das los accesos</li>
+    </ul>
+  </div>
+
+  <div id="plan-list" style="display:flex;flex-direction:column;gap:12px"></div>
+
+  <p class="pay"><strong>Medios de pago:</strong> tarjeta de crédito, transferencia y Mercado Pago.<br><strong>Anual y semestral: hasta 12 cuotas sin interés con tarjeta de crédito.</strong></p>
+
+  <div class="guar"><strong>Garantía de 14 días</strong>Una vez instalado, si en 14 días tu agente no atiende consultas como te prometimos, te devolvemos tu dinero.</div>
+  <div class="guar"><strong>Cupos limitados: solo 5 al mes</strong>Así podemos trabajar con cada negocio como corresponde y brindar mejor calidad y servicio.</div>
+
+  <div class="buy-box faq">
+    <h3>Preguntas frecuentes</h3>
+    <details><summary>¿Qué pasa después de elegir mi plan?</summary><p>Te llevamos a un chat con nuestro agente, que confirma tu plan y te manda el link de pago. Cuando pagás, te pide de a una cosa lo necesario para instalar: acceso a tu Meta Business, el número de WhatsApp y la información de tu negocio.</p></details>
+    <details><summary>¿Qué necesito para empezar?</summary><p>Contarnos de tu negocio y darnos acceso a tu Meta Business y a tu WhatsApp. La instalación técnica la hacemos nosotros; no tenés que saber nada de tecnología.</p></details>
+    <details><summary>¿Puedo cancelar cuando quiera?</summary><p>El plan mensual sí: te das de baja cuando quieras, sin permanencia. Los planes anual y semestral se abonan por el período elegido. En todos tenés la garantía de 14 días desde la instalación.</p></details>
+    <details><summary>¿Qué cobra Meta por WhatsApp?</summary><p>Los costos de WhatsApp los cobra Meta aparte y se pagan directo a Meta. Meta incluye 1.000 conversaciones de servicio gratis por mes; si recibís más, cobra el excedente.</p></details>
+  </div>
+
+  <p class="small">Al contratar aceptás los <a href="/terminos.html">términos del servicio</a>.</p>
+</section>
+
 <script>
+var WA_NUMBER="5491133346776";
+// Cuando tengas los links de Mercado Pago, pegalos acá. Si queda vacío, el botón abre WhatsApp con el plan elegido.
+var PLANES=[
+ {id:"anual",name:"Plan anual · 12 meses",price:"AR$ 47.250",unit:"/ mes",sub:"Un solo pago de AR$ 567.000 por todo el año",save:"Ahorrás 72% · AR$ 1.437.000 al año vs. el plan mensual",badge:"Mejor precio · el más elegido",best:true,link:"",label:"anual (pago único de AR$ 567.000)"},
+ {id:"semestral",name:"Plan semestral · 6 meses",price:"AR$ 87.000",unit:"/ mes",sub:"Un solo pago de AR$ 522.000 por 6 meses",save:"Ahorrás 48% · AR$ 480.000 en 6 meses vs. el plan mensual",link:"",label:"semestral (pago único de AR$ 522.000)"},
+ {id:"mensual",name:"Plan mensual · sin compromiso",price:"AR$ 167.000",unit:"/ mes",sub:"Te das de baja cuando quieras",link:"",label:"mensual (AR$ 167.000 por mes)"}
+];
+(function(){
+ var box=document.getElementById("plan-list");
+ PLANES.forEach(function(p){
+  var d=document.createElement("div");d.className="plan-card"+(p.best?" best":"");
+  var href=p.link||("https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent("Hola, quiero contratar el plan "+p.label+"."));
+  d.innerHTML=(p.badge?'<span class="badge">'+p.badge+'</span>':'')+'<span class="pname">'+p.name+'</span><span class="pprice">'+p.price+' <small>'+p.unit+'</small></span><span class="psub">'+p.sub+'</span>'+(p.save?'<span class="psave">'+p.save+'</span>':'')+'<a class="pbuy" rel="noopener" href="'+href+'">Quiero el plan '+p.id+'</a>';
+  box.appendChild(d);
+ });
+})();
 var RUBROS={
  floreria:{label:"Florería",initial:"F",name:"Florería Malva",sub:"agente de IA · responde al instante",
   opening:"Hola, ¿tenés para entregar un ramo mañana a la mañana? Quiero sorprender a mi mamá.",
