@@ -51,16 +51,42 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-siz
 .composer button{border:0;background:var(--accent);color:var(--accent-ink);font:600 14px var(--font-body);padding:0 16px;border-radius:999px;cursor:pointer;}
 .composer button:disabled{opacity:.5;}
 .foot{font-size:12px;color:var(--muted);text-align:center;}
+.modes{display:flex;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px;}
+.mode{flex:1;border:0;background:transparent;color:var(--ink);font:600 14px var(--font-body);padding:8px 10px;border-radius:999px;cursor:pointer;}
+.mode[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);}
+.builder{flex:1;min-height:0;overflow-y:auto;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px;}
+.builder h2{font-family:var(--font-display);font-size:17px;margin:0;}
+.builder p.hint{margin:0;font-size:13px;color:var(--muted);}
+.builder label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600;}
+.builder label small{font-weight:400;color:var(--muted);}
+.builder input,.builder textarea,.builder select{font:16px var(--font-body);padding:9px 11px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);width:100%;}
+.builder textarea{resize:vertical;min-height:84px;}
+.builder .go{border:0;background:var(--accent);color:var(--accent-ink);font:600 15px var(--font-body);padding:12px;border-radius:999px;cursor:pointer;}
+.edit{margin-left:auto;border:1px solid var(--accent);background:var(--chip);color:var(--ink);font:600 12px var(--font-body);padding:6px 11px;border-radius:999px;cursor:pointer;}
+[hidden]{display:none!important;}
 </style>
 </head>
 <body>
 <div class="app">
   <div class="top">
     <div class="brand"><h1>Así atiende tu WhatsApp</h1><span>Demo de Social Clap</span></div>
+    <div class="modes" id="modes" role="group" aria-label="Modo"><button type="button" class="mode" data-m="demo" aria-pressed="true">Ejemplos</button><button type="button" class="mode" data-m="build" aria-pressed="false">Armá el tuyo</button></div>
     <div class="rubros" id="rubros" role="group" aria-label="Elegí un rubro"></div>
   </div>
+  <form class="builder" id="builder" hidden>
+    <h2>Armá tu agente y probalo</h2>
+    <p class="hint">Cargá los datos de tu negocio y chateá con tu agente como si fueras un cliente.</p>
+    <label>Nombre de tu negocio<input id="b_negocio" maxlength="60" placeholder="Ej: Dulce Mar Pastelería" required></label>
+    <label>Nombre del agente <small>(opcional)</small><input id="b_agente" maxlength="40" placeholder="Ej: Sofi"></label>
+    <label>Tono
+      <select id="b_tono"><option value="cercano">Cercano y amable</option><option value="profesional">Profesional</option><option value="divertido">Divertido</option><option value="directo">Directo y breve</option></select>
+    </label>
+    <label>Productos o servicios, precios, horarios, envíos y pagos<textarea id="b_info" maxlength="1500" placeholder="Ej: Torta de chocolate $18.000. Caja de 6 alfajores $9.500. Horario: lun a sáb de 9 a 19. Envíos en CABA $3.000. Pagos: transferencia y efectivo." required></textarea></label>
+    <label>Reglas y comportamiento <small>(opcional)</small><textarea id="b_reglas" maxlength="600" placeholder="Ej: No ofrecer descuentos. Los pedidos grandes se pasan a una persona. Siempre preguntar para qué fecha lo necesita."></textarea></label>
+    <button class="go" type="submit">Probar mi agente</button>
+  </form>
   <div class="phone">
-    <div class="chat-head"><div class="avatar" id="avatar">F</div><div><strong id="bizname"></strong><small id="bizsub"></small></div></div>
+    <div class="chat-head"><div class="avatar" id="avatar">F</div><div><strong id="bizname"></strong><small id="bizsub"></small></div><button type="button" class="edit" id="editbtn" hidden>Editar</button></div>
     <div class="log" id="log" aria-live="polite"></div>
     <div class="quick" id="quick"></div>
     <form class="composer" id="form">
@@ -106,7 +132,7 @@ function render(){
  var r=RUBROS[current],c=chats[current];
  $("avatar").textContent=r.initial;$("bizname").textContent=r.name;$("bizsub").textContent=r.sub;
  var log=$("log");log.textContent="";
- var tag=document.createElement("div");tag.className="tag";tag.textContent="Domingo 23:40. El local está cerrado.";log.appendChild(tag);
+ var tag=document.createElement("div");tag.className="tag";tag.textContent=current==="custom"?"Probá escribiendo como lo haría un cliente.":"Domingo 23:40. El local está cerrado.";log.appendChild(tag);
  c.msgs.forEach(function(m){var d=document.createElement("div");d.className="msg "+m.who;d.appendChild(document.createTextNode(m.text));var t=document.createElement("time");t.textContent=m.t;d.appendChild(t);log.appendChild(d);});
  log.scrollTop=log.scrollHeight;
  var q=$("quick");q.textContent="";
@@ -135,12 +161,36 @@ Object.keys(RUBROS).forEach(function(key){
 $("form").addEventListener("submit",function(e){e.preventDefault();var v=$("msg").value.trim();if(!v||busy)return;$("msg").value="";say(v,function(c){return ai(c,key0());},false);});
 function key0(){return current;}
 function ai(c,key){
+ var extra=key==="custom"?{config:cfg}:{};
  var ms=c.msgs.map(function(m){return {role:m.who==="out"?"user":"assistant",content:m.text};});
  var ctl=new AbortController(),to=setTimeout(function(){ctl.abort();},15000);
- return fetch("/api/demo-chat",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({rubro:key,messages:ms}),signal:ctl.signal})
+ return fetch("/api/demo-chat",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(Object.assign({rubro:key,messages:ms},extra)),signal:ctl.signal})
   .then(function(r){clearTimeout(to);if(r.status===429)return "Llegaste al límite de mensajes de la demo por ahora. Probá con las respuestas rápidas.";if(!r.ok)throw 0;return r.json().then(function(d){return d.text||FALLBACK;});})
   .catch(function(){return FALLBACK;});
 }
+var cfg=null,lastDemo="floreria",foot=document.querySelector(".foot"),FOOT0=foot.textContent;
+function setMode(m){
+ var build=(m==="build"),custom=(m==="custom"),demo=(m==="demo");
+ Array.prototype.forEach.call($("modes").children,function(b){b.setAttribute("aria-pressed",String((b.getAttribute("data-m")==="demo"&&demo)||(b.getAttribute("data-m")==="build"&&(build||custom))));});
+ $("rubros").hidden=!demo;$("builder").hidden=!build;document.querySelector(".phone").hidden=build;$("editbtn").hidden=!custom;
+ foot.textContent=(build||custom)?"Demostración con tus datos. En la versión real, el agente se conecta a tu WhatsApp.":FOOT0;
+ if(demo){current=lastDemo;}else if(custom){current="custom";}
+ if(!build)render();
+}
+Array.prototype.forEach.call($("modes").children,function(b){b.addEventListener("click",function(){var m=b.getAttribute("data-m");if(m==="demo"){setMode("demo");}else{setMode("build");}});});
+var _rb=$("rubros");Array.prototype.forEach.call(_rb.children,function(el,i){el.addEventListener("click",function(){lastDemo=Object.keys(RUBROS)[i];});});
+$("editbtn").addEventListener("click",function(){setMode("build");});
+try{var sv=JSON.parse(localStorage.getItem("demoCfg")||"null");if(sv){["negocio","agente","info","reglas"].forEach(function(k){if(sv[k])$("b_"+k).value=sv[k];});if(sv.tono)$("b_tono").value=sv.tono;}}catch(e){}
+$("builder").addEventListener("submit",function(e){
+ e.preventDefault();
+ var n=$("b_negocio").value.trim(),inf=$("b_info").value.trim();if(!n||!inf)return;
+ cfg={negocio:n,agente:$("b_agente").value.trim(),tono:$("b_tono").value,info:inf,reglas:$("b_reglas").value.trim()};
+ try{localStorage.setItem("demoCfg",JSON.stringify(cfg));}catch(e){}
+ var who=cfg.agente||"el asistente";
+ RUBROS.custom={label:"Tu agente",initial:n.charAt(0).toUpperCase(),name:n,sub:"agente de IA · responde al instante",menu:[]};
+ chats.custom={msgs:[{who:"in",text:"¡Hola! Soy "+who+" de "+n+". ¿En qué te puedo ayudar?",t:"23:40"}],used:[],handed:false};
+ setMode("custom");
+});
 render();
 </script>
 </body>
