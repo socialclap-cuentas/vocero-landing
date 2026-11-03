@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acompañamiento de Navidad | Social Clap</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1F5BFF">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0F172A;--soft:#64748B;--accent:#1F5BFF;--bg:#F5F7FA;--border:#CBD5E1}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+main{max-width:520px;margin:0 auto;padding:36px 20px 56px}
+h1{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(24px,6vw,30px);line-height:1.2;margin:0 0 10px}
+.lead{color:var(--soft);font-size:16px;line-height:1.5;margin:0 0 18px}
+.box{background:#fff;border:1.5px solid #BFD3FF;border-top:5px solid var(--accent);border-radius:20px;padding:22px 20px;box-shadow:0 14px 36px rgba(31,91,255,.12)}
+.inc{margin:0 0 18px;padding-left:20px;font-size:15px;line-height:1.6}
+form{display:flex;flex-direction:column;gap:14px}
+.f{display:flex;flex-direction:column;gap:5px}
+label,.q{font-size:14px;font-weight:600}
+input[type=text],input[type=tel],select{font:inherit;font-size:16px;padding:12px;border:1.5px solid var(--border);border-radius:10px;background:#fff;width:100%}
+input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(31,91,255,.15)}
+.opts{display:flex;gap:18px}
+.opt{display:flex;align-items:center;gap:6px;font-weight:500;font-size:16px}
+.opt input{accent-color:var(--accent);width:16px;height:16px}
+.hint{font-size:13px;color:var(--soft);line-height:1.45;font-weight:400}
+button{font:inherit;font-weight:700;font-size:17px;background:var(--accent);color:#fff;border:0;border-radius:12px;padding:14px;cursor:pointer;box-shadow:0 10px 30px rgba(31,91,255,.35)}
+button[disabled]{opacity:.6;cursor:default}
+.msg{display:none;text-align:center}
+.msg h2{font-family:'Sora',sans-serif;font-size:22px;margin:0 0 8px}
+.msg p{color:var(--soft);line-height:1.5;margin:0 0 16px}
+.msg a{display:inline-block;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;padding:14px 22px;border-radius:12px}
+.trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.err{color:#B91C1C;font-size:14px;display:none}
+</style>
+</head>
+<body>
+<main>
+  <h1>Quiero que me ayuden a vender esta Navidad</h1>
+  <p class="lead">Solo 5 lugares, para noviembre y diciembre. Completá estos datos y elegís día y horario para una llamada conmigo.</p>
+  <div class="box">
+    <div id="formWrap">
+      <ul class="inc">
+        <li>Te dejamos el sistema instalado con tu negocio.</li>
+        <li>Te armamos los anuncios y te guiamos con los videos.</li>
+        <li>Te acompañamos los dos meses.</li>
+      </ul>
+      <form id="f" novalidate>
+        <div class="trap" aria-hidden="true"><label for="website">No completar</label><input type="text" id="website" tabindex="-1" autocomplete="off"></div>
+        <div class="f"><label for="nombre">Nombre</label><input type="text" id="nombre" autocomplete="name" maxlength="80" placeholder="¿Cómo te llamás?"></div>
+        <div class="f"><label for="wsp">Tu WhatsApp</label><input type="tel" id="wsp" autocomplete="tel" maxlength="30" placeholder="Con código de área"></div>
+        <div class="f"><label for="rubro">¿Qué vendés?</label>
+          <select id="rubro"><option value="" disabled selected hidden>Elegí una opción</option>
+            <option>Indumentaria</option><option>Regalería</option><option>Juguetería</option><option>Gastronomía</option><option>Tienda online</option><option>Ferretería</option><option>Otro</option></select></div>
+        <div class="f"><span class="q">¿Ya vendés por internet o por WhatsApp?</span>
+          <div class="opts"><label class="opt"><input type="radio" name="vende" value="Sí"> Sí</label><label class="opt"><input type="radio" name="vende" value="No"> No</label></div></div>
+        <div class="f"><span class="q">¿Contás con al menos $750.000 para empezar?</span>
+          <div class="opts"><label class="opt"><input type="radio" name="monto" value="Sí"> Sí</label><label class="opt"><input type="radio" name="monto" value="No"> No</label></div>
+          <span class="hint">Es un único pago no reembolsable por el servicio y el acompañamiento de Navidad (noviembre y diciembre). Los anuncios se pagan aparte, directo a Meta.</span></div>
+        <div class="f"><label for="pauta">¿Podés destinar plata a anuncios?</label>
+          <select id="pauta"><option value="" disabled selected hidden>Elegí una opción</option>
+            <option>Sí, ya invierto</option><option>Sí, pero no sé cuánto</option><option>Todavía no</option></select></div>
+        <div class="err" id="err" role="alert"></div>
+        <button type="submit" id="go">Quiero agendar mi reunión</button>
+      </form>
+    </div>
+    <div class="msg" id="okSi">
+      <h2>¡Listo! Ahora elegí tu horario</h2>
+      <p>Elegí el día y la hora que te queden bien para la llamada.</p>
+      <a id="agenda" href="#" rel="noopener">Elegir día y horario</a>
+    </div>
+    <div class="msg" id="okNo">
+      <h2>Gracias por tu interés</h2>
+      <p>Este acompañamiento arranca en $750.000. Si por ahora no llegás, podés contratar solo el sistema de WhatsApp con IA, desde $167.000 por mes.</p>
+      <a href="https://oferta.socialclap.agency/">Ver el sistema</a>
+    </div>
+  </div>
+</main>
+<script>
+(function(){
+  // Link de la agenda (Google Calendar, Cal.com, etc.). Mientras esté vacío, se coordina por WhatsApp.
+  var AGENDA_URL = '';
+  var WSP = '5491133346776';
+  var SB = 'https://rkaycqqizzdmhzzvgydg.supabase.co/rest/v1/nav_solicitudes';
+  var KEY = 'sb_publishable_CX2W837BM7Ec_lMTLkQlHg__B72PkSr';
+  var t0 = Date.now();
+  var f = document.getElementById('f'), err = document.getElementById('err'), go = document.getElementById('go');
+  function $(i){return document.getElementById(i);}
+  function radio(n){var r=f.querySelector('input[name="'+n+'"]:checked');return r?r.value:'';}
+  function fail(m){err.textContent=m;err.style.display='block';}
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); err.style.display='none';
+    if($('website').value||(Date.now()-t0)<3000) return;
+    var nombre=$('nombre').value.trim(), wsp=$('wsp').value.trim(), monto=radio('monto');
+    if(!nombre) return fail('Escribí tu nombre.');
+    if(wsp.replace(/\D/g,'').length<8) return fail('Escribí tu WhatsApp con código de área.');
+    if(!monto) return fail('Contestá si contás con los $750.000.');
+    var row={nombre:nombre,whatsapp:wsp,rubro:$('rubro').value||null,vende_hoy:radio('vende')||null,tiene_monto:monto,pauta:$('pauta').value||null,origen:(location.search||'').slice(0,200)||null};
+    go.disabled=true;
+    fetch(SB,{method:'POST',headers:{'apikey':KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(row)})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); })
+      .then(function(){
+        $('formWrap').style.display='none';
+        if(monto==='Sí'){
+          var a=$('agenda');
+          a.href = AGENDA_URL || ('https://wa.me/'+WSP+'?text='+encodeURIComponent('Hola, soy '+nombre+'. Quiero agendar la reunión por el acompañamiento de Navidad.'));
+          if(!AGENDA_URL) a.textContent='Coordinar por WhatsApp';
+          $('okSi').style.display='block';
+          try{fbq('track','Lead');}catch(x){}
+        } else { $('okNo').style.display='block'; }
+      })
+      .catch(function(){ go.disabled=false; fail('No pudimos enviar tus datos. Probá de nuevo en un momento.'); });
+  });
+})();
+</script>
+</body>
+</html>
