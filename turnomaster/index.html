@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TurnoMaster | Los turnos de tu consultorio, agendados solos por WhatsApp</title>
+<meta name="description" content="TurnoMaster atiende el WhatsApp de tu consultorio las 24 horas: da turnos, manda recordatorios, confirma asistencia y llena las cancelaciones. Para odontólogos y profesionales de la salud.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0F9D8A">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://turnomaster.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TurnoMaster">
+<meta property="og:title" content="TurnoMaster | Los turnos de tu consultorio, agendados solos por WhatsApp">
+<meta property="og:description" content="Un asistente que da turnos, recuerda y confirma por WhatsApp las 24 horas. Menos ausencias, más agenda llena.">
+<meta property="og:url" content="https://turnomaster.com/">
+<meta property="og:locale" content="es_AR">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"TurnoMaster","serviceType":"Gestión de turnos por WhatsApp para consultorios y profesionales de la salud","description":"Asistente por WhatsApp que da turnos, manda recordatorios, confirma asistencia, ofrece turnos liberados y avisa urgencias a consultorios y profesionales de la salud.","provider":{"@type":"Organization","name":"Social Clap","url":"https://socialclap.agency"},"areaServed":{"@type":"Country","name":"Argentina"},"inLanguage":"es-AR","url":"https://turnomaster.com/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Tengo que cambiar mi número de WhatsApp?","acceptedAnswer":{"@type":"Answer","text":"No. Usamos el WhatsApp Business oficial de tu consultorio y lo dejamos funcionando nosotros."}},{"@type":"Question","name":"¿El asistente da consejos médicos?","acceptedAnswer":{"@type":"Answer","text":"No. Solo se ocupa de los turnos y de la información que vos cargás: profesionales, tratamientos, horarios y obras sociales. Si un paciente consulta algo clínico o hay una urgencia, te avisa y te pasa la conversación."}},{"@type":"Question","name":"¿Qué obras sociales atiende?","acceptedAnswer":{"@type":"Answer","text":"Solo las que cargues. Si un paciente pregunta por una que no está en tu lista, no inventa: te avisa."}},{"@type":"Question","name":"¿Sirve si tengo varios profesionales?","acceptedAnswer":{"@type":"Answer","text":"Sí. Cada profesional tiene su agenda, sus horarios y sus tipos de turno, y el paciente puede elegir con quién atenderse."}},{"@type":"Question","name":"¿Guarda historias clínicas?","acceptedAnswer":{"@type":"Answer","text":"No. Guarda los datos administrativos del paciente (nombre, contacto, obra social). La historia clínica sigue donde la tengas hoy."}},{"@type":"Question","name":"¿Cuánto tarda en estar funcionando?","acceptedAnswer":{"@type":"Answer","text":"Lo dejamos instalado y andando; escribinos por WhatsApp y te confirmamos el plazo según tu consultorio."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0F172A;--soft:#5B6B7F;--bg:#fff;--bg2:#F3F8F7;--acc:#0F9D8A;--acc-d:#0B7A6B;--acc-s:#E3F5F2;--bd:#E2EBEA;--wa:#25D366;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:'Inter',-apple-system,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.15;letter-spacing:-.015em;margin:0}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+a{color:inherit}
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+.nav-in{max-width:1060px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.logo{font-family:'Sora',sans-serif;font-weight:800;font-size:21px;text-decoration:none}
+.logo span{color:var(--acc)}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--soft);font-weight:600;font-size:15px}
+.nav-links a:hover{color:var(--acc-d)}
+.nav-links a.btn,.nav-links a.btn:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--acc);color:#fff;font-weight:700;font-size:16.5px;padding:14px 24px;border-radius:12px;text-decoration:none;box-shadow:0 10px 28px rgba(15,157,138,.32);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(15,157,138,.4)}
+.btn.sm{padding:10px 18px;font-size:15px;box-shadow:none}
+.btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--bd);box-shadow:none}
+.btn.ghost:hover{border-color:var(--acc)}
+@media(max-width:760px){.nav-links a.hide-m{display:none}}
+/* hero */
+.hero{padding:60px 0 56px;background:linear-gradient(180deg,var(--acc-s),#fff 80%)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero-ctas,.hero-pills{justify-content:center}}
+.pill{display:inline-block;background:#fff;border:1px solid #BFE6E0;color:var(--acc-d);font-weight:700;font-size:14px;padding:6px 14px;border-radius:99px}
+.hero h1{font-size:clamp(32px,5vw,52px);font-weight:800;margin:18px 0 16px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero p.sub{font-size:19px;color:var(--soft);max-width:540px;margin:0 0 26px}
+@media(max-width:900px){.hero p.sub{margin-left:auto;margin-right:auto}}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero-pills{display:flex;gap:8px 18px;flex-wrap:wrap;margin-top:22px;font-size:14.5px;color:var(--soft);font-weight:600}
+.hero-pills span::before{content:"✓ ";color:var(--acc);font-weight:800}
+/* phone */
+.phone{width:min(310px,100%);margin:0 auto;background:#0B1220;border-radius:38px;padding:11px;box-shadow:0 28px 60px rgba(15,23,42,.28)}
+.screen{background:#EFE7DD;border-radius:29px;overflow:hidden;display:flex;flex-direction:column;min-height:470px}
+.ph-head{background:#075E54;color:#fff;padding:14px 16px;display:flex;gap:10px;align-items:center}
+.ph-av{width:36px;height:36px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex:none}
+.ph-head b{display:block;font-size:15px}.ph-head small{font-size:11.5px;opacity:.85}
+.chat{flex:1;padding:14px 12px;display:flex;flex-direction:column;gap:8px}
+.m{max-width:86%;font-size:13.8px;line-height:1.4;padding:8px 11px;border-radius:12px;color:#111827}
+.m.in{align-self:flex-start;background:#fff;border-top-left-radius:3px}
+.m.out{align-self:flex-end;background:#D9FDD3;border-top-right-radius:3px}
+.m em{display:block;font-style:normal;font-size:10.5px;color:#6B7280;text-align:right;margin-top:2px}
+.ph-note{text-align:center;font-size:12.5px;color:var(--soft);margin-top:12px}
+/* sections */
+section{padding:68px 0}
+.alt{background:var(--bg2)}
+.head{max-width:640px;margin:0 auto 40px;text-align:center}
+.head .pill{margin-bottom:12px}
+.head h2{font-size:clamp(26px,3.6vw,38px);font-weight:800;margin-bottom:10px}
+.head p{color:var(--soft);font-size:17.5px;margin:0}
+/* pain */
+.pain{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.pain{grid-template-columns:1fr}}
+.pain div{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:22px}
+.pain b{font-family:'Sora',sans-serif;font-size:30px;color:var(--acc);display:block;margin-bottom:4px}
+.pain p{margin:0;color:var(--soft);font-size:15.5px}
+/* features */
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.feats{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.feats{grid-template-columns:1fr}}
+.feat{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:22px;box-shadow:0 8px 26px rgba(15,23,42,.05)}
+.ic{width:44px;height:44px;border-radius:12px;background:var(--acc-s);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px}
+.feat h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.feat p{margin:0;color:var(--soft);font-size:15.5px}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+@media(max-width:860px){.steps{grid-template-columns:1fr}}
+.step{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:24px;counter-increment:s}
+.step::before{content:counter(s);display:flex;width:38px;height:38px;border-radius:50%;background:var(--acc);color:#fff;font-family:'Sora',sans-serif;font-weight:800;align-items:center;justify-content:center;margin-bottom:12px}
+.step h3{font-size:18px;margin-bottom:6px}.step p{margin:0;color:var(--soft);font-size:15.5px}
+/* control */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:900px;margin:0 auto}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+.box{border-radius:20px;padding:26px}
+.box.no{background:#FDF3F2;border:1.5px solid #EBB9B4}
+.box.si{background:var(--acc-s);border:1.5px solid var(--acc)}
+.box h3{font-size:18px;margin-bottom:12px}
+.box ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:16px}
+.box li::before{font-weight:800;margin-right:8px}
+.box.no li::before{content:"✕";color:#C0463C}
+.box.si li::before{content:"✓";color:var(--acc-d)}
+/* faq */
+.faq{max-width:760px;margin:0 auto;display:grid;gap:10px}
+details{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:16px 20px}
+summary{cursor:pointer;font-weight:700;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--acc);font-weight:800;font-size:20px;line-height:1}
+details[open] summary::after{content:"–"}
+summary::-webkit-details-marker{display:none}
+details p{margin:12px 0 0;color:var(--soft);font-size:15.5px}
+/* cta */
+.cta{background:linear-gradient(135deg,var(--acc-d),var(--acc));color:#fff;text-align:center;padding:64px 0}
+.cta h2{font-size:clamp(26px,3.8vw,38px);font-weight:800;margin-bottom:12px}
+.cta p{max-width:560px;margin:0 auto 26px;font-size:18px;opacity:.95}
+.cta .btn{background:#fff;color:var(--acc-d);box-shadow:0 12px 30px rgba(0,0,0,.18)}
+footer{padding:28px 0;font-size:14px;color:var(--soft);text-align:center}
+footer a{color:var(--soft)}
+.wa-float{position:fixed;right:16px;bottom:16px;z-index:60;background:var(--wa);color:#fff;font-weight:700;padding:13px 18px;border-radius:99px;text-decoration:none;box-shadow:0 10px 26px rgba(37,211,102,.45);font-size:15px}
+@media(min-width:900px){.wa-float{display:none}}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-in">
+  <a class="logo" href="/">Turno<span>Master</span></a>
+  <div class="nav-links">
+    <a class="hide-m" href="#que-hace">Qué hace</a>
+    <a class="hide-m" href="#como">Cómo funciona</a>
+    <a class="hide-m" href="#preguntas">Preguntas</a>
+    <a class="btn sm" href="https://wa.me/5491133346776?text=Hola%2C%20quiero%20ver%20TurnoMaster%20para%20mi%20consultorio." target="_blank" rel="noopener">Quiero verlo</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="pill">Para odontólogos y profesionales de la salud</span>
+    <h1>Tus turnos se <em>agendan solos</em> por WhatsApp</h1>
+    <p class="sub">Un asistente atiende a tus pacientes las 24 horas, les da turno, se los recuerda y confirma que vayan. Vos atendés; la agenda se llena sola.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="https://wa.me/5491133346776?text=Hola%2C%20quiero%20ver%20TurnoMaster%20para%20mi%20consultorio." target="_blank" rel="noopener">Quiero verlo funcionando</a>
+      <a class="btn ghost" href="#que-hace">Ver qué hace</a>
+    </div>
+    <div class="hero-pills"><span>Con tu mismo WhatsApp</span><span>Lo dejamos andando nosotros</span><span>Sin tocar tu historia clínica</span></div>
+  </div>
+  <div>
+    <div class="phone"><div class="screen">
+      <div class="ph-head"><div class="ph-av">C</div><div><b>Consultorio Dra. Pérez</b><small>en línea</small></div></div>
+      <div class="chat">
+        <div class="m in">Hola, quisiera un turno para una limpieza <em>22:41</em></div>
+        <div class="m out">¡Hola! Claro 😊 ¿Con la Dra. Pérez? Tengo mañana a las 10:30 o el jueves a las 16:00. <em>22:41</em></div>
+        <div class="m in">El jueves <em>22:42</em></div>
+        <div class="m out">Listo, ¿me pasás tu nombre completo y si tenés obra social? <em>22:42</em></div>
+        <div class="m in">Julia Ramos, OSDE <em>22:43</em></div>
+        <div class="m out">Perfecto, Julia. Turno confirmado: jueves 16:00 con la Dra. Pérez. Te escribo el día anterior para recordártelo 🦷 <em>22:43</em></div>
+      </div>
+    </div></div>
+    <p class="ph-note">Ejemplo de conversación. A las 22:41, con el consultorio cerrado.</p>
+  </div>
+</div></header>
+
+<section class="alt"><div class="wrap">
+  <div class="head"><h2>Lo que hoy te cuesta plata y tiempo</h2><p>Y que casi todos los consultorios sufren sin darse cuenta.</p></div>
+  <div class="pain">
+    <div><b>Mensajes sin contestar</b><p>El paciente escribe de noche o mientras atendés. Si nadie responde, se va a otro consultorio.</p></div>
+    <div><b>Ausencias</b><p>Un turno que se cae a último momento es una hora de trabajo perdida, y nadie la recupera.</p></div>
+    <div><b>Horas de secretaria</b><p>Pasar horarios, anotar datos y recordar turnos uno por uno consume la mitad del día.</p></div>
+  </div>
+</div></section>
+
+<section id="que-hace"><div class="wrap">
+  <div class="head"><span class="pill">Qué hace por vos</span><h2>Todo lo de la agenda, resuelto</h2><p>Conversa como una persona, con tus horarios y tus reglas.</p></div>
+  <div class="feats">
+    <div class="feat"><div class="ic">📅</div><h3>Da turnos solo</h3><p>Ofrece los horarios libres, anota los datos del paciente y deja el turno en la agenda. Sin vueltas.</p></div>
+    <div class="feat"><div class="ic">🔔</div><h3>Recuerda y confirma</h3><p>Avisa antes del turno y le pide al paciente que confirme. Si no va a poder, lo sabés a tiempo.</p></div>
+    <div class="feat"><div class="ic">🔁</div><h3>Llena las cancelaciones</h3><p>Cuando se libera un horario, se lo ofrece a quienes estaban esperando. El hueco no queda vacío.</p></div>
+    <div class="feat"><div class="ic">👩‍⚕️</div><h3>Varios profesionales</h3><p>Cada doctor con su agenda, sus horarios y sus tipos de turno. El paciente elige con quién.</p></div>
+    <div class="feat"><div class="ic">🏥</div><h3>Obras sociales</h3><p>Atiende solo las que vos cargues. Si preguntan por otra, no inventa: te avisa.</p></div>
+    <div class="feat"><div class="ic">💳</div><h3>Seña para reservar</h3><p>Podés pedir una seña para confirmar el turno y así reducir faltazos.</p></div>
+    <div class="feat"><div class="ic">🚨</div><h3>Avisa urgencias</h3><p>Si un paciente cuenta algo urgente, el asistente frena, te avisa al instante y no sigue como si nada.</p></div>
+    <div class="feat"><div class="ic">⭐</div><h3>Pide opinión</h3><p>Después de la visita consulta cómo les fue y, si les gustó, los invita a dejarte una reseña.</p></div>
+    <div class="feat"><div class="ic">📊</div><h3>Números claros</h3><p>Turnos dados, ausencias y cancelaciones en un panel simple, para ver cómo viene el consultorio.</p></div>
+  </div>
+</div></section>
+
+<section class="alt" id="como"><div class="wrap">
+  <div class="head"><span class="pill">Cómo funciona</span><h2>Lo instalamos nosotros</h2><p>Vos no tenés que saber nada de tecnología.</p></div>
+  <div class="steps">
+    <div class="step"><h3>Nos contás tu consultorio</h3><p>Profesionales, horarios, tratamientos y obras sociales. Con eso armamos todo.</p></div>
+    <div class="step"><h3>Lo dejamos andando</h3><p>Se conecta a tu WhatsApp Business, el mismo número que ya usan tus pacientes.</p></div>
+    <div class="step"><h3>Vos atendés</h3><p>Los turnos aparecen en tu agenda. Si hay algo que requiere a una persona, te avisa.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="head"><h2>Vos tenés el control</h2><p>Un asistente de turnos, no un reemplazo del criterio profesional.</p></div>
+  <div class="two">
+    <div class="box no"><h3>Lo que NO hace</h3><ul><li>Dar diagnósticos ni consejos médicos</li><li>Inventar precios, tratamientos u obras sociales</li><li>Hacerse pasar por una persona</li><li>Guardar tu historia clínica</li></ul></div>
+    <div class="box si"><h3>Lo que SÍ hace</h3><ul><li>Responder con la información que vos cargaste</li><li>Pasarte la conversación cuando hace falta</li><li>Avisarte ante una urgencia</li><li>Cuidar los datos de tus pacientes</li></ul></div>
+  </div>
+</div></section>
+
+<section class="alt" id="preguntas"><div class="wrap">
+  <div class="head"><h2>Preguntas frecuentes</h2></div>
+  <div class="faq">
+    <details><summary>¿Tengo que cambiar mi número de WhatsApp?</summary><p>No. Usamos el WhatsApp Business oficial de tu consultorio y lo dejamos funcionando nosotros.</p></details>
+    <details><summary>¿El asistente da consejos médicos?</summary><p>No. Solo se ocupa de los turnos y de la información que vos cargás: profesionales, tratamientos, horarios y obras sociales. Si un paciente consulta algo clínico o hay una urgencia, te avisa y te pasa la conversación.</p></details>
+    <details><summary>¿Qué obras sociales atiende?</summary><p>Solo las que cargues. Si un paciente pregunta por una que no está en tu lista, no inventa: te avisa.</p></details>
+    <details><summary>¿Sirve si tengo varios profesionales?</summary><p>Sí. Cada profesional tiene su agenda, sus horarios y sus tipos de turno, y el paciente puede elegir con quién atenderse.</p></details>
+    <details><summary>¿Guarda historias clínicas?</summary><p>No. Guarda los datos administrativos del paciente (nombre, contacto, obra social). La historia clínica sigue donde la tengas hoy.</p></details>
+    <details><summary>¿Cuánto cuesta y cuánto tarda?</summary><p>Depende del tamaño de tu consultorio. Escribinos por WhatsApp y en la misma charla te pasamos el valor y el plazo.</p></details>
+  </div>
+</div></section>
+
+<section class="cta"><div class="wrap">
+  <h2>Mirá cómo atiende a tus pacientes</h2>
+  <p>Escribinos por WhatsApp y te mostramos TurnoMaster funcionando con un consultorio de ejemplo.</p>
+  <a class="btn" href="https://wa.me/5491133346776?text=Hola%2C%20quiero%20ver%20TurnoMaster%20para%20mi%20consultorio." target="_blank" rel="noopener">Hablar por WhatsApp</a>
+</div></section>
+
+<footer><div class="wrap">TurnoMaster es un servicio de <a href="https://socialclap.agency" rel="noopener">Social Clap</a> · <a href="https://oferta.socialclap.agency/privacy.html">Privacidad</a> · <a href="https://oferta.socialclap.agency/terminos.html">Términos</a></div></footer>
+
+<a class="wa-float" href="https://wa.me/5491133346776?text=Hola%2C%20quiero%20ver%20TurnoMaster%20para%20mi%20consultorio." target="_blank" rel="noopener">WhatsApp</a>
+</body>
+</html>
