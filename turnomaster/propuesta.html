@@ -6,124 +6,276 @@
 <title>Propuesta para tu consultorio | TurnoMaster</title>
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="googlebot" content="noindex, nofollow">
-<meta name="theme-color" content="#0D5BFF">
+<meta name="theme-color" content="#0A1530">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<style>@font-face{font-family:Urbanist;src:url(/fonts/urbanist-latin-variable.woff2) format("woff2");font-weight:100 900;font-display:swap}
-:root{--ink:#141a17;--soft:#47524d;--mute:#5f6a65;--bd:#e1e9e4;--acc:#0d5bff;--acc-s:#ebf1ff;--bg2:#eef4f0}
-*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;font-family:Urbanist,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.65;font-size:17px}
-.top{border-bottom:1px solid var(--bd);background:#fff;position:sticky;top:0;z-index:5}
-.top div{max-width:760px;margin:0 auto;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.brand{font-weight:800;font-size:20px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
-.back{color:var(--acc);font-weight:700;text-decoration:none;font-size:15px}
-main{max-width:760px;margin:0 auto;padding:36px 22px 64px}
-h1{font-size:clamp(30px,6vw,42px);line-height:1.1;letter-spacing:-.025em;margin:0 0 8px}
-.upd{color:var(--mute);font-size:15px;margin:0 0 26px}
-.lead{background:var(--acc-s);border-radius:14px;padding:16px 18px;color:var(--ink);margin:0 0 28px;font-size:17px}
-h2{font-size:22px;letter-spacing:-.015em;margin:34px 0 8px}
-p{margin:0 0 14px;color:var(--soft)}ul{margin:0 0 16px;padding-left:22px;color:var(--soft)}li{margin:0 0 7px}
-a{color:var(--acc)}strong{color:var(--ink)}
-.cta{display:inline-block;background:var(--acc);color:#fff!important;font-weight:700;padding:13px 22px;border-radius:13px;text-decoration:none;margin:6px 0 10px}
-footer{border-top:1px solid var(--bd);background:var(--bg2)}footer div{max-width:760px;margin:0 auto;padding:22px;font-size:15px;color:var(--mute)}
-footer a{margin-right:14px;font-weight:600}
-@media(max-width:480px){body{font-size:16px}h2{font-size:20px}}
-.badge{display:inline-block;background:var(--acc-s);color:var(--acc);font-weight:700;font-size:14px;padding:6px 12px;border-radius:99px;margin:0 0 14px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 6px}
-.card{border:1px solid var(--bd);border-radius:16px;padding:18px;background:#fff;box-shadow:0 1px 2px rgba(20,40,30,.04),0 10px 30px -14px rgba(20,40,30,.16)}
-.card.main{border-color:var(--acc);background:var(--acc-s)}
-.card small{display:block;color:var(--mute);font-size:14px;font-weight:600}
-.card b{display:block;font-size:30px;letter-spacing:-.02em;color:var(--ink);line-height:1.15;margin:4px 0}
-.card span{color:var(--soft);font-size:15px}
-.ok{list-style:none;padding:0}.ok li{padding-left:28px;position:relative}.ok li:before{content:"✓";position:absolute;left:0;color:#157a41;font-weight:800}
+<style>
+@font-face{font-family:Urbanist;src:url(/fonts/urbanist-latin-variable.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--ink:#0f1722;--soft:#46525c;--mute:#66727c;--bd:#e0e8ee;--acc:#0d5bff;--acc-d:#0038d8;--acc-s:#ebf1ff;--bg2:#f1f5fb;--navy:#0a1530;--navy2:#0f1d3d;--ok:#157a41;--ok-s:#e7f7ee;--ok-b:#bfe8d0;--gold:#ffd24a}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:Urbanist,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;font-size:17px}
+.w{max-width:880px;margin:0 auto;padding:0 22px}
+.top{position:sticky;top:0;z-index:10;background:rgba(10,21,48,.92);backdrop-filter:blur(8px)}
+.top .w{display:flex;justify-content:space-between;align-items:center;padding-top:13px;padding-bottom:13px;gap:12px}
+.brand{font-weight:800;font-size:20px;letter-spacing:-.02em;color:#fff;text-decoration:none}
+.top a.go{background:#25d366;color:#04301a;font-weight:800;font-size:14px;padding:9px 15px;border-radius:99px;text-decoration:none;white-space:nowrap}
+.hero{background:radial-gradient(900px 400px at 85% -10%,rgba(37,211,102,.22),transparent 60%),linear-gradient(160deg,#0a1530 0%,#0b2a8f 62%,#0d5bff 100%);color:#fff;padding:54px 0 64px}
+.badge{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);color:#fff;font-weight:700;font-size:14px;padding:6px 13px;border-radius:99px;margin:0 0 18px}
+h1{font-size:clamp(34px,8vw,54px);line-height:1.04;letter-spacing:-.03em;margin:0 0 16px;font-weight:800}
+.hero p{color:#d6e2ff;font-size:19px;max-width:600px;margin:0 0 6px}
+.hero .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-weight:700;font-size:14px;padding:7px 13px;border-radius:99px}
+section{padding:54px 0}
+.alt{background:var(--bg2)}
+.dark{background:linear-gradient(180deg,var(--navy),var(--navy2));color:#fff}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin:0 0 8px}
+.dark .eyebrow{color:#7fb0ff}
+h2{font-size:clamp(26px,5.4vw,36px);line-height:1.12;letter-spacing:-.025em;margin:0 0 12px;font-weight:800}
+.sub{color:var(--soft);margin:0 0 26px;max-width:640px}.dark .sub{color:#b9c8e6}
+p{margin:0 0 14px;color:var(--soft)}
+a{color:var(--acc)}strong{color:var(--ink)}.dark strong{color:#fff}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.plan{border-radius:22px;padding:26px 24px;position:relative;display:flex;flex-direction:column}
+.plan.a{background:#fff;border:2px solid var(--acc);box-shadow:0 24px 60px -24px rgba(13,91,255,.45)}
+.plan.b{background:linear-gradient(165deg,#111c33,#0a1530);color:#fff;border:2px solid #22305a}
+.tag{position:absolute;top:-13px;left:22px;background:var(--gold);color:#3a2a00;font-weight:800;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;padding:5px 12px;border-radius:99px}
+.plan.b .tag{background:#25d366;color:#04301a}
+.pname{font-size:15px;font-weight:800;color:var(--acc);margin:6px 0 2px;letter-spacing:.02em;text-transform:uppercase}
+.plan.b .pname{color:#7fb0ff}
+.plan h3{font-size:22px;line-height:1.2;margin:0 0 14px;letter-spacing:-.02em}
+.plan.b h3{color:#fff}
+.price{font-size:46px;font-weight:800;letter-spacing:-.035em;line-height:1;margin:0}
+.plan.a .price{background:linear-gradient(90deg,#0d5bff,#0038d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.plan.b .price{color:#fff}
+.price small{font-size:17px;font-weight:700;letter-spacing:0;color:var(--mute);-webkit-text-fill-color:currentColor}
+.plan.b .price small{color:#9fb4de}
+.pnote{color:var(--mute);font-size:15px;margin:6px 0 16px}.plan.b .pnote{color:#9fb4de}
+.pmo{background:var(--acc-s);border-radius:14px;padding:12px 14px;margin:0 0 16px;font-size:15.5px;color:var(--ink)}
+.pmo b{color:var(--acc-d)}
+.plan.b .pmo{background:rgba(255,255,255,.08);color:#e5edff}.plan.b .pmo b{color:#7fe9a6}
+.plan ul{list-style:none;padding:0;margin:0 0 20px;flex:1}
+.plan li{padding-left:26px;position:relative;margin:0 0 8px;font-size:16px;color:var(--soft)}
+.plan.b li{color:#c9d6f0}
+.plan li:before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}.plan.b li:before{color:#25d366}
+.btn{display:block;text-align:center;font-weight:800;font-size:17px;padding:15px 20px;border-radius:14px;text-decoration:none;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.p{background:var(--acc);color:#fff!important;box-shadow:0 12px 28px -10px rgba(13,91,255,.6)}
+.btn.g{background:#25d366;color:#04301a!important;box-shadow:0 12px 28px -10px rgba(37,211,102,.5)}
+.vs{width:100%;border-collapse:separate;border-spacing:0;margin:30px 0 0;font-size:15.5px;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd)}
+.vs th,.vs td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--bd);vertical-align:top;color:var(--soft)}
+.vs thead th{background:var(--navy);color:#fff;font-size:14px}
+.vs td:first-child{font-weight:700;color:var(--ink);width:34%}
+.vs tr:last-child td{border-bottom:0}
+.vs td.a{background:var(--acc-s);color:var(--ink);font-weight:600}
+.steps{list-style:none;padding:0;margin:22px 0 0;position:relative}
+.steps:before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--acc),#25d366)}
+.steps li{position:relative;padding:0 0 22px 58px;color:var(--soft)}
+.steps li:last-child{padding-bottom:0}
+.steps .n{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--acc);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px #fff}
+.steps li:last-child .n{background:#25d366;color:#04301a}
+.steps b{display:block;color:var(--ink);font-size:18px;margin-bottom:2px}
+.callout{background:var(--acc-s);border:1px solid #c9dbff;border-radius:16px;padding:16px 18px;margin:26px 0 0;color:var(--ink)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.box{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:22px}
+.box h3{margin:0 0 12px;font-size:19px}
+.dark .box{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+.dark .box h3{color:#fff}
+.ok{list-style:none;padding:0;margin:0}.ok li{padding-left:26px;position:relative;margin:0 0 9px;color:var(--soft)}
+.dark .ok li{color:#c9d6f0}
+.ok li:before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}.dark .ok li:before{color:#25d366}
 .no li:before{content:"–";color:var(--mute)}
-.guar{background:#e9f7ee;border:1px solid #c9ebd6;border-radius:16px;padding:20px;margin:26px 0}
+.guar{background:linear-gradient(160deg,#e7f7ee,#d3f2e1);border:1px solid var(--ok-b);border-radius:22px;padding:28px 24px}
 .guar h2{margin-top:0}
-.steps{counter-reset:s;list-style:none;padding:0}.steps li{counter-increment:s;padding-left:42px;position:relative;margin-bottom:14px}
-.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--acc);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
-.ex{background:var(--bg2);border-radius:14px;padding:14px 18px;margin:12px 0 18px}
-.ex p{margin:0 0 4px;color:var(--ink)}
-@media(max-width:480px){.grid{grid-template-columns:1fr}.card b{font-size:28px}}</style>
+.fine{font-size:14.5px;color:var(--mute)}
+.final{background:linear-gradient(160deg,#0a1530,#0b2a8f 70%,#0d5bff);color:#fff;text-align:center;padding:60px 0}
+.final h2{color:#fff}.final p{color:#d6e2ff}
+.final .btn{max-width:360px;margin:18px auto 0}
+.final .fine{color:#a9bde8;margin-top:18px}.final a{color:#fff}
+footer{background:#060d20;color:#8da0c9}footer .w{padding-top:22px;padding-bottom:22px;font-size:15px}
+footer a{color:#cdd9f5;margin-right:14px;font-weight:600}
+@media(max-width:720px){.plans,.grid2{grid-template-columns:1fr}.price{font-size:42px}section{padding:44px 0}.hero{padding:42px 0 52px}.vs{font-size:14px}.vs th,.vs td{padding:10px}}
+</style>
 </head>
 <body>
-<div class="top"><div><a class="brand" href="/">TurnoMaster</a><a class="back" href="https://wa.me/5491176236396?text=Hola%20Lean%2C%20quiero%20empezar%20con%20TurnoMaster%20en%20mi%20consultorio." rel="noopener">Hablar por WhatsApp</a></div></div>
-<main>
+<div class="top"><div class="w"><a class="brand" href="/">TurnoMaster</a><a class="go" href="https://wa.me/5491176236396?text=Hola%20Lean%2C%20quiero%20consultarte%20sobre%20TurnoMaster%20para%20mi%20consultorio." rel="noopener">Hablar por WhatsApp</a></div></div>
+
+<header class="hero"><div class="w">
 <span class="badge">Precio de lanzamiento</span>
 <h1>Propuesta para tu consultorio</h1>
-<p class="lead">Un asistente que atiende tu WhatsApp las 24 horas y te llena la agenda. Lo instalamos nosotros, lo probás 60 días sin pagar mensualidad y, si no te da turnos, te devolvemos la instalación.</p>
+<p>Un asistente que atiende tu WhatsApp las 24 horas, da turnos solo y te llena la agenda. Elegí cómo lo querés: que lo instalemos nosotros, o hacerlo vos con nuestra guía.</p>
+<div class="chips"><span class="chip">60 días sin mensualidad</span><span class="chip">Garantía de devolución</span><span class="chip">Soporte todos los días</span></div>
+</div></header>
 
-<h2>Cuánto cuesta</h2>
-<div class="grid">
-<div class="card main"><small>Instalación (pago único)</small><b>$475.000</b><span>Lo dejamos andando nosotros</span></div>
-<div class="card"><small>Primeros 60 días</small><b>Sin cargo</b><span>Sin mensualidad mientras lo probás</span></div>
-<div class="card"><small>Desde el día 61</small><b>$63.000<span style="font-size:16px"> /mes</span></b><span>Hasta 2 profesionales incluidos</span></div>
-<div class="card"><small>Cada profesional extra</small><b>$18.000<span style="font-size:16px"> /mes</span></b><span>Se suma a la mensualidad</span></div>
+<section><div class="w">
+<p class="eyebrow">Elegí tu opción</p>
+<h2>Dos formas de tenerlo</h2>
+<p class="sub">La Opción A es la más simple: lo dejamos andando y te acompañamos todos los meses. La Opción B es para quien prefiere pagar una sola vez y manejarlo por su cuenta.</p>
+<div class="plans">
+<div class="plan a">
+<span class="tag">La más elegida</span>
+<div class="pname">Opción A</div>
+<h3>Lo instalamos nosotros</h3>
+<p class="price">$475.000</p>
+<p class="pnote">Instalación, pago único</p>
+<div class="pmo"><b>Primeros 60 días sin mensualidad.</b><br>Después, <b>$63.000 por mes</b> (hasta 2 profesionales) y <b>$18.000</b> por cada profesional extra.</div>
+<ul>
+<li>Instalación completa, hecha por nosotros</li>
+<li>Asistente de IA atendiendo 24 horas</li>
+<li>Agenda y panel propios</li>
+<li>Soporte todos los días</li>
+<li>Ayuda si WhatsApp bloquea tu número</li>
+<li><strong>Garantía de devolución de 60 días</strong></li>
+</ul>
+<a class="btn p" href="https://wa.me/5491176236396?text=Hola%20Lean%2C%20quiero%20empezar%20con%20TurnoMaster%20en%20mi%20consultorio%20%28Opci%C3%B3n%20A%3A%20lo%20instalan%20ustedes%29." rel="noopener">Quiero la Opción A</a>
 </div>
-<div class="ex"><p><strong>Ejemplos de mensualidad:</strong></p><p>1 o 2 profesionales: $63.000 por mes</p><p>3 profesionales: $81.000 por mes</p><p>5 profesionales: $117.000 por mes</p></div>
-
-<h2>Qué incluye</h2>
-<ul class="ok">
-<li><strong>Atiende tu WhatsApp las 24 horas</strong>, con tu mismo número. Se presenta como asistente de inteligencia artificial.</li>
-<li><strong>Da turnos solo:</strong> ofrece los horarios libres de cada profesional, anota los datos del paciente y deja el turno en la agenda.</li>
-<li><strong>Recuerda y confirma</strong> cada turno antes de que sea, para que no se caigan a último momento.</li>
-<li><strong>Mueve y cancela turnos</strong> cuando el paciente lo pide.</li>
-<li><strong>Llena las cancelaciones:</strong> si se libera un horario, se lo ofrece a quienes estaban esperando.</li>
-<li><strong>Varios profesionales, obras sociales y tipos de turno</strong>, cada uno con sus horarios y precios.</li>
-<li><strong>Te avisa por correo</strong> de cada turno nuevo, cancelado o movido.</li>
-<li><strong>Cuida las urgencias:</strong> si un paciente cuenta algo urgente, no agenda: te avisa y lo pasa con una persona de tu equipo.</li>
-<li><strong>Una agenda y un panel propios</strong> para ver todo en un solo lugar, desde el celular o la compu.</li>
-<li><strong>Instalación completa:</strong> conectamos tu WhatsApp, cargamos tus profesionales, horarios, obras sociales y tipos de turno, y lo probamos con vos antes de salir.</li>
-<li><strong>Soporte todos los días</strong> por WhatsApp.</li>
+<div class="plan b">
+<span class="tag">Sin cuota mensual</span>
+<div class="pname">Opción B</div>
+<h3>Implementación propia</h3>
+<p class="price">$1.900.000</p>
+<p class="pnote">Pago único, para siempre</p>
+<div class="pmo"><b>Cero mensualidades.</b><br>Consultoría de 30 días: te enseñamos y te acompañamos, y lo implementás vos o tu equipo.</div>
+<ul>
+<li>Sistema completo y su código, para tu consultorio</li>
+<li>Plan paso a paso para instalarlo</li>
+<li>Capacitación a alguien de tu equipo</li>
+<li>Tu propio servidor y tu propio entorno</li>
+<li>Acompañamiento durante los 30 días</li>
 </ul>
+<a class="btn g" href="https://wa.me/5491176236396?text=Hola%20Lean%2C%20me%20interesa%20la%20Opci%C3%B3n%20B%20de%20TurnoMaster%3A%20implementaci%C3%B3n%20propia." rel="noopener">Quiero la Opción B</a>
+</div>
+</div>
 
-<h2>Qué cubre la mensualidad</h2>
-<ul class="ok">
-<li><strong>El uso del sistema:</strong> la agenda, el panel y todo lo que usás todos los días.</li>
-<li><strong>El asistente de inteligencia artificial</strong> funcionando las 24 horas.</li>
-<li><strong>Mantenimiento:</strong> servidores, actualizaciones y que todo siga andando.</li>
-<li><strong>Soporte todos los días</strong> por WhatsApp para ajustes y dudas.</li>
-<li><strong>Si pasa algo grave</strong>, como que WhatsApp bloquee o banee tu número, te acompañamos a resolverlo y a volver a funcionar lo antes posible.</li>
-</ul>
+<table class="vs">
+<thead><tr><th></th><th>Opción A</th><th>Opción B</th></tr></thead>
+<tbody>
+<tr><td>Quién lo instala</td><td class="a">Nosotros</td><td>Vos o tu equipo, con nuestra guía</td></tr>
+<tr><td>Pago inicial</td><td class="a">$475.000</td><td>$1.900.000</td></tr>
+<tr><td>Mensualidad</td><td class="a">$63.000 desde el día 61</td><td>No hay</td></tr>
+<tr><td>Soporte</td><td class="a">Todos los días</td><td>30 días de acompañamiento</td></tr>
+<tr><td>Garantía de devolución</td><td class="a">Sí, 60 días</td><td>No</td></tr>
+<tr><td>Ideal para</td><td class="a">Cualquier consultorio</td><td>Clínicas con alguien técnico</td></tr>
+</tbody></table>
+</div></section>
 
-<h2>Qué no incluye</h2>
-<ul class="ok no">
-<li><strong>Historias clínicas.</strong> TurnoMaster no las guarda ni las pide: solo datos para dar el turno (nombre, documento, obra social).</li>
-<li><strong>El cargo de WhatsApp por mensajes.</strong> Es un cobro de WhatsApp (Meta) a tu cuenta, según cuánto uses. No lo cobramos nosotros. Antes de arrancar te explicamos cómo funciona.</li>
-</ul>
-
-<h2>Cómo se paga</h2>
+<section class="alt"><div class="w">
+<p class="eyebrow">Opción A</p>
+<h2>Cómo es la instalación</h2>
+<p class="sub">Nosotros nos ocupamos de todo para dejar funcionando a tu asistente de inteligencia artificial. Vos solo nos pasás la información.</p>
 <ol class="steps">
-<li><strong>Instalación: $475.000, pago único,</strong> al empezar. Con eso lo dejamos funcionando.</li>
-<li><strong>Los primeros 60 días no pagás mensualidad.</strong> Lo usás con pacientes reales y ves cómo anda.</li>
-<li><strong>Desde el día 61</strong> empieza la mensualidad de $63.000 (más $18.000 por cada profesional después del segundo).</li>
+<li><span class="n">1</span><b>Tu cuenta de Meta</b>Trabajamos dentro de tu cuenta comercial de Meta (el Administrador comercial). Si no tenés una, te la creamos y te damos acceso, para que entres cuando quieras y tengas todo tu entorno de trabajo.</li>
+<li><span class="n">2</span><b>Conectamos tu WhatsApp</b>Ingresamos a tu cuenta y conectamos el número de tu consultorio.</li>
+<li><span class="n">3</span><b>Hacemos las verificaciones</b>Realizamos las verificaciones necesarias para que todo quede habilitado y funcionando.</li>
+<li><span class="n">4</span><b>Cargamos tu consultorio</b>Profesionales, días y horarios, obras sociales y tipos de turno.</li>
+<li><span class="n">5</span><b>Lo probamos con vos</b>Hacemos conversaciones de prueba antes de salir, para ajustar cómo habla y qué responde.</li>
+<li><span class="n">6</span><b>Salimos en vivo</b>El asistente empieza a atender a tus pacientes y te enseñamos a usar la agenda y el panel.</li>
 </ol>
-<p>Se paga por <strong>transferencia bancaria o link de pago</strong>, que te enviamos por mensaje cuando confirmás. Si cambiamos precios, te avisamos con anticipación y rige desde el período siguiente. Este es un precio de lanzamiento.</p>
+<div class="callout"><strong>La cuenta de Meta y tu número quedan a tu nombre.</strong> Nosotros dejamos todo funcionando, pero el entorno es tuyo.</div>
+</div></section>
 
+<section><div class="w">
+<p class="eyebrow">Opción A</p>
+<h2>Qué incluye</h2>
+<div class="grid2" style="margin-top:20px">
+<div class="box"><h3>El asistente</h3><ul class="ok">
+<li><strong>Atiende tu WhatsApp las 24 horas</strong> con tu mismo número. Se presenta como asistente de inteligencia artificial.</li>
+<li><strong>Da turnos solo:</strong> ofrece los horarios libres, anota los datos y deja el turno en la agenda.</li>
+<li><strong>Recuerda y confirma</strong> cada turno para que no se caigan.</li>
+<li><strong>Mueve y cancela turnos</strong> cuando el paciente lo pide.</li>
+<li><strong>Llena las cancelaciones</strong> ofreciendo el hueco a quienes esperaban.</li>
+<li><strong>Cuida las urgencias:</strong> no agenda, te avisa y lo pasa con tu equipo.</li>
+</ul></div>
+<div class="box"><h3>Tu consultorio</h3><ul class="ok">
+<li><strong>Varios profesionales, obras sociales y tipos de turno</strong>, cada uno con sus horarios y precios.</li>
+<li><strong>Agenda y panel propios</strong> para verlo todo desde el celular o la compu.</li>
+<li><strong>Avisos por correo</strong> de cada turno nuevo, cancelado o movido.</li>
+<li><strong>Instalación completa</strong> hecha por nosotros.</li>
+</ul></div>
+</div>
+<div class="grid2" style="margin-top:16px">
+<div class="box"><h3>La mensualidad cubre</h3><ul class="ok">
+<li><strong>El uso del sistema:</strong> agenda, panel y todo lo diario.</li>
+<li><strong>El asistente de IA</strong> funcionando las 24 horas.</li>
+<li><strong>Mantenimiento:</strong> servidores y actualizaciones.</li>
+<li><strong>Soporte todos los días</strong> por WhatsApp.</li>
+<li><strong>Si pasa algo grave</strong>, como que WhatsApp bloquee tu número, te acompañamos a resolverlo.</li>
+</ul></div>
+<div class="box"><h3>No incluye</h3><ul class="ok no">
+<li><strong>Historias clínicas.</strong> No las guardamos ni las pedimos: solo datos para dar el turno.</li>
+<li><strong>El cargo de WhatsApp por mensajes.</strong> Lo cobra WhatsApp (Meta) a tu cuenta, según cuánto uses. No lo cobramos nosotros. Antes de arrancar te explicamos cómo funciona.</li>
+</ul></div>
+</div>
+</div></section>
+
+<section class="dark"><div class="w">
+<p class="eyebrow">Opción B</p>
+<h2>Implementación propia: cómo funciona</h2>
+<p class="sub">Para quien no quiere atarse a una cuota mensual. Pagás una sola vez y te quedás con el sistema. Lo implementás vos o tu equipo, y nosotros te guiamos durante 30 días.</p>
+<div class="grid2">
+<div class="box"><h3>Qué recibís</h3><ul class="ok">
+<li>El sistema completo y su código, para usar en tu consultorio.</li>
+<li>Un plan paso a paso para instalarlo.</li>
+<li>Capacitación a alguien de tu equipo, para que sepa manejarlo y hacerle cambios.</li>
+<li>Guía para sacarle provecho y adaptarlo a tu forma de trabajar.</li>
+<li>Tu propio servidor y tu propio entorno de trabajo.</li>
+<li>Acompañamiento durante los 30 días para que todo funcione bien.</li>
+</ul></div>
+<div class="box"><h3>Qué te toca a vos</h3><ul class="ok no">
+<li>La implementación la hacés vos o tu equipo. Nosotros guiamos, no armamos.</li>
+<li>El servidor, el uso de inteligencia artificial y el cargo de WhatsApp por mensajes.</li>
+<li>El mantenimiento después de los 30 días. Si necesitás ayuda, se cotiza aparte.</li>
+<li>Una persona con conocimientos técnicos en tu equipo.</li>
+</ul></div>
+</div>
+<div style="max-width:360px;margin-top:26px"><a class="btn g" href="https://wa.me/5491176236396?text=Hola%20Lean%2C%20me%20interesa%20la%20Opci%C3%B3n%20B%20de%20TurnoMaster%3A%20implementaci%C3%B3n%20propia." rel="noopener">Quiero la Opción B</a></div>
+</div></section>
+
+<section><div class="w">
 <div class="guar">
+<p class="eyebrow" style="color:var(--ok)">Opción A</p>
 <h2>Garantía de 60 días</h2>
-<p>Si en los primeros 60 días vemos que el asistente <strong>no cumple su trabajo, que es dar turnos</strong> (no agenda, o responde pero no funciona), podés pedir la devolución de lo que pagaste de instalación. Y te la devolvemos.</p>
+<p style="color:#24493a">Si en los primeros 60 días vemos que el asistente <strong>no cumple su trabajo, que es dar turnos</strong> (no agenda, o responde pero no funciona), podés pedir la devolución de lo que pagaste de instalación. Y te la devolvemos.</p>
 <ul class="ok">
 <li>Lo pedís por WhatsApp dentro de los 60 días.</li>
 <li>Revisamos juntos las conversaciones y cómo funcionó.</li>
 <li>Si se comprueba, te devolvemos la instalación.</li>
 </ul>
-<p style="font-size:15px">Además, como en toda contratación a distancia, tenés derecho a arrepentirte dentro de los 10 días corridos. Las condiciones están en los <a href="/terminos">Términos</a>.</p>
-<p style="font-size:15px;margin:0">Para que la garantía valga, tu consultorio tiene que haber cargado su información (horarios, profesionales, obras sociales) y usar el sistema con su número. No aplica si el problema es una decisión de WhatsApp sobre tu número, que no depende de nosotros. Los mensajes de WhatsApp que ya se pagaron a Meta no se devuelven.</p>
+<p class="fine">Para que la garantía valga, tu consultorio tiene que haber cargado su información (horarios, profesionales, obras sociales) y usar el sistema con su número. No aplica si el problema es una decisión de WhatsApp sobre tu número, que no depende de nosotros. Los cargos de WhatsApp que ya se pagaron a Meta no se devuelven.</p>
+<p class="fine" style="margin:0">Además, como en toda contratación a distancia, tenés derecho a arrepentirte dentro de los 10 días corridos. Las condiciones están en los <a href="/terminos">Términos</a>.</p>
 </div>
+</div></section>
 
-<h2>Qué necesitamos de vos para empezar</h2>
-<ul>
+<section class="alt"><div class="w">
+<p class="eyebrow">Cómo se paga</p>
+<h2>Simple y sin sorpresas</h2>
+<div class="grid2" style="margin-top:20px">
+<div class="box"><h3>Opción A</h3><ul class="ok">
+<li><strong>$475.000</strong> de instalación, pago único, al empezar.</li>
+<li><strong>Los primeros 60 días no pagás mensualidad.</strong></li>
+<li>Desde el día 61: <strong>$63.000 por mes</strong>, más $18.000 por cada profesional después del segundo.</li>
+</ul></div>
+<div class="box"><h3>Opción B</h3><ul class="ok">
+<li><strong>$1.900.000</strong>, pago único.</li>
+<li>Sin mensualidades.</li>
+</ul></div>
+</div>
+<p style="margin-top:20px">Se paga por <strong>transferencia bancaria o link de pago</strong>, que te enviamos por mensaje cuando confirmás. Si cambiamos precios, te avisamos con anticipación y rige desde el período siguiente. Estos son precios de lanzamiento.</p>
+<h3 style="margin:26px 0 8px;font-size:20px">Qué necesitamos de vos para empezar</h3>
+<ul class="ok">
 <li>Un número de WhatsApp para el consultorio.</li>
 <li>Tus profesionales, días y horarios de atención.</li>
 <li>Las obras sociales que atendés y tus tipos de turno (consulta, limpieza, control, etc.).</li>
 <li>Una persona que reciba los avisos por correo.</li>
 </ul>
+</div></section>
 
+<section class="final"><div class="w">
 <h2>¿Arrancamos?</h2>
 <p>Escribime por WhatsApp y lo empezamos a armar.</p>
-<a class="cta" href="https://wa.me/5491176236396?text=Hola%20Lean%2C%20quiero%20empezar%20con%20TurnoMaster%20en%20mi%20consultorio." rel="noopener">Quiero empezar</a>
-<p style="font-size:14px;color:var(--mute)">Al escribirnos aceptás que te respondamos por WhatsApp. Más info en la <a href="/privacidad">Política de privacidad</a> y los <a href="/terminos">Términos</a>.</p>
-</main>
-<footer><div><a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a><br>TurnoMaster es un servicio de Social Clap.</div></footer>
+<a class="btn g" href="https://wa.me/5491176236396?text=Hola%20Lean%2C%20quiero%20empezar%20con%20TurnoMaster%20en%20mi%20consultorio%20%28Opci%C3%B3n%20A%3A%20lo%20instalan%20ustedes%29." rel="noopener">Quiero empezar</a>
+<p class="fine">Al escribirnos aceptás que te respondamos por WhatsApp. Más info en la <a href="/privacidad">Política de privacidad</a> y los <a href="/terminos">Términos</a>.</p>
+</div></section>
+
+<footer><div class="w"><a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a><br>TurnoMaster es un servicio de Social Clap.</div></footer>
 </body>
 </html>
