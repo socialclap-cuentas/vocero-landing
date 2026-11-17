@@ -9,4 +9,22 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://turnomaster.app/"/>
     <image:image><image:loc>https://turnomaster.app/og-image.png</image:loc><image:title>TurnoMaster: turnos por WhatsApp para consultorios</image:title></image:image>
   </url>
+  <url>
+    <loc>https://turnomaster.app/privacidad</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://turnomaster.app/terminos</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://turnomaster.app/eliminar-datos</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
