@@ -222,6 +222,152 @@ main>section:not(:first-child){content-visibility:auto;contain-intrinsic-size:au
 .cmp tr:last-child th,.cmp tr:last-child td{border-bottom:0}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .foot-nav{display:flex;gap:6px 22px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+
+/* sistema por dentro */
+.sys{background:linear-gradient(135deg,#f1eee5 0%,#e3ece4 55%,#cde1d5 100%)}
+.sy-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+.sy-tabs button{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;font:700 15px 'Urbanist',sans-serif;color:var(--soft);background:#fff;border:1.5px solid var(--bd2);border-radius:99px;padding:10px 18px;cursor:pointer}
+.sy-tabs button[aria-pressed=true]{background:var(--rail);border-color:var(--rail);color:#fff}
+.sy-tabs button:focus-visible{outline:3px solid var(--acc-b);outline-offset:2px}
+.sy-tabs button.run::after{content:"";position:absolute;left:0;bottom:0;height:3px;background:var(--acc);animation:syrun 7s linear forwards}
+@keyframes syrun{from{width:0}to{width:100%}}
+.sy-app{display:grid;grid-template-columns:58px 1fr;gap:10px;padding:10px;border-radius:30px;background:linear-gradient(135deg,#f1eee5,#cde1d5);border:1px solid #fff;box-shadow:var(--sh-pop);max-width:1040px;margin:0 auto;text-align:left;font-size:13px;line-height:1.35;color:var(--ink)}
+.sy-rail{background:var(--rail);border-radius:24px;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 0}
+.sy-rail .lg{width:34px;height:34px;border-radius:11px;background:var(--acc);color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.sy-rail i{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#9aa8a1;font-size:18px;font-style:normal}
+.sy-rail i.on{background:#fff;color:var(--rail)}
+.sy-rail i.sp{flex:1}
+.sy-card{background:#fff;border-radius:24px;box-shadow:var(--sh-card);overflow:hidden}
+.sy-stack{display:grid}
+.sy-p{grid-area:1/1;visibility:hidden;opacity:0;transition:opacity .35s;min-width:0}
+.sy-p.on{visibility:visible;opacity:1}
+.sy-bar{display:flex;align-items:center;gap:10px;padding:14px 16px 10px}
+.sy-bar h3{font-size:17px;letter-spacing:-.01em}
+.sy-bar .n{font-size:12px;color:var(--mute)}
+.sy-sp{flex:1}
+.sy-chip{border:1px solid var(--bd2);background:#fff;border-radius:99px;padding:3px 11px;font-weight:600;font-size:12px;color:var(--soft)}
+.sy-seg{display:inline-flex;border:1px solid var(--bd2);border-radius:99px;overflow:hidden;font-size:12px;font-weight:600}
+.sy-seg b,.sy-seg i{font-style:normal;padding:4px 12px}
+.sy-seg b{background:var(--rail);color:#fff}
+.sy-seg i{color:var(--soft)}
+.sy-b{display:inline-flex;align-items:center;border:1px solid var(--bd2);background:#fff;border-radius:10px;padding:4px 11px;font-weight:700;font-size:12px;color:var(--ink);white-space:nowrap}
+.sy-sub{display:flex;align-items:center;gap:10px;padding:0 16px 10px;font-size:13px}
+.sy-sub .arr{color:var(--mute);letter-spacing:4px}
+.sy-sub .lg{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--soft)}
+.sy-sub .lg i{width:9px;height:9px;border-radius:50%}
+.lg i.a{background:var(--acc)}.lg i.o{background:var(--ok)}.lg i.w{background:var(--warn)}
+.sy-cal{border-top:1px solid var(--bd)}
+.sy-ch{display:grid;grid-template-columns:44px repeat(5,1fr);border-bottom:1px solid var(--bd)}
+.sy-ch .dh{padding:7px 4px;text-align:center;font-size:12px;color:var(--soft);font-weight:600;border-left:1px solid var(--bd)}
+.sy-ch .dh b{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;border-radius:99px;font-weight:700;color:var(--ink)}
+.sy-ch .dh.hoy b{background:var(--acc);color:#fff}
+.sy-cb{position:relative;display:grid;grid-template-columns:44px repeat(5,1fr);height:400px}
+.hrs{position:relative}
+.hrs span{position:absolute;right:6px;transform:translateY(-6px);font:500 10.5px 'IBM Plex Mono',monospace;color:var(--mute)}
+.dc{position:relative;border-left:1px solid var(--bd);background:repeating-linear-gradient(to bottom,transparent 0,transparent 39px,var(--bd) 39px,var(--bd) 40px)}
+.ev{position:absolute;left:2px;right:2px;border-radius:7px;border:1px solid transparent;background:var(--acc);color:#fff;padding:3px 6px;overflow:hidden;font-size:11.5px;line-height:1.2;box-shadow:0 1px 2px rgba(20,40,30,.12)}
+.ev .n{display:flex;align-items:center;gap:4px;font-weight:700;white-space:nowrap}
+.ev .n svg{width:11px;height:11px}
+.ev .t{display:block;font:500 10px 'IBM Plex Mono',monospace;opacity:.85;margin-top:2px}
+.ev.ok{background:var(--ok-s);border-color:var(--ok-b);color:var(--ok-d)}
+.ev.nos{background:var(--warn-s);border-color:var(--warn-b);color:var(--warn-d)}
+.ev.can{background:var(--bg2);border:1px dashed var(--bd2);color:var(--mute);text-decoration:line-through;box-shadow:none}
+.ev.blk{background:repeating-linear-gradient(135deg,#f4f7f5 0,#f4f7f5 5px,#e6ede9 5px,#e6ede9 10px);border-color:var(--bd2);color:var(--soft);box-shadow:none}
+.now{position:absolute;left:0;right:0;border-top:2px solid var(--bad);z-index:3}
+.now::before{content:"";position:absolute;left:-5px;top:-6px;width:10px;height:10px;border-radius:50%;background:var(--bad)}
+.sy-js .ev.new{opacity:0}
+.sy-js .sy-p.go .ev.new{animation:sypop .6s 1.2s cubic-bezier(.2,1.4,.4,1) both;transform-origin:top}
+@keyframes sypop{0%{opacity:0;transform:scale(.85)}100%{opacity:1;transform:scale(1)}}
+.sy-js .sy-p.go .ev.new::after{content:"";position:absolute;inset:0;border-radius:6px;box-shadow:0 0 0 0 rgba(13,91,255,.55);animation:sypulse 1.6s 1.7s ease-out 2}
+@keyframes sypulse{to{box-shadow:0 0 0 12px rgba(13,91,255,0)}}
+/* bandeja */
+.sy-in{display:grid;grid-template-columns:260px 1fr 210px;min-height:548px}
+.sy-list{border-right:1px solid var(--bd);min-width:0}
+.sy-srch{margin:0 12px 10px;border:1px solid var(--bd2);background:var(--bg2);border-radius:99px;padding:7px 14px;color:var(--mute);font-size:12.5px}
+.sy-tb{display:flex;gap:14px;padding:0 16px;border-bottom:1px solid var(--bd);font-size:12.5px;font-weight:600;color:var(--mute)}
+.sy-tb b{color:var(--ink);padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.sy-tb span{padding-bottom:8px}
+.cr{display:flex;gap:10px;padding:10px 14px;border-bottom:1px solid var(--bd);position:relative}
+.cr.on{background:var(--bg2)}
+.av{flex:none;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff;background:var(--acc)}
+.av1{background:#7a5af8}.av2{background:#d94a4a}.av3{background:#1fb35b}.av4{background:#e08a00}
+.av.big{width:54px;height:54px;font-size:22px}
+.cr .cb{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
+.cr .l1{display:flex;justify-content:space-between;gap:6px}
+.cr .l1 b{font-size:13px}
+.cr .l1 em{font-style:normal;font-size:10.5px;color:var(--mute)}
+.cr .l2{font-size:12px;color:var(--soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tg{align-self:flex-start;margin-top:3px;border-radius:99px;padding:1px 8px;font-size:10.5px;font-weight:700;border:1px solid var(--bd2);background:#fff;color:var(--soft)}
+.tg.a{background:var(--acc-s);border-color:var(--acc-b);color:var(--acc-d)}
+.tg.u{background:var(--bad-s);border-color:var(--bad-b);color:var(--bad-d)}
+.cr .un{position:absolute;right:14px;bottom:10px;min-width:18px;height:18px;border-radius:99px;background:var(--acc);color:#fff;font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.sy-th{display:flex;flex-direction:column;min-width:0;border-right:1px solid var(--bd)}
+.sy-thh{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--bd)}
+.sy-thh b{font-size:14px}
+.sy-ia{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;color:var(--ok-d);background:var(--ok-s);border:1px solid var(--ok-b);border-radius:99px;padding:2px 9px}
+.sy-ia i{width:7px;height:7px;border-radius:50%;background:var(--ok)}
+.sy-msgs{flex:1;display:flex;flex-direction:column;padding:14px;background:var(--bg2);overflow:hidden}
+.msg{max-width:78%;margin-top:8px}
+.msg p{margin:0;padding:8px 12px;border-radius:16px;font-size:13px;line-height:1.35}
+.msg .mt{display:block;margin-top:2px;font:500 10px 'IBM Plex Mono',monospace;color:var(--mute)}
+.msg.in{align-self:flex-start}.msg.in p{background:var(--rail);color:#f3f6f4;border-bottom-left-radius:5px}
+.msg.out{align-self:flex-end;text-align:right}.msg.out p{background:#fff;border:1px solid #d8e2dc;text-align:left;border-bottom-right-radius:5px}
+.msg.sys{align-self:center;max-width:100%;margin-top:12px}
+.msg.sys span{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--acc-b);color:var(--acc-d);border-radius:99px;padding:4px 12px;font-size:11.5px;font-weight:700}
+.typ p{display:flex;gap:4px;padding:11px 14px}
+.typ i{width:6px;height:6px;border-radius:50%;background:var(--mute);animation:sydot 1s infinite}
+.typ i:nth-child(2){animation-delay:.15s}.typ i:nth-child(3){animation-delay:.3s}
+@keyframes sydot{50%{transform:translateY(-3px);opacity:.5}}
+.typ{display:none}
+.sy-js .typ{display:block}
+.sy-js .msg{opacity:0}
+.sy-js .sy-p.go .msg{animation:syup .45s var(--d) both}
+.sy-js .sy-p.go .msg.typ{animation:sytyp 1.2s var(--d) both}
+@keyframes syup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes sytyp{0%{opacity:0;max-height:0;margin-top:0}12%{opacity:1;max-height:44px;margin-top:8px}85%{opacity:1;max-height:44px;margin-top:8px}100%{opacity:0;max-height:0;margin-top:0}}
+.sy-comp{display:flex;align-items:center;justify-content:space-between;margin:10px 14px 12px;border:1px solid var(--bd2);border-radius:99px;padding:8px 8px 8px 16px;color:var(--mute);font-size:12.5px}
+.sy-comp i{width:30px;height:30px;border-radius:50%;background:var(--rail);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px}
+.sy-fi{padding:20px 16px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.sy-fi b{font-size:15px;margin-top:6px}
+.sy-fi .mono{font-size:11px;color:var(--mute)}
+.sy-fi dl{margin:14px 0 0;width:100%;text-align:left}
+.sy-fi dt{font:500 10.5px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--mute);margin-top:12px}
+.sy-fi dd{margin:2px 0 0;font-size:12.5px;font-weight:600}
+/* consultorio */
+.sy-co{padding-bottom:16px}
+.sy-note{font-size:12px;color:var(--mute)}
+.sy-urg{margin:0 16px 12px;border:1px solid var(--bad-b);border-radius:14px;padding:10px 12px;background:#fff}
+.sy-urg>b{display:block;font-size:13px;margin-bottom:8px}
+.sy-urg>div{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border:1px solid var(--bd);border-radius:10px;padding:7px 10px;font-size:12.5px}
+.bd{background:var(--bad);color:#fff;border-radius:99px;padding:1px 9px;font-size:11px;font-weight:700}
+.bd.w{background:var(--warn-s);color:var(--warn-d);border:1px solid var(--warn-b)}
+.sy-urg .rs{color:var(--soft)}.sy-urg .sp{flex:1}
+.sy-urg u{color:var(--acc-d);font-weight:700;text-decoration:none}
+.sy-st{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 16px 12px}
+.st{border:1px solid var(--bd);border-radius:14px;padding:10px 12px;box-shadow:var(--sh-card)}
+.st p{margin:0;font-size:11.5px;color:var(--mute)}
+.st strong{display:block;font-size:22px;letter-spacing:-.02em;line-height:1.2}
+.st small{font-size:10.5px;color:var(--mute)}
+.sy-two{display:grid;grid-template-columns:1.3fr 1fr;gap:10px;margin:0 16px}
+.sy-cd{border:1px solid var(--bd);border-radius:14px;padding:10px 12px}
+.sy-cd>b{display:block;font-size:13px;margin-bottom:6px}
+.sy-cd table{width:100%;border-collapse:collapse;font-size:12px}
+.sy-cd th{text-align:left;color:var(--mute);font-weight:600;padding:2px 6px 4px 0}
+.sy-cd td{border-top:1px solid var(--bd);padding:5px 6px 5px 0;font-weight:600}
+.wl{display:flex;align-items:center;gap:8px;flex-wrap:wrap;border:1px solid var(--bd);border-radius:10px;padding:6px 9px;margin-top:6px;font-size:12px}
+.wl span:last-child{color:var(--soft)}
+.sy-cap{text-align:center;margin:18px auto 0;max-width:640px;font-weight:600;color:var(--ink);font-size:16px}
+.sy-fine{text-align:center;margin:6px 0 0;font-size:13px;color:var(--soft)}
+@media(max-width:1000px){.sy-in{grid-template-columns:250px 1fr}.sy-fi{display:none}}
+@media(max-width:720px){
+.sy-app{grid-template-columns:1fr;padding:8px;border-radius:24px}.sy-rail{display:none}.sy-card{border-radius:18px;min-height:0}
+.sy-in{grid-template-columns:1fr}.sy-list{display:none}.sy-sub .lg,.sy-seg,.sy-chip{display:none}
+.d3,.d4,.sy-ch .dh:nth-child(5),.sy-ch .dh:nth-child(6){display:none}
+.sy-ch,.sy-cb{grid-template-columns:38px repeat(3,1fr)}
+.sy-st{grid-template-columns:repeat(2,1fr)}.sy-two{grid-template-columns:1fr}
+.sy-urg>div .sp{display:none}.sy-msgs{min-height:420px}.msg{max-width:88%}.sy-p{display:none;grid-area:auto}.sy-p.on{display:block}.sy-thh .sy-b{display:none}.ev .t{display:none}.sy-tabs button{padding:9px 14px;font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.sy-tabs button.run::after{animation:none}}
 </style>
 </head>
 <body>
@@ -296,6 +442,52 @@ main>section:not(:first-child){content-visibility:auto;contain-intrinsic-size:au
   </div>
 </div></section>
 
+<section id="sistema" class="sys"><div class="wrap">
+  <div class="head"><span class="pill">El sistema por dentro</span><h2>Tu consultorio, <em>a la vista</em></h2><p>Agenda, conversaciones y números en un solo lugar. Lo mirás desde la compu o desde el celular.</p></div>
+  <div class="sy" id="sy">
+    <div class="sy-tabs" role="group" aria-label="Pantallas del sistema"><button type="button" aria-pressed="true"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Agenda</button><button type="button" aria-pressed="false"><svg class="i" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Conversaciones</button><button type="button" aria-pressed="false"><svg class="i" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15v3M12 9v9M17 5v13"/></svg>Consultorio</button></div>
+    <div class="sy-app" aria-hidden="true">
+      <div class="sy-rail"><span class="lg">T</span><i class="r" data-i="1"><svg class="i" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></i><i class="r on" data-i="0"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></i><i><svg class="i" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></i><i class="r" data-i="2"><svg class="i" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15v3M12 9v9M17 5v13"/></svg></i><i class="sp"></i><i><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></i></div>
+      <div class="sy-card"><div class="sy-stack"><div class="sy-p on go" data-i="0">
+  <div class="sy-bar"><h3>Agenda</h3><span class="sy-chip">Dra. Laura</span><span class="sy-sp"></span><span class="sy-seg"><b>Semana</b><i>Lista</i></span></div>
+  <div class="sy-sub"><span class="sy-b">Hoy</span><span class="arr">‹ ›</span><strong>16 – 20 de noviembre</strong><span class="sy-sp"></span><span class="lg"><i class="a"></i>Agendado</span><span class="lg"><i class="o"></i>Realizado</span><span class="lg"><i class="w"></i>No vino</span></div>
+  <div class="sy-cal"><div class="sy-ch"><span></span><span class="dh">Lun <b>16</b></span><span class="dh hoy">Mar <b>17</b></span><span class="dh">Mié <b>18</b></span><span class="dh">Jue <b>19</b></span><span class="dh">Vie <b>20</b></span></div><div class="sy-cb"><div class="hrs"><span style="top:0px">9:00</span><span style="top:40px">10:00</span><span style="top:80px">11:00</span><span style="top:120px">12:00</span><span style="top:160px">13:00</span><span style="top:200px">14:00</span><span style="top:240px">15:00</span><span style="top:280px">16:00</span><span style="top:320px">17:00</span><span style="top:360px">18:00</span></div><div class="dc d0"><div class="ev " style="top:1px;height:38px"><span class="n"><svg class="i" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>Marina G.</span><span class="t">09:00 – 10:00</span></div><div class="ev ok" style="top:61px;height:25px"><span class="n">Julián P.</span></div><div class="ev blk" style="top:121px;height:38px"><span class="n">Almuerzo</span><span class="t">12:00 – 13:00</span></div><div class="ev nos" style="top:241px;height:25px"><span class="n">Sofía R.</span></div><div class="ev " style="top:301px;height:25px"><span class="n"><svg class="i" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>Camila T.</span></div></div><div class="dc d1"><div class="ev ok" style="top:21px;height:25px"><span class="n">Tomás A.</span></div><div class="ev ok" style="top:81px;height:38px"><span class="n">Carolina B.</span><span class="t">11:00 – 12:00</span></div><div class="ev blk" style="top:121px;height:38px"><span class="n">Almuerzo</span><span class="t">12:00 – 13:00</span></div><div class="ev can" style="top:201px;height:25px"><span class="n">Lucas M.</span></div><div class="ev  new" style="top:281px;height:25px"><span class="n"><svg class="i" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>Valeria S.</span></div><div class="now" style="top:173px"></div></div><div class="dc d2"><div class="ev " style="top:1px;height:25px"><span class="n"><svg class="i" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>Bruno L.</span></div><div class="ev " style="top:41px;height:38px"><span class="n"><svg class="i" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>Elena V.</span><span class="t">10:00 – 11:00</span></div><div class="ev " style="top:101px;height:25px"><span class="n"><svg class="i" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>Martín C.</span></div><div class="ev " style="top:241px;height:25px"><span class="n"><svg class="i" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>Ana P.</span></div><div class="ev " style="top:301px;height:25px"><span class="n"><svg class="i" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>Gonzalo R.</span></div></div><div class="dc d3"><div class="ev " style="top:41px;height:38px"><span class="n"><svg class="i" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>Dante F.</span><span class="t">10:00 – 11:00</span></div><div class="ev blk" style="top:121px;height:38px"><span class="n">Almuerzo</span><span class="t">12:00 – 13:00</span></div><div class="ev " style="top:261px;height:38px"><span class="n"><svg class="i" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>Rocío N.</span><span class="t">15:30 – 16:30</span></div></div><div class="dc d4"><div class="ev " style="top:21px;height:25px"><span class="n"><svg class="i" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>Iván S.</span></div><div class="ev " style="top:81px;height:25px"><span class="n"><svg class="i" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>Paula D.</span></div><div class="ev blk" style="top:121px;height:38px"><span class="n">Almuerzo</span><span class="t">12:00 – 13:00</span></div></div></div></div>
+</div><div class="sy-p" data-i="1">
+  <div class="sy-in">
+    <div class="sy-list"><div class="sy-bar"><h3>Bandeja</h3><span class="mono n">5</span></div>
+      <div class="sy-srch">Buscar conversación</div>
+      <div class="sy-tb"><b>Todas</b><span>Sin leer</span><span>IA</span></div>
+      <div class="cr on"><span class="av av0">M</span><span class="cb"><span class="l1"><b>Marina G.</b><em class="mono">ahora</em></span><span class="l2">Osde</span><span class="tg a">Turno agendado</span></span></div><div class="cr"><span class="av av1">C</span><span class="cb"><span class="l1"><b>Camila T.</b><em class="mono">10:12</em></span><span class="l2">Hola, ¿atienden por Swiss?</span><span class="tg o">IA atendiendo</span></span></div><div class="cr"><span class="av av2">R</span><span class="cb"><span class="l1"><b>Rodrigo T.</b><em class="mono">09:58</em></span><span class="l2">Me duele mucho y tengo la cara hinchada</span><span class="tg u">Urgente</span></span><span class="un">1</span></div><div class="cr"><span class="av av3">P</span><span class="cb"><span class="l1"><b>Pablo D.</b><em class="mono">09:40</em></span><span class="l2">Gracias, ahí confirmo</span><span class="tg o">Confirmó</span></span></div><div class="cr"><span class="av av4">L</span><span class="cb"><span class="l1"><b>Lucía F.</b><em class="mono">ayer</em></span><span class="l2">Si se libera algo a la mañana, avisame</span><span class="tg o">En espera</span></span></div></div>
+    <div class="sy-th"><div class="sy-thh"><span class="av av0">M</span><b>Marina G.</b><span class="sy-ia"><i></i>IA atendiendo</span><span class="sy-sp"></span><span class="sy-b">Tomar el control</span></div>
+      <div class="sy-msgs"><div class="msg in" style="--d:0.3s"><p>Hola, quería sacar un turno para una limpieza</p><span class="mt">10:21</span></div><div class="msg out typ" style="--d:1.0s"><p><i></i><i></i><i></i></p></div><div class="msg out" style="--d:2.4s"><p>¡Hola, Marina! Soy el asistente del consultorio. Con la Dra. Laura tengo lugar el jueves 19 a las 10:30 o el viernes 20 a las 9:30. ¿Cuál te queda mejor?</p><span class="mt">10:21 ✓✓</span></div><div class="msg in" style="--d:3.6s"><p>Jueves 10:30 👍</p><span class="mt">10:22</span></div><div class="msg out typ" style="--d:4.2s"><p><i></i><i></i><i></i></p></div><div class="msg out" style="--d:5.4s"><p>Listo, te anoté el jueves 19 a las 10:30. ¿Con qué obra social vas a venir?</p><span class="mt">10:22 ✓✓</span></div><div class="msg in" style="--d:6.4s"><p>Osde</p><span class="mt">10:22</span></div><div class="msg sys" style="--d:7.2s"><span><svg class="i" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>Turno agendado · Limpieza · Dra. Laura · jue 19/11 10:30</span></div></div>
+      <div class="sy-comp"><span>Escribí un mensaje…</span><i><svg class="i" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg></i></div></div>
+    <aside class="sy-fi"><div class="av av0 big">M</div><b>Marina G.</b><span class="mono">+54 9 11 ••••-••21</span>
+      <dl><dt>Obra social</dt><dd>Osde</dd><dt>Próximo turno</dt><dd>Jue 19/11 · 10:30<br>Limpieza · Dra. Laura</dd><dt>Estado</dt><dd><span class="tg a">Agendado por la IA</span></dd><dt>Recordatorio</dt><dd>Se envía el miércoles</dd></dl></aside>
+  </div>
+</div><div class="sy-p" data-i="2"><div class="sy-co">
+  <div class="sy-bar"><h3>Consultorio</h3><span class="sy-sp"></span><span class="sy-note">Últimos 30 días</span></div>
+  <div class="sy-urg"><b>Urgencias sin atender (1)</b><div><span class="bd">Urgente</span><strong>Rodrigo T.</strong><span class="rs">Dolor muy fuerte y la cara hinchada</span><span class="sp"></span><u>Abrir conversación</u><span class="sy-b">Atendida</span></div></div>
+  <div class="sy-st">
+   <div class="st"><p>Ausentismo</p><strong class="cnt" data-n="6" data-d="0" data-s=" %">6 %</strong><small>no vinieron / atendidos + ausentes</small></div>
+   <div class="st"><p>Cancelaciones</p><strong class="cnt" data-n="9" data-d="0" data-s=" %">9 %</strong><small>&nbsp;</small></div>
+   <div class="st"><p>Confirmados</p><strong class="cnt" data-n="84" data-d="0" data-s=" %">84 %</strong><small>&nbsp;</small></div>
+   <div class="st"><p>Huecos perdidos</p><strong class="cnt" data-n="3" data-d="0" data-s="">3</strong><small>2 h sin atender</small></div>
+   <div class="st"><p>Turnos</p><strong class="cnt" data-n="142" data-d="0" data-s="">142</strong><small>&nbsp;</small></div>
+   <div class="st"><p>Realizados</p><strong class="cnt" data-n="118" data-d="0" data-s="">118</strong><small>&nbsp;</small></div>
+   <div class="st"><p>Señas pendientes</p><strong class="cnt" data-n="4" data-d="0" data-s="">4</strong><small>&nbsp;</small></div>
+   <div class="st"><p>Encuesta</p><strong class="cnt">4,8 / 5</strong><small>37 respuestas</small></div>
+  </div>
+  <div class="sy-two">
+   <div class="sy-cd"><b>Por profesional</b><table><tr><th>Profesional</th><th>Turnos</th><th>Ocupación</th><th>Ausentes</th></tr><tr><td>Dra. Laura</td><td>71</td><td>82 %</td><td>2</td></tr><tr><td>Dr. Martín</td><td>58</td><td>68 %</td><td>3</td></tr><tr><td>Dra. Paula</td><td>13</td><td>41 %</td><td>0</td></tr></table></div>
+   <div class="sy-cd"><b>Lista de espera (2)</b><div class="wl"><strong>Lucía F.</strong><span class="bd w">Hueco ofrecido</span><span>mañanas, limpieza</span></div><div class="wl"><strong>Pablo D.</strong><span>después de las 17</span></div></div>
+  </div>
+</div></div></div></div>
+    </div>
+    <p class="sy-cap">Los turnos que da el asistente aparecen solos en la agenda, marcados con una estrella.</p>
+    <p class="sy-fine">Pantallas reales del sistema, con datos de ejemplo.</p>
+  </div>
+</div></section>
+
 <section id="especialidades" class="alt"><div class="wrap">
   <div class="head"><span class="pill">Para quién es</span><h2>Pensado para consultorios de <em>todas las especialidades</em></h2><p>Si trabajás con turnos, TurnoMaster se adapta a cómo atendés.</p></div>
   <ul class="chips">
@@ -363,7 +555,7 @@ main>section:not(:first-child){content-visibility:auto;contain-intrinsic-size:au
 </div></section>
 </main>
 
-<footer><div class="wrap"><nav class="foot-nav" aria-label="Secciones"><a href="#que-hace">Qué hace</a><a href="#especialidades">Para quién es</a><a href="#comparacion">La diferencia</a><a href="#como">Cómo funciona</a><a href="#preguntas">Preguntas</a></nav>TurnoMaster, sistema de turnos por WhatsApp para consultorios en Argentina. Es un servicio de <a href="https://socialclap.agency" rel="noopener">Social Clap</a> · <a href="https://oferta.socialclap.agency/privacy.html">Privacidad</a> · <a href="https://oferta.socialclap.agency/terminos.html">Términos</a></div></footer>
+<footer><div class="wrap"><nav class="foot-nav" aria-label="Secciones"><a href="#que-hace">Qué hace</a><a href="#sistema">El sistema</a><a href="#especialidades">Para quién es</a><a href="#comparacion">La diferencia</a><a href="#como">Cómo funciona</a><a href="#preguntas">Preguntas</a></nav>TurnoMaster, sistema de turnos por WhatsApp para consultorios en Argentina. Es un servicio de <a href="https://socialclap.agency" rel="noopener">Social Clap</a> · <a href="https://oferta.socialclap.agency/privacy.html">Privacidad</a> · <a href="https://oferta.socialclap.agency/terminos.html">Términos</a></div></footer>
 
 <a class="wa-float" href="https://wa.me/5491133346776?text=Hola%2C%20quiero%20ver%20TurnoMaster%20para%20mi%20consultorio." target="_blank" rel="noopener">WhatsApp</a>
 
@@ -462,6 +654,24 @@ async function play(i){
 }
 play(0);
 document.addEventListener("visibilitychange",function(){if(!document.hidden)play(cur)});
+})();
+/* sistema por dentro: pantallas que rotan */
+(function(){
+var app=document.getElementById('sy');if(!app)return;
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var btns=[].slice.call(app.querySelectorAll('.sy-tabs button')),ps=[].slice.call(app.querySelectorAll('.sy-p')),rails=[].slice.call(app.querySelectorAll('.sy-rail i.r'));
+var cap=app.querySelector('.sy-cap');
+var CAP=['Los turnos que da el asistente aparecen solos en la agenda, marcados con una estrella.','Ves cada conversación y, cuando quieras, tomás el control con un toque.','Ausencias, huecos, urgencias y lista de espera, todo a la vista.'];
+var cur=0,timer=null,auto=!reduce;
+function count(p){[].forEach.call(p.querySelectorAll('.cnt[data-n]'),function(el){var n=+el.dataset.n,d=+el.dataset.d,s=el.dataset.s||'',t0=null;if(reduce){return}
+function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/800),e=1-Math.pow(1-k,3);el.textContent=(n*e).toFixed(d).replace('.',',')+s;if(k<1)requestAnimationFrame(f)}requestAnimationFrame(f)})}
+function show(i,fromUser){cur=i;btns.forEach(function(b,k){b.setAttribute('aria-pressed',k===i);b.classList.remove('run');if(auto&&k===i&&!fromUser){void b.offsetWidth;b.classList.add('run')}});
+ps.forEach(function(p,k){var on=k===i;p.classList.toggle('on',on);if(on){p.classList.remove('go');void p.offsetWidth;p.classList.add('go');if(i===2)count(p)}});
+rails.forEach(function(r){r.classList.toggle('on',+r.dataset.i===i)});cap.textContent=CAP[i]}
+function tick(){clearTimeout(timer);if(!auto)return;timer=setTimeout(function(){show((cur+1)%3);tick()},reduce?0:(cur===1?10500:7000))}
+btns.forEach(function(b,k){b.addEventListener('click',function(){auto=false;clearTimeout(timer);show(k,true)})});
+if(!reduce){app.classList.add('sy-js');
+if('IntersectionObserver' in window){var seen=false;new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){if(!seen){seen=true;show(0)}tick()}else{clearTimeout(timer)}})},{threshold:.35}).observe(app)}else{show(0);tick()}}
 })();
 </script>
 </body>
