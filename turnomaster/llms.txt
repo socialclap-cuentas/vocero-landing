@@ -1,0 +1,24 @@
+# TurnoMaster
+
+> TurnoMaster es un sistema de turnos por WhatsApp para consultorios, odontólogos y profesionales de la salud en Argentina. Un asistente atiende a los pacientes las 24 horas, da turnos, manda recordatorios, confirma asistencia, llena las cancelaciones con la lista de espera y avisa las urgencias. Se instala sobre el mismo WhatsApp Business del consultorio y lo deja funcionando el equipo de Social Clap.
+
+## Qué hace
+- Da turnos por WhatsApp con los horarios libres de la agenda de cada profesional.
+- Recuerda el turno y pide confirmación.
+- Ofrece los turnos liberados a quienes están en lista de espera.
+- Maneja varios profesionales, tipos de turno y obras sociales (solo las que el consultorio carga).
+- Permite pedir seña para reservar.
+- Avisa al profesional ante una urgencia y pasa la conversación a una persona.
+- Pide opinión después de la visita y muestra turnos, ausencias y cancelaciones en un panel.
+
+## Qué no hace
+- No da diagnósticos ni consejos médicos.
+- No guarda historia clínica: solo datos administrativos del paciente (nombre, contacto, obra social).
+- No inventa precios, tratamientos ni obras sociales.
+
+## Páginas
+- [Inicio](https://turnomaster.app/): descripción, funciones, comparación, cómo funciona y preguntas frecuentes.
+
+## Contacto
+- WhatsApp: https://wa.me/5491133346776
+- Empresa: Social Clap, https://socialclap.agency
