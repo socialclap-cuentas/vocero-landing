@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gracias por registrarte | TurnoMaster</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:'Urbanist';src:url(/fonts/urbanist-latin-variable.woff2) format('woff2');font-weight:100 900;font-display:swap}
+:root{--ink:#141a17;--soft:#47524d;--bd:#e1e9e4;--acc:#0d5bff;--acc-d:#0038d8;--ok:#0f7a40}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px;font-family:'Urbanist',-apple-system,'Segoe UI',sans-serif;color:var(--ink);background:#f6f9f7;line-height:1.55;font-size:18px}
+.card{max-width:520px;width:100%;background:#fff;border:1px solid var(--bd);border-radius:22px;padding:34px 28px;box-shadow:0 10px 30px -14px rgba(20,40,30,.16);text-align:center}
+.logo{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:21px;text-decoration:none;color:var(--ink);margin-bottom:22px}
+.logo b{width:34px;height:34px;border-radius:11px;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px}
+h1{font-size:30px;line-height:1.15;letter-spacing:-.02em;margin:0 0 12px;font-weight:800}
+p{margin:0 0 14px;color:var(--soft)}
+.tip{background:#eef4f0;border-radius:14px;padding:14px 16px;font-size:16px;margin:20px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--ok);color:#fff;font-weight:700;font-size:18px;padding:15px 26px;border-radius:14px;text-decoration:none;width:100%}
+.back{display:inline-block;margin-top:18px;color:var(--acc-d);font-weight:600;font-size:16px}
+</style>
+</head>
+<body>
+<main class="card">
+  <a class="logo" href="/"><b aria-hidden="true">T</b>TurnoMaster</a>
+  <h1>Gracias<span id="n"></span>, ya te registraste</h1>
+  <p>Lean, de Social Clap, te va a contactar personalmente para contarte cómo funciona y resolver tus dudas.</p>
+  <div class="tip">Si querés ir viendo cómo atiende el asistente, escribile por WhatsApp <strong>desde el número que registraste<span id="p"></span></strong>. Así te reconoce y no te vuelve a preguntar lo que ya contestaste.</div>
+  <a class="btn" id="wa" href="https://wa.me/5491133346776?text=Hola%2C%20ya%20me%20registr%C3%A9%20en%20TurnoMaster." target="_blank" rel="noopener">Escribir por WhatsApp</a><br>
+  <a class="back" href="/">Volver al inicio</a>
+</main>
+<script>
+(function(){
+  try{
+    var r=JSON.parse(sessionStorage.getItem('tm_reg')||'null');
+    if(r&&r.n){
+      document.getElementById('n').textContent=', '+r.n;
+      if(r.p) document.getElementById('p').textContent=' (termina en '+String(r.p).slice(-4)+')';
+      document.getElementById('wa').href='https://wa.me/5491133346776?text='+encodeURIComponent('Hola, soy '+r.n+', ya me registré en TurnoMaster.');
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
