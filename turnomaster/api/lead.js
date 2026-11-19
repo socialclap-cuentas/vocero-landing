@@ -49,7 +49,8 @@ module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'method' });
   if (!hostOk(req)) return res.status(403).json({ error: 'origin' });
 
-  const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'x';
+  // Si el registro llega reenviado desde otra landing nuestra (oferta.socialclap.agency), la IP real viene en X-Client-Ip.
+  const ip = String(req.headers['x-client-ip'] || req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'x';
   if (!rateOk(ip)) return res.status(429).json({ error: 'rate', message: 'Demasiados intentos. Probá más tarde.' });
 
   const b = req.body && typeof req.body === 'object' ? req.body : {};
