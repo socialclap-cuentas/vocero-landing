@@ -147,16 +147,16 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-siz
 
   <div id="plan-list" style="display:flex;flex-direction:column;gap:12px"></div>
 
-  <p class="pay"><strong>Medios de pago:</strong> tarjeta de crédito, transferencia y Mercado Pago.<br><strong>Anual y semestral: hasta 3 cuotas sin interés con tarjeta de crédito.</strong></p>
+  <p class="pay"><strong>Medios de pago:</strong> tarjeta de crédito, transferencia y Mercado Pago.</p>
 
-  <div class="guar"><strong>Garantía de 30 días</strong>Una vez instalado, si en 30 días tu agente no atiende consultas como te prometimos, te devolvemos tu dinero.</div>
+  <div class="guar"><strong>Garantía de 60 días</strong>Una vez instalado, si en 60 días tu agente no atiende consultas como te prometimos, te devolvemos tu dinero.</div>
   <div class="guar"><strong>Cupos limitados: solo 5 al mes</strong>Así podemos trabajar con cada negocio como corresponde y brindar mejor calidad y servicio.</div>
 
   <div class="buy-box faq">
     <h3>Preguntas frecuentes</h3>
     <details><summary>¿Qué pasa después de elegir mi plan?</summary><p>Te llevamos a un chat con nuestro agente, que confirma tu plan y te manda el link de pago. Cuando pagás, te pide de a una cosa lo necesario para instalar: acceso a tu Meta Business, el número de WhatsApp y la información de tu negocio.</p></details>
     <details><summary>¿Qué necesito para empezar?</summary><p>Contarnos de tu negocio y darnos acceso a tu Meta Business y a tu WhatsApp. La instalación técnica la hacemos nosotros; no tenés que saber nada de tecnología.</p></details>
-    <details><summary>¿Puedo cancelar cuando quiera?</summary><p>El plan mensual sí: te das de baja cuando quieras, sin permanencia. Los planes anual y semestral se abonan por el período elegido. En todos tenés la garantía de 30 días desde la instalación.</p></details>
+    <details><summary>¿Puedo cancelar cuando quiera?</summary><p>Pasados los primeros 60 días pagás una mensualidad y te das de baja cuando quieras, sin permanencia. Tenés la garantía de 60 días desde la instalación.</p></details>
     <details><summary>¿Qué cobra Meta por WhatsApp?</summary><p>Los costos de WhatsApp los cobra Meta aparte y se pagan directo a Meta. Meta incluye 1.000 conversaciones de servicio gratis por mes; si recibís más, cobra el excedente.</p></details>
   </div>
 
@@ -165,17 +165,15 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-siz
 
 <script>
 var WA_NUMBER="5491133346776";
-// Los botones abren WhatsApp con el plan elegido. Links de pago (Mercado Pago): anual https://mpago.la/1EWB885 · semestral https://mpago.la/1uZ4fqF · mensual https://mpago.li/2mLUgoR
+// El botón abre WhatsApp para reservar el cupo.
 var PLANES=[
- {id:"anual",name:"Plan anual · 12 meses",price:"AR$ 47.250",unit:"/ mes",sub:"Un solo pago de AR$ 567.000 por todo el año",save:"Ahorrás 72% · AR$ 1.437.000 al año vs. el plan mensual",badge:"Mejor precio · el más elegido",best:true,link:"",label:"anual (pago único de AR$ 567.000)"},
- {id:"semestral",name:"Plan semestral · 6 meses",price:"AR$ 87.000",unit:"/ mes",sub:"Un solo pago de AR$ 522.000 por 6 meses",save:"Ahorrás 48% · AR$ 480.000 en 6 meses vs. el plan mensual",link:"",label:"semestral (pago único de AR$ 522.000)"},
- {id:"mensual",name:"Plan mensual · sin compromiso",price:"AR$ 167.000",unit:"/ mes",sub:"Te das de baja cuando quieras",link:"",label:"mensual (AR$ 167.000 por mes)"}
+  {id:"unico",name:"Instalación + agente funcionando",price:"AR$ 475.000",unit:"",sub:"Pago único · primeros 60 días sin mensualidad (después AR$ 63.000 por mes)",badge:"Oferta de fin de año",best:true,link:"",label:"instalación (pago único de AR$ 475.000)"}
 ];
 (function(){
  var box=document.getElementById("plan-list");
  PLANES.forEach(function(p){
   var d=document.createElement("div");d.className="plan-card"+(p.best?" best":"");
-  var href=p.link||("https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent("Hola, probé la demo, quiero el plan "+p.id+"."));
+  var href=p.link||("https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent("Hola, probé la demo, quiero reservar mi cupo."));
   d.innerHTML=(p.badge?'<span class="badge">'+p.badge+'</span>':'')+'<span class="pname">'+p.name+'</span><span class="pprice">'+p.price+' <small>'+p.unit+'</small></span><span class="psub">'+p.sub+'</span>'+(p.save?'<span class="psave">'+p.save+'</span>':'')+'<a class="pbuy" rel="noopener" href="'+href+'">Quiero el plan '+p.id+'</a>';
   box.appendChild(d);
  });

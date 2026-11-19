@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gracias por registrarte | Social Clap</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0F172A;--soft:#475569;--bd:#E2E8F0;--acc:#1F5BFF;--acc-d:#1749D6;--ok:#0F7A40}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px;font-family:'Inter',-apple-system,'Segoe UI',sans-serif;color:var(--ink);background:#F4F7FF;line-height:1.55;font-size:17px}
+.card{max-width:520px;width:100%;background:#fff;border:1px solid var(--bd);border-radius:22px;padding:34px 28px;box-shadow:0 10px 30px -14px rgba(31,91,255,.2);text-align:center}
+.logo{display:inline-block;font-weight:800;font-size:22px;text-decoration:none;color:var(--ink);margin-bottom:22px}
+.logo span{color:var(--acc)}
+h1{font-size:28px;line-height:1.15;letter-spacing:-.02em;margin:0 0 12px;font-weight:800}
+p{margin:0 0 14px;color:var(--soft)}
+.tip{background:#E8F0FF;border-radius:14px;padding:14px 16px;font-size:15.5px;margin:20px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--ok);color:#fff;font-weight:700;font-size:17px;padding:15px 26px;border-radius:14px;text-decoration:none;width:100%}
+.back{display:inline-block;margin-top:18px;color:var(--acc-d);font-weight:600;font-size:15.5px}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '806721014221339');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=806721014221339&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+<script>
+// El Lead real lo manda el CRM (Conversions API) cuando llega el primer mensaje. Acá solo
+// se cuenta el registro como InitiateCheckout, una vez por persona, igual que antes con el formulario.
+try{var q=JSON.parse(sessionStorage.getItem('sc_reg')||'null');if(q&&q.n&&!sessionStorage.getItem('sc_ic')){sessionStorage.setItem('sc_ic','1');fbq('track','InitiateCheckout');}}catch(e){}
+</script>
+</head>
+<body>
+<main class="card">
+  <a class="logo" href="/">Social<span>Clap</span></a>
+  <h1>Gracias<span id="n"></span>, ya te registraste</h1>
+  <p>Leandro, de Social Clap, te va a contactar personalmente para contarte cómo funciona y resolver tus dudas.</p>
+  <div class="tip">Si querés ir viendo cómo atiende el agente, escribile por WhatsApp <strong>desde el número que registraste<span id="p"></span></strong>. Así te reconoce y no te vuelve a preguntar lo que ya contestaste.</div>
+  <a class="btn" id="wa" href="https://wa.me/5491133346776?text=Hola%2C%20ya%20me%20registr%C3%A9%20para%20el%20agente%20de%20IA." target="_blank" rel="noopener">Escribir por WhatsApp</a><br>
+  <a class="back" href="/">Volver al inicio</a>
+</main>
+<script>
+(function(){
+  try{
+    var r=JSON.parse(sessionStorage.getItem('sc_reg')||'null');
+    if(r&&r.n){
+      document.getElementById('n').textContent=', '+r.n;
+      if(r.p) document.getElementById('p').textContent=' (termina en '+String(r.p).slice(-4)+')';
+      document.getElementById('wa').href='https://wa.me/5491133346776?text='+encodeURIComponent('Hola, soy '+r.n+', ya me registré para el agente de IA.');
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
